@@ -1,0 +1,39 @@
+/*body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}*/
+
+.user-avatar {
+    border-radius: 99%;
+}
+
+.header-text {
+    font-family: 'Roboto', sans-serif;
+    color: #006BB2;
+    font-weight: 300;
+    text-align: left;
+    font-style: italic
+}
+
+.material-wallpaper {
+    background-image: url("http://pre04.deviantart.net/b313/th/pre/f/2014/316/c/4/material_wallpaper_set_two_4_by_rafly_nxs-d865g0t.jpg");
+}
+
+.badge {
+    vertical-align: middle;
+}
+
+#2013{
+
+}
+#2014{
+
+}
+
+.nested-element {
+    z-index: 1;
+}

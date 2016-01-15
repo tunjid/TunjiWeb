@@ -1,0 +1,46 @@
+/*body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}*/
+
+.user-avatar {
+    border-radius: 99%;
+}
+
+.header-text {
+    font-family: 'Roboto', sans-serif;
+    color: #006BB2;
+    font-weight: 300;
+    text-align: left;
+    font-style: italic
+}
+
+.material-wallpaper {
+    background-image: url("../images/sidenav/material-bg.jpg");
+}
+
+.badge {
+    vertical-align: middle;
+}
+
+#2013 {
+
+}
+
+#2014 {
+
+}
+
+#scroll-container {
+}
+
+.white-icon {
+    fill: white;
+    vertical-align: middle;
+    display: inline-block;
+    line-height: 1;
+}

@@ -1,0 +1,41 @@
+<md-content md-scroll-y
+            flex
+            class="layout-padding flex">
+    <div layout="row" layout-sm="column" layout-xs="column"
+         layout-align="start stretch">
+        <md-card flex-gt-sm="60" flex-sm="" flex-xs="">
+            <md-card-content>
+                <md-list>
+                    <md-item ng-repeat="item in vm.content">
+                        <p ng-if="item.type == 'paragraph'">
+                            {{item.content}}
+                        </p>
+                        <h1 class="header-text" ng-if="item.type == 'title'">
+                            {{item.content}}
+                        </h1>
+                    </md-item>
+                </md-list>
+            </md-card-content>
+        </md-card>
+
+        <span flex></span>
+
+        <div flex-gt-sm="35" flex-sm="" flex-xs="">
+            <md-card>
+                <md-card-content>
+                    <h1 class="header-text">
+                        Tweets
+                    </h1>
+                    <twitter-timeline>
+                        <a class="twitter-timeline"
+                           href="https://twitter.com/Tunji_d"
+                           data-widget-id="682849376054702080"
+                           data-chrome="noheader noborders">
+                            Tweets by @Tunji_d
+                        </a>
+                        <twitter-timeline>
+                </md-card-content>
+            </md-card>
+        </div>
+    </div>
+</md-content>
