@@ -3,17 +3,18 @@
 
     angular.module('TunjiWeb', [
             'ngMaterial', 'ngMdIcons', 'ui.router',
-            'ngtweet', 'ngAnimate', 'ngSanitize',
-            'ngAria', 'duScroll'])
+            'ngtweet', 'ngAnimate', 'ngResource',
+            'ngSanitize', 'ngAria', 'duScroll',
+            'ui.bootstrap', 'blogPosts','ngCookies'])
         .config(config)
         .controller('AppController', AppController)
         .run(run);
 
-    AppController.$inject = ['$state', '$mdSidenav', '$mdDialog'];
+    AppController.$inject = ['$state', '$mdSidenav', '$mdDialog', 'authService'];
     config.$inject = ['$mdThemingProvider'];
     run.$inject = [];
 
-    function AppController($state, $mdSidenav, $mdDialog) {
+    function AppController($state, $mdSidenav, $mdDialog, authService) {
         "use strict";
 
         var app = this;
@@ -23,6 +24,7 @@
         app.go = go;
         app.toggleSidenav = toggleSideNav;
         app.showAdd = showAdd;
+        app.signUp = signUp;
 
         app.menu = [
             {
@@ -55,9 +57,14 @@
                 icon: 'mode_edit',
                 state: 'HomeController'
             }
+
         ];
 
         app.currentMenu = app.menu[0];
+
+        app.theme = app.currentMenu === app.menu[0]
+            ? 'altTheme'
+            : 'default';
 
         $state.go('HomeController');
 
@@ -81,23 +88,82 @@
                 }, function () {
                     $scope.alert = 'You cancelled the dialog.';
                 });
+
+            function DialogController($scope, $mdDialog) {
+                $scope.hide = function () {
+                    $mdDialog.hide();
+                };
+                $scope.cancel = function () {
+                    $mdDialog.cancel();
+                };
+                $scope.answer = function (answer) {
+                    $mdDialog.hide(answer);
+                };
+            }
         }
 
-        function DialogController($scope, $mdDialog) {
-            $scope.hide = function () {
-                $mdDialog.hide();
-            };
-            $scope.cancel = function () {
-                $mdDialog.cancel();
-            };
-            $scope.answer = function (answer) {
-                $mdDialog.hide(answer);
-            };
+        function signIn() {
+            $mdDialog.show({
+                    clickOutsideToClose: true,
+                    controller: DialogController,
+                    templateUrl: 'public/views/contactDialog.html'
+                })
+                .then(function () {
+                }, function () {
+                });
+
+            function DialogController($scope, $mdDialog) {
+
+                $scope.hide = function () {
+                    $mdDialog.hide();
+                };
+                $scope.cancel = function () {
+                    $mdDialog.cancel();
+                };
+                $scope.answer = function (answer) {
+                    $mdDialog.hide(answer);
+                };
+            }
+        }
+
+        function signUp() {
+            $mdDialog.show({
+                    controller: DialogController,
+                    templateUrl: 'public/views/signUpDialog.html'
+                })
+                .then(function (answer) {
+                    $scope.alert = 'You said the information was "' + answer + '".';
+                }, function () {
+                    $scope.alert = 'You cancelled the dialog.';
+                });
+
+            function DialogController($scope, $mdDialog) {
+
+                $scope.newUser = {
+                    "firstName": "",
+                    "lastName": "",
+                    "userName": "",
+                    "email": "",
+                    "password": ""
+                };
+
+                $scope.signUp = function () {
+                    authService.signUp($scope.newUser);
+                    $mdDialog.hide();
+                };
+                $scope.cancel = function () {
+                    $mdDialog.cancel();
+                };
+            }
         }
     }
 
     function config($mdThemingProvider) {
         "use strict";
+
+        var customTeal = $mdThemingProvider.extendPalette('teal', {
+            '500': '000000'
+        });
 
         $mdThemingProvider.definePalette('TJprimary', {
             '50': '#a0fff6',
@@ -137,6 +203,9 @@
             'contrastDarkColors': '50 100 200 300 400 500 A100 A200 A400'
         });
 
+        $mdThemingProvider.definePalette('customTeal', customTeal);
+
+
         $mdThemingProvider.theme('default')
             .primaryPalette('TJprimary', {
                 'default': '800',
@@ -148,7 +217,13 @@
             });
 
         $mdThemingProvider.theme('input', 'default')
-            .primaryPalette('grey')
+            .primaryPalette('grey');
+
+        $mdThemingProvider.theme('altTheme')
+            .primaryPalette('customTeal', {
+                'default': '500',
+                'hue-1': '50'
+            });
     }
 
     function run() {

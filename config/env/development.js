@@ -1,4 +1,4 @@
 module.exports = {
-    db: 'mongodb://localhost/mean-book',
+    db: 'mongodb://localhost/tunji-web-dev',
     sessionSecret: 'tj'
 };

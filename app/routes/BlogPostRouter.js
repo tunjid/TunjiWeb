@@ -1,14 +1,19 @@
+var users = require('../../app/controllers/UserController');
 var blogPosts = require('../../app/controllers/BlogPostController');
 
 module.exports = function (app) {
     app.route('/api/blogPosts')
-        .post(blogPosts.create)
+        .post(users.requiresLogin, blogPosts.create)
         .get(blogPosts.find);
 
     app.route('/api/blogPosts/:blogPostId')
         .get(blogPosts.get)
-        .put(blogPosts.put)
-        .delete(blogPosts.delete);
+        .put(users.requiresLogin, blogPosts.put)
+        .delete(users.requiresLogin, blogPosts.hasAuthorization, blogPosts.delete);
+
+    app.route('/importBlogPosts')
+        .get(blogPosts.importBlogs);
+
 
     app.param('blogPostId', blogPosts.blogPostById);
 };

@@ -1,8 +1,39 @@
+<div>
+    <img src="../../public/images/home/home_head.png" style="max-width: 100%">
+</div>
+
 <md-content md-scroll-y
             flex
             class="layout-padding flex">
+
+    <div ng-if="vm.recentBlogPosts.length > 0">
+        <h1 class="header-text">
+            Recent Blog Posts
+        </h1>
+        <div layout="row" layout-sm="column" layout-xs="column"
+             layout-align="start stretch">
+
+            <md-card ng-repeat="post in vm.recentBlogPosts"
+                     class="layout-padding flex"
+                     flex="">
+                <h3 class="header-text">{{post.title}}</h3>
+                <p>{{vm.getDate(post)}}</p>
+                <tunji-blog blogpost="post"
+                            snippet="true">
+                </tunji-blog>
+            </md-card>
+        </div>
+
+        <div layout="row" layout-align="center center">
+            <md-button class="md-raised md-accent">
+                More Posts
+            </md-button>
+        </div>
+    </div>
+
     <div layout="row" layout-sm="column" layout-xs="column"
          layout-align="start stretch">
+
         <md-card flex-gt-sm="60" flex-sm="" flex-xs="">
             <md-card-content>
                 <md-list>

@@ -15,6 +15,9 @@
     "serve-favicon": "~2.3.0",
     "mongoose": "~4.3.4",
     "express-session": "~1.7.6",
-    "ejs": "*"
+    "ejs": "*",
+    "passport": "~0.2.1",
+    "passport-local": "~1.0.0",
+    "connect-flash": "~0.1.1"
   }
 }

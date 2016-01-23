@@ -5,8 +5,11 @@ var compress = require('compression');
 var cookieParser = require('cookie-parser');
 var favicon = require('serve-favicon');
 var morgan = require('morgan');
+var passport = require('passport');
 var path = require('path');
 var session = require('express-session');
+var flash = require('connect-flash');
+
 
 module.exports = function () {
 
@@ -20,6 +23,7 @@ module.exports = function () {
     var config = require('./config');
     var angularRouter = require('../app/routes/AngularRouter');
     var blogPostRouter = require('../app/routes/BlogPostRouter');
+    var userRouter = require('../app/routes/UserRouter');
 
     var app = express();
 
@@ -51,6 +55,12 @@ module.exports = function () {
     app.set('views', './app/views');
     app.set('view engine', 'ejs');
 
+    // Configure the flash messages middleware
+    app.use(flash());
+
+    app.use(passport.initialize());
+    app.use(passport.session());
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
@@ -62,6 +72,7 @@ module.exports = function () {
 
     angularRouter(app);
     blogPostRouter(app);
+    userRouter(app);
 
 // catch 404 and forward to error handler
     app.use(function (req, res, next) {

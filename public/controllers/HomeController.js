@@ -6,18 +6,22 @@
         .controller('HomeController', HomeController)
         .run(run);
 
-    HomeController.$inject = [];
+    HomeController.$inject = ['BlogPostService'];
     config.$inject = ['$stateProvider'];
     run.$inject = [];
 
-    function HomeController() {
+    function HomeController(BlogPostService) {
         "use strict";
 
         var vm = this;
 
+        vm.getDate = getDate;
+
+        vm.recentBlogPosts = BlogPostService.query({limit: "3"});
+
         vm.carouselPhotos = [
-            '/public/images/home/home_main.png', 'http://i.imgur.com/vg0tB0l.png',
-            'http://i.imgur.com/itbqFyE.png', 'http://i.imgur.com/n4YNcgN.png'
+            '/public/images/home/home_main.png', '/public/images/home/home_mi.png',
+            '/public/images/home/home_ou.png', '/public/images/home/home_arsenal.png'
         ];
 
         vm.content = [
@@ -58,6 +62,20 @@
                 "comment."
             }
         ];
+
+        function getDate(blogPost) {
+            var monthNames = ["January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ];
+
+            var date = new Date(Date.parse(blogPost.stringDate));
+
+            return monthNames[date.getMonth()] +
+                ' ' +
+                date.getDate() +
+                ', ' +
+                date.getFullYear();
+        }
     }
 
     function config($stateProvider) {
