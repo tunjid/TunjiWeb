@@ -14,9 +14,19 @@ var getErrorMessage = function (error) {
     }
 };
 
+var composeMessage = function (res, message, statusCode) {
+    if (statusCode)
+        res.status(statusCode);
+    return res.json({message: message});
+};
+
 exports.create = function (req, res) {
     var blogPost = new BlogPost(req.body);
     blogPost.user = req.user;
+
+    if (!blogPost.user) {
+        return composeMessage(res, "A blog post needs an author");
+    }
 
     blogPost.save(function (error) {
         if (error) {
@@ -24,9 +34,8 @@ exports.create = function (req, res) {
                 message: getErrorMessage(error)
             });
         }
-        else {
-            res.json(blogPost);
-        }
+        else res.json(blogPost);
+
     });
 };
 
@@ -34,13 +43,33 @@ exports.find = function (req, res) {
     var limit = Number(req.query.limit) || 0;
     var offset = Number(req.query.offset) || 0;
 
-    console.log("Offset:" + offset);
-    console.log("Limit:" + limit);
+    var indices = {};
 
-    BlogPost.find()
+    if (req.query.tag) {
+        indices.tags = req.query.tag;
+    }
+
+    if (req.query.category) {
+        indices.categories = req.query.category;
+    }
+
+    if(req.query.month && req.query.year) {
+        var month = Number(req.query.month) || 0;
+        var year = Number(req.query.year) || 0;
+
+        var startDate = new Date(year, month, 1);
+        var endDate = new Date(year, month, 31);
+
+        indices.created  = {
+            $gte: startDate,
+            $lt: endDate
+        }
+    }
+
+    BlogPost.find(indices)
         .skip(offset)
         .limit(limit)
-        .sort('-created')
+        .sort({'created': -1})
         .populate('author', 'firstName lastName fullName')
         .exec(function (error, blogPosts) {
             if (error) {
@@ -64,33 +93,31 @@ exports.put = function (req, res, next) {
         if (error) {
             return next(error);
         }
-        else {
-            res.json(blogPost);
-        }
+        else res.json(blogPost);
     });
 };
 
 exports.delete = function (req, res, next) {
     req.blogPost.remove(function (error) {
-        if (error) {
+
+        if (error)
             return next(error);
-        }
-        else {
-            res.json(req.blogPost);
-        }
+
+        else res.json(req.blogPost);
     });
 };
 
 exports.blogPostById = function (req, res, next, id) {
+
     BlogPost.findById(id)
         .populate('author', 'firstName lastName fullName')
         .exec(function (error, blogPost) {
-            if (error) {
+
+            if (error)
                 return next(error);
-            }
-            if (!blogPost) {
-                return next(new Error('failed to load blog post' + id));
-            }
+
+            if (!blogPost)
+                return composeMessage(res, "Failed to load blog post with id " + id);
 
             req.blogPost = blogPost;
             next();
@@ -107,9 +134,47 @@ exports.hasAuthorization = function (req, res, next) {
     next();
 };
 
-exports.importBlogs = function() {
-    var importBlogPosts = require('../../config/importBlogPosts.js');
-     importBlogPosts();
+exports.getTagsOrCategories = function (req, res) {
+    var type = req.query.type;
+
+    if (type == 'tags' || type == 'categories') {
+        BlogPost.distinct(type, function (error, result) {
+            if (error) {
+                return composeMessage(res, "Error retrieving tags / categories");
+            }
+            else res.json(result);
+        });
+    }
+    else return composeMessage(res, 'Must pick a tag or category', 400);
+};
+
+
+exports.getArchives = function (req, res) {
+    BlogPost.aggregate(
+        [{
+            $group: {
+                _id: {month: {$month: "$created"}, year: {$year: "$created"}},
+                count: {$sum: 1},
+                titles: { $push: "$title" }
+            }
+        }],
+        function (error, result) {
+            if (error) {
+                return composeMessage(res, "Error aggregating months");
+            }
+            else res.json(result);
+        }
+    )
+};
+
+exports.importBlogs = function (req, res) {
+    if (req.user) {
+        var importBlogPosts = require('../../config/importBlogPosts.js');
+        var importStatus = importBlogPosts(req.user);
+
+        res.json({status: importStatus});
+    }
+    else return composeMessage(res, 'Failed to import blogs, no signed in user');
 };
 
 

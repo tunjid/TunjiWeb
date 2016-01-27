@@ -1,0 +1,13 @@
+<md-content class="layout-padding">
+    <md-card ng-if="vm.blogPost" class="layout-padding flex">
+        <md-card-title-text>
+            <h1 class="header-text">
+                {{vm.blogPost.title}}
+            </h1>
+            <h3 class="md-subhead">By {{vm.blogPost.author.fullName}}</h3>
+        </md-card-title-text>
+        <blog-post blogpost="vm.blogPost"></blog-post>
+        <br>
+        <a class="tag" ui-sref="EditPostController({blogPost: vm.blogPost})"> Edit Post</a>
+    </md-card>
+</md-content>

@@ -1,0 +1,21 @@
+<md-dialog>
+    <md-content class="md-padding">
+        <form name="signUpForm">
+
+            <div layout layout-sm="column">
+                <md-input-container flex>
+                    <label>Username</label>
+                    <input ng-model="oldUser.username">
+                </md-input-container>
+                <md-input-container flex>
+                    <label>Password</label>
+                    <input ng-model="oldUser.password">
+                </md-input-container>
+            </div>
+        </form>
+    </md-content>
+    <div class="md-actions" layout="row"><span flex></span>
+        <md-button ng-click="cancel()"> Cancel</md-button>
+        <md-button ng-click="signIn()" class="md-primary"> Sign In</md-button>
+    </div>
+</md-dialog>

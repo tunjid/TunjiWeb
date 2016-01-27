@@ -1,26 +1,64 @@
-<div>
-    <img src="../../public/images/home/home_head.png" style="max-width: 100%">
-</div>
+<header md-page-header>
+    <div md-header-picture
+         class="header-background">
+    </div>
+    <md-toolbar header-transform class="header-transform">
+        <div class="md-toolbar-tools">
+            <md-button
+                    ng-click="app.toggleSidenav('left')"
+                    hide-gt-md aria-label="Menu">
+                <ng-md-icon icon="menu"
+                            class="white-icon">
+                </ng-md-icon>
+            </md-button>
+            <h1 md-header-title
+                style="font-weight: 300; font-style: italic">
+                Hello :)
+            </h1>
+            <span flex=""></span>
+            <md-button aria-label="Twitter">
+                <ng-md-icon icon="twitter"
+                            class="white-icon">
+                </ng-md-icon>
+            </md-button>
+            <md-button aria-label="Github">
+                <ng-md-icon icon="github-circle"
+                            class="white-icon">
+                </ng-md-icon>
+            </md-button>
+            <md-button aria-label="LinkedIn">
+                <ng-md-icon icon="linkedin"
+                            class="white-icon">
+                </ng-md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+</header>
 
 <md-content md-scroll-y
             flex
             class="layout-padding flex">
 
-    <div ng-if="vm.recentBlogPosts.length > 0">
+    <div ng-if="vm.blogPosts.length > 0">
         <h1 class="header-text">
             Recent Blog Posts
         </h1>
         <div layout="row" layout-sm="column" layout-xs="column"
              layout-align="start stretch">
 
-            <md-card ng-repeat="post in vm.recentBlogPosts"
+            <md-card ng-repeat="post in vm.blogPosts"
                      class="layout-padding flex"
                      flex="">
-                <h3 class="header-text">{{post.title}}</h3>
-                <p>{{vm.getDate(post)}}</p>
-                <tunji-blog blogpost="post"
-                            snippet="true">
-                </tunji-blog>
+                <md-card-title-text>
+                    <h3 class="header-text"
+                        ng-click="vm.goToBlogPost(post)">
+                        {{post.title}}
+                    </h3>
+                    <span class="md-subhead">{{vm.getDate(post)}}</span>
+                </md-card-title-text>
+                <blog-post blogpost="post"
+                           snippet="true">
+                </blog-post>
             </md-card>
         </div>
 
@@ -29,44 +67,65 @@
                 More Posts
             </md-button>
         </div>
+
     </div>
 
-    <div layout="row" layout-sm="column" layout-xs="column"
-         layout-align="start stretch">
+    <div ng-if="vm.blogPosts.length > 0">
+        <h1 class="header-text">
+            Recent Blog Posts
+        </h1>
+        <div layout="row" layout-sm="column" layout-xs="column"
+             layout-align="start stretch">
 
-        <md-card flex-gt-sm="60" flex-sm="" flex-xs="">
-            <md-card-content>
-                <md-list>
-                    <md-item ng-repeat="item in vm.content">
-                        <p ng-if="item.type == 'paragraph'">
-                            {{item.content}}
-                        </p>
-                        <h1 class="header-text" ng-if="item.type == 'title'">
-                            {{item.content}}
-                        </h1>
-                    </md-item>
-                </md-list>
-            </md-card-content>
-        </md-card>
-
-        <span flex></span>
-
-        <div flex-gt-sm="35" flex-sm="" flex-xs="">
-            <md-card>
-                <md-card-content>
-                    <h1 class="header-text">
-                        Tweets
-                    </h1>
-                    <twitter-timeline>
-                        <a class="twitter-timeline"
-                           href="https://twitter.com/Tunji_d"
-                           data-widget-id="682849376054702080"
-                           data-chrome="noheader noborders">
-                            Tweets by @Tunji_d
-                        </a>
-                        <twitter-timeline>
-                </md-card-content>
+            <md-card ng-repeat="post in vm.blogPosts"
+                     class="layout-padding flex"
+                     flex="">
+                <md-card-title-text>
+                    <h3 class="header-text"
+                        ng-click="vm.goToBlogPost(post)">
+                        {{post.title}}
+                    </h3>
+                    <span class="md-subhead">{{vm.getDate(post)}}</span>
+                </md-card-title-text>
+                <blog-post blogpost="post"
+                           snippet="true">
+                </blog-post>
             </md-card>
         </div>
+
+        <div layout="row" layout-align="center center">
+            <md-button class="md-raised md-accent">
+                More Posts
+            </md-button>
+        </div>
+
     </div>
+
+
+    <h1>TEST</h1>
+    <h1>TEST</h1>
+    <h1>TEST</h1>
+    <h1>TEST</h1>
+    <h1>TEST</h1>
+    <h1>TEST</h1>
+    <h1>TEST</h1>
+    <h1>TEST</h1>
+    <h1>TEST</h1>
+    <h1>TEST</h1>
+    <h1>TEST</h1>
+    <h1>TEST</h1>
+    <h1>TEST</h1>
+    <h1>TEST</h1>
+    <h1>TEST</h1>
+    <h1>TEST</h1>
+    <h1>TEST</h1>
+    <h1>TEST</h1>
+    <h1>TEST</h1>
+    <h1>TEST</h1>
+    <h1>TEST</h1>
+    <h1>TEST</h1>
+    <h1>TEST</h1>
+    <h1>TEST</h1>
+    <h1>TEST</h1>
+
 </md-content>

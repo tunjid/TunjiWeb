@@ -1,11 +1,9 @@
-module.exports = function () {
+module.exports = function (user) {
 
     var blogPosts = require('./blogPosts')();
-    var User = require('mongoose').model('User');
     var BlogPost = require('mongoose').model('BlogPost');
 
-
-    importBlogPosts(blogPosts/*.slice(Math.max(blogPosts.length - 3, 1))*/);
+    importBlogPosts(blogPosts);
 
     function importBlogPosts(blogPosts) {
 
@@ -17,48 +15,31 @@ module.exports = function () {
                 delete blogPost['dc:creator'];
             }
 
-            if (blogPost.category instanceof String) {
-                swap(blogPost.category);
+            if (blogPost.categories instanceof String) {
+                swap(blogPost.categories);
             }
 
             if (blogPost.tags instanceof String) {
                 swap(blogPost.tags);
             }
 
-            saveBlogPost(blogPost);
+           return saveBlogPost(blogPost);
+        }
 
-            function swap(object) {
-                var tempString = object;
+        function swap(object) {
+            var tempString = object;
 
-                object = [];
-                object.push(tempString)
-            }
+            object = [];
+            object.push(tempString)
         }
 
         function saveBlogPost(basePost) {
-            User.findOne({_id: "56a26f6ffdee4a9d9d7f1b74"}, function (error, user) {
-                if (error) {
-                    console.log(error);
-                }
-                else {
-                    var blogPost = new BlogPost(basePost);
-                    blogPost.user = user;
+            var blogPost = new BlogPost(basePost);
+            blogPost.author = user;
+            blogPost.created = new Date(blogPost.stringDate);
 
-                    if (user) {
-
-                    blogPost.save(function (error) {
-                        if (error) {
-                            console.log("There was an error");
-                        }
-                        else {
-                            console.log("" + blogPost.title + "" + 'was successfully saved');
-                        }
-                    });
-                }
-                    else {
-                        console.log("No user");
-                    }
-                }
+            blogPost.save(function (error) {
+                return !error;
             });
         }
     }

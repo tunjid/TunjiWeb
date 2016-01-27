@@ -1,0 +1,23 @@
+<md-content class="layout-padding">
+    <h1>Editor</h1>
+    <button ng-click="vm.disabled = !vm.disabled"
+            unselectable>Disable text-angular Toggle
+    </button>
+
+    <text-angular name="postBody"
+                  ng-model="vm.postBody"
+                  ta-disabled='vm.disabled'>
+        <p>Enter your content here.</p>
+    </text-angular>
+
+    <!--
+    <h1>Raw HTML in a text area</h1>
+    <textarea ng-model="vm.postBody" style="width: 100%"></textarea>
+
+    <h1>Bound with ta-bind, our internal html-binding directive</h1>
+    <div ta-bind="text"
+         ng-model="vm.postBody"
+         ta-readonly='vm.disabled'>
+    </div>
+    -->
+</md-content>

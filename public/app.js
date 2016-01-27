@@ -2,29 +2,49 @@
     "use strict";
 
     angular.module('TunjiWeb', [
-            'ngMaterial', 'ngMdIcons', 'ui.router',
-            'ngtweet', 'ngAnimate', 'ngResource',
-            'ngSanitize', 'ngAria', 'duScroll',
-            'ui.bootstrap', 'blogPosts','ngCookies'])
-        .config(config)
+            'ngMaterial', 'ngMdIcons', 'ngCookies',
+            'ngAnimate', 'ngResource', 'ngtweet',
+            'ngSanitize', 'ngAria', 'ui.router',
+            'duScroll', 'textAngular'])
         .controller('AppController', AppController)
+        .config(config)
         .run(run);
 
-    AppController.$inject = ['$state', '$mdSidenav', '$mdDialog', 'authService'];
+    AppController.$inject = ['$rootScope', '$state', '$mdSidenav', '$mdDialog', 'authService'];
     config.$inject = ['$mdThemingProvider'];
     run.$inject = [];
 
-    function AppController($state, $mdSidenav, $mdDialog, authService) {
+    function AppController($rootScope, $state, $mdSidenav, $mdDialog, authService) {
         "use strict";
 
         var app = this;
+
+        $rootScope.$on('$stateChangeSuccess',
+            function (event, toState) {
+                app.title = getTitle();
+                app.currentState = toState.name;
+
+                function getTitle() {
+                    var lowerCase = toState.url.split('/')[1];
+                    return lowerCase.charAt(0).toUpperCase() + lowerCase.slice(1);
+                }
+            });
+
+        $rootScope.TunjiWeb = {
+            insertLineBreaks: insertLineBreaks,
+            getBlogPostBody: getBlogPostBody,
+            getMonth: getMonth,
+            getDate: getDate
+        };
 
         app.isOpen = false;
 
         app.go = go;
         app.toggleSidenav = toggleSideNav;
-        app.showAdd = showAdd;
+        app.sendEmail = sendEmail;
         app.signUp = signUp;
+        app.signIn = signIn;
+        app.fabClass = fabClass;
 
         app.menu = [
             {
@@ -49,26 +69,23 @@
                 link: '',
                 title: 'About',
                 icon: 'info',
-                state: 'HomeController'
+                state: 'AboutController'
             },
             {
                 link: '',
                 title: 'Blog',
                 icon: 'mode_edit',
-                state: 'HomeController'
+                state: 'AllPostsController'
             }
 
         ];
 
         app.currentMenu = app.menu[0];
 
-        app.theme = app.currentMenu === app.menu[0]
-            ? 'altTheme'
-            : 'default';
-
         $state.go('HomeController');
 
         function go(state, index) {
+            app.toggleSidenav();
             app.currentMenu = app.menu[index];
             $state.go(state);
         }
@@ -77,8 +94,9 @@
             $mdSidenav(menuId).toggle();
         }
 
-        function showAdd(ev) {
+        function sendEmail(ev) {
             $mdDialog.show({
+                    clickOutsideToClose: true,
                     controller: DialogController,
                     templateUrl: 'public/views/contactDialog.html',
                     targetEvent: ev
@@ -103,10 +121,11 @@
         }
 
         function signIn() {
+
             $mdDialog.show({
                     clickOutsideToClose: true,
                     controller: DialogController,
-                    templateUrl: 'public/views/contactDialog.html'
+                    templateUrl: 'public/views/signInDialog.html'
                 })
                 .then(function () {
                 }, function () {
@@ -114,20 +133,25 @@
 
             function DialogController($scope, $mdDialog) {
 
-                $scope.hide = function () {
+                $scope.oldUser = {
+                    "username": "",
+                    "password": ""
+                };
+
+                $scope.signIn = function () {
+                    authService.signIn($scope.oldUser);
                     $mdDialog.hide();
                 };
                 $scope.cancel = function () {
                     $mdDialog.cancel();
                 };
-                $scope.answer = function (answer) {
-                    $mdDialog.hide(answer);
-                };
             }
         }
 
         function signUp() {
+
             $mdDialog.show({
+                    clickOutsideToClose: true,
                     controller: DialogController,
                     templateUrl: 'public/views/signUpDialog.html'
                 })
@@ -142,7 +166,7 @@
                 $scope.newUser = {
                     "firstName": "",
                     "lastName": "",
-                    "userName": "",
+                    "username": "",
                     "email": "",
                     "password": ""
                 };
@@ -156,6 +180,189 @@
                 };
             }
         }
+
+        function fabClass() {
+            return app.currentState == 'ResumeController'
+                ? 'app-fab.hide'
+                : 'app-fab';
+        }
+
+        function insertLineBreaks(jsonString) {
+            return jsonString.replace(/(?:\r\n|\r|\n)/g, '<br />');
+        }
+
+        function getDate(blogPost) {
+            var date = new Date(Date.parse(blogPost.stringDate));
+
+            return getMonth(date.getMonth()) +
+                ' ' +
+                date.getDate() +
+                ', ' +
+                date.getFullYear();
+        }
+
+        function getMonth(index) {
+            var monthNames = ["January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ];
+            return monthNames[index];
+        }
+
+        function getBlogPostBody(blogPost) {
+            return !blogPost
+                ? '.'
+                : !blogPost.body
+                ? '.'
+                : blogPost.body;
+        }
+
+        app.sections =
+            [
+                {
+                    id: '2015',
+                    projects: [
+                        {
+                            type: 'title',
+                            badge: 'public/images/projects/mf5-badge.png',
+                            id: 'mf5'
+                        },
+                        {
+                            type: 'project',
+                            title: 'MyFab5 Restaurant Reviews',
+                            content: '<p>I currently work as the lead Android Developer at MyFab5</p>',
+                            images: ['public/images/projects/mf5-1.png', 'public/images/projects/mf5-2.png', 'public/images/projects/mf5-3.png'],
+                            style: {
+                                'color': '#008080'
+                            }
+                        }
+                    ]
+                },
+                {
+                    id: '2014',
+                    projects: [
+                        {
+                            type: 'title',
+                            badge: 'public/images/projects/mi-badge.png',
+                            id: 'mi',
+                            image: 'public/images/projects/mi-proj.png'
+                        },
+                        {
+                            type: 'project',
+                            title: 'Dynamic Respiratory Impedance Volume Evaluation (DRIVE)',
+                            content: '<p>I worked with a team of individuals to build a medical device that tracks critical ' +
+                            'biometrics noninvasively using bluetooth low energy. The project has been completed and video overview ' +
+                            'of it can be seen <a href="https://www.youtube.com/watch?v=qOqD4fKjAXw">here</a>.</p>' +
+                            '<p>Things Learned/Learning:</p>' +
+                            '<ul><li>BLE Communication</li><li>Android Application Writing</li><li>Real Time Data Acquistion and Display</li></ul>',
+                            images: ['public/images/projects/ble-1.png', 'public/images/projects/ble-2.png'],
+                            style: {
+                                'color': '#41638D'
+                            }
+                        },
+                        {
+                            type: 'project',
+                            title: 'MFG 503: Manufacturing Engineering Project',
+                            content: '<p>Currently researching additive manufacturing processes with a PhD candidate.' +
+                            ' Its amazing, plus I got to wire my first Arduino board.</p>' +
+                            '<p>Things Learned/Learning:</p> <ul><li>Arduino Basics</li></ul>',
+                            images: ['public/images/projects/mfe-1.png', 'public/images/projects/mfe-2.png', 'public/images/projects/mfe-3.png'],
+                            style: {
+                                'color': '#41638D'
+                            }
+                        },
+                        {
+                            type: 'project',
+                            title: 'MFG 502: Manufacturing System Design',
+                            content: '<p>Worked in a team to design a hypothetical industrialized large scale manufacturing' +
+                            ' plant for cheap sanitary towels that are currently hand made.</p>' +
+                            '<p>Things Learned:</p><ul><li>Line Balancing</li></ul>',
+                            images: ['public/images/projects/sys-1.png', 'public/images/projects/sys-2.png', 'public/images/projects/sys-3.png'],
+                            style: {
+                                'color': '#41638D'
+                            }
+                        }
+                    ]
+                },
+                {
+                    id: '2013',
+                    projects: [
+                        {
+                            type: 'project',
+                            title: 'ME 587: Sustainable Design',
+                            content: '<p>Worked in a team to develop a connected system of ecoefficient lawn care devices.' +
+                            ' Great learning experience, plus <a href="http://steve-skerlos.org/">professor Skerlos</a> ' +
+                            'was awesome. I still keep the poster for sentimental reasons.</p>',
+                            images: ['public/images/projects/sus-1.png', 'public/images/projects/sus-2.png', 'public/images/projects/sus-3.png'],
+                            style: {
+                                'color': '#41638D'
+                            }
+                        },
+                        {
+                            type: 'project',
+                            title: 'ME 586: Global Manufacturing',
+                            content: '<p>Worked in a team to create a hypothetical manufacturing layout for 3D printed customizable earbuds. ' +
+                            'I designed the mockup CAD model you see in the image to the left. Despite its simplicity, I\'m immensely proud of it.</p>',
+                            images: ['public/images/projects/glb-1.png'],
+                            style: {
+                                'color': '#41638D'
+                            }
+                        },
+                        {
+                            type: 'title',
+                            badge: 'public/images/projects/ou-badge.png',
+                            id: 'ou',
+                            image: 'public/images/projects/ou-proj.png'
+                        },
+                        {
+                            type: 'project',
+                            title: 'AME 4983: Undergraduate Research',
+                            content: '<p>Studied the effects of high intensity pressure waves on the human ear. Utilized SolidWorks' +
+                            ' and ANSYS (transient structural and CFX CFD modules) extensively.</p>' +
+                            '<p>Things Learned:</p><ul><li>Generation of parasolid geometry from mesh data</li><li>CFD boundary conditions creation</li></ul>',
+                            images: ['public/images/projects/und-1.png', 'public/images/projects/und-2.png', 'public/images/projects/und-3.png', 'public/images/projects/und-4.png'],
+                            style: {
+                                'color': '#BE254C'
+                            }
+                        },
+                        {
+                            type: 'project',
+                            title: 'AME 4553: Capstone',
+                            content: '<p>Iterated on prototype design for composite seats for multiple stage cementers. ' +
+                            'As you can see in the images, when the seats fail, they do so in beautiful ways.</p>' +
+                            '<p>Things Learned:</p><ul><li>Failure modes of filament wound composites</li></ul>',
+                            images: ['public/images/projects/cap-1.png', 'public/images/projects/cap-2.png', 'public/images/projects/cap-3.png', 'public/images/projects/cap-4.png'],
+                            style: {
+                                'color': '#BE254C'
+                            }
+                        }
+                    ]
+                },
+                {
+                    id: '2012',
+                    projects: [
+                        {
+                            type: 'project',
+                            title: 'AME 3173: Heat Transfer',
+                            content: '<p>Utilized numerical approximations to solve a transient heat transfer problem in a rectangular plate.' +
+                            ' Code was written in Java with Eclispse as the IDE and data transferred to Microsoft Excel for plotting.</p>',
+                            images: ['public/images/projects/htt-1.png', 'public/images/projects/htt-2.png', 'public/images/projects/htt-3.png', 'public/images/projects/htt-4.png'],
+                            style: {
+                                'color': '#BE254C'
+                            }
+                        },
+                        {
+                            type: 'project',
+                            title: 'AME 4163: PreCapstone',
+                            content: '<p>Worked in a team to create an autonomous track and field implement retrieving device. ' +
+                            'Machine ran awesome till we burnt through our lowly rated cables; one new failure mode learned.</p>',
+                            images: ['public/images/projects/pcp-1.png', 'public/images/projects/pcp-2.png', 'public/images/projects/pcp-3.png', 'public/images/projects/pcp-4.png'],
+                            style: {
+                                'color': '#BE254C'
+                            }
+                        }
+                    ]
+                }
+            ];
     }
 
     function config($mdThemingProvider) {
@@ -166,39 +373,39 @@
         });
 
         $mdThemingProvider.definePalette('TJprimary', {
-            '50': '#a0fff6',
-            '100': '#54ffef',
-            '200': '#1cffea',
-            '300': '#00d3bf',
-            '400': '#00b5a4',
-            '500': '#009688',
-            '600': '#00776c',
-            '700': '#005951',
-            '800': '#003a35',
-            '900': '#001c19',
-            'A100': '#a0fff6',
-            'A200': '#54ffef',
-            'A400': '#00b5a4',
-            'A700': '#005951',
+            '50': '#a7b8c1',
+            '100': '#7a94a2',
+            '200': '#5d7886',
+            '300': '#40525c',
+            '400': '#34424a',
+            '500': '#273238',
+            '600': '#1a2226',
+            '700': '#0e1214',
+            '800': '#010202',
+            '900': '#000000',
+            'A100': '#a7b8c1',
+            'A200': '#7a94a2',
+            'A400': '#34424a',
+            'A700': '#0e1214',
             'contrastDefaultColor': 'light',
             'contrastDarkColors': '50 100 200 300 A100 A200'
         });
 
         $mdThemingProvider.definePalette('TJaccent', {
             '50': '#ffffff',
-            '100': '#ffffff',
-            '200': '#ffd7d7',
-            '300': '#ff8f8f',
-            '400': '#ff7171',
-            '500': '#ff5252',
-            '600': '#ff3333',
-            '700': '#ff1515',
-            '800': '#f50000',
-            '900': '#d70000',
+            '100': '#f4dcda',
+            '200': '#e6b4af',
+            '300': '#d58179',
+            '400': '#ce6b61',
+            '500': '#c7554a',
+            '600': '#b94539',
+            '700': '#a23c32',
+            '800': '#8a332b',
+            '900': '#732b24',
             'A100': '#ffffff',
-            'A200': '#ffffff',
-            'A400': '#ff7171',
-            'A700': '#ff1515',
+            'A200': '#f4dcda',
+            'A400': '#ce6b61',
+            'A700': '#a23c32',
             'contrastDefaultColor': 'light',
             'contrastDarkColors': '50 100 200 300 400 500 A100 A200 A400'
         });
@@ -208,11 +415,10 @@
 
         $mdThemingProvider.theme('default')
             .primaryPalette('TJprimary', {
-                'default': '800',
-                'hue-1': '50'
+                'default': '500'
             })
             .accentPalette('TJaccent', {
-                'default': '600',
+                'default': '500',
                 'hue-1': '50'
             });
 
@@ -229,5 +435,4 @@
     function run() {
         "use strict";
     }
-
 })();

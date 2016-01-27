@@ -1,5 +1,4 @@
 var users = require('../../app/controllers/UserController');
-var passport = require('passport');
 
 module.exports = function (app) {
     app.route('/api/users')
@@ -14,13 +13,8 @@ module.exports = function (app) {
     app.route('/signup')
         .post(users.signup);
 
-    // Set up the 'signin' routes
     app.route('/signin')
-        .post(passport.authenticate('local', {
-            successRedirect: '/',
-            failureFlash: true
-        }));
-
+        .post(users.signin);
 
     app.param('userId', users.userById);
 };

@@ -1,0 +1,73 @@
+<header style=" background-color: #273238">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+        </div>
+    </md-toolbar>
+
+    <h1 class="header-text layout-padding" style="color: white;height: 150px; padding-left: 60px">
+        {{vm.title}}
+    </h1>
+</header>
+
+<md-content class="layout-padding"
+            md-scroll-y
+            layout="row"
+            flex>
+
+    <span flex="5"></span>
+
+    <div ng-if="vm.blogPosts.length > 0"
+         flex="60">
+
+        <div layout="column"
+             layout-align="start stretch">
+
+            <div ng-repeat="post in vm.blogPosts"
+                     ng-click="vm.goToBlogPost(post)"
+                     class="layout-padding flex"
+                     flex="">
+                <md-card-title-text>
+                    <h2 class="header-text">
+                        {{post.title}}
+                    </h2>
+                    <span class="md-subhead">{{vm.getDate(post)}}</span>
+                </md-card-title-text>
+                <blog-post blogpost="post"
+                           snippet="true">
+                </blog-post>
+                <md-divider></md-divider>
+            </div>
+        </div>
+    </div>
+
+    <span flex=""></span>
+
+    <div flex="25"
+         layout="column">
+        <div>
+            <h2 class="header-text">Categories</h2>
+            <a ng-repeat="category in vm.categories"
+               class="archive"
+               ui-sref="AllPostsController({category: category})">
+                {{category}}
+                <br>
+            </a>
+            <md-divider></md-divider>
+        </div>
+
+        <div>
+            <h2 class="header-text">Archives</h2>
+            <a ng-repeat="stat in vm.archiveStats"
+               class="archive"
+               ui-sref="AllPostsController({monthYear: {month: stat._id.month, year:stat._id.year}})">
+                {{vm.getMonth(stat._id.month - 1)}} {{stat._id.year}} ({{stat.count}})
+                <br>
+            </a>
+            <md-divider></md-divider>
+        </div>
+
+    </div>
+
+    <span flex="5"></span>
+
+</md-content>

@@ -1,4 +1,9 @@
 var User = require('mongoose').model('User');
+var passport = require('passport');
+
+var composeMessage = function (res, message) {
+    return res.json({message: message});
+};
 
 // Create a new error handling controller method
 var getErrorMessage = function (err) {
@@ -20,7 +25,9 @@ var getErrorMessage = function (err) {
     } else {
         // Grab the first error message from a list of possible errors
         for (var errName in err.errors) {
-            if (err.errors[errName].message) message = err.errors[errName].message;
+            if (err.errors[errName].message) {
+                message = err.errors[errName].message;
+            }
         }
     }
 
@@ -103,7 +110,7 @@ exports.requiresLogin = function (req, res, next) {
 };
 
 // Create a new controller method that creates new 'regular' users
-exports.signup = function (req, res, next) {
+exports.signup = function (req, res) {
     // If user is not connected, create and login a new user, otherwise redirect the user back to the main application page
     if (!req.user) {
         // Create a new 'User' model instance
@@ -112,8 +119,6 @@ exports.signup = function (req, res, next) {
         // Set the user provider property
         user.provider = 'local';
 
-        console.log("ATTEMPTING SIGN UP");
-
         // Try saving the new user document
         user.save(function (err) {
             // If an error occurs, use flash messages to report the error
@@ -121,21 +126,16 @@ exports.signup = function (req, res, next) {
                 // Use the error handling method to get the error message
                 var message = getErrorMessage(err);
 
-                // Set the flash messages
-                req.flash('error', message);
-
                 // Redirect the user back to the signup page
-                return res.redirect('/');
+                return composeMessage(res, message);
             }
 
             // If the user was created successfully use the Passport 'login' method to login
             req.login(user, function (err) {
                 // If a login error occurs move to the next middleware
                 if (err) {
-                    console.log("ERROR: " + err);
-                    return next(err);
+                    return composeMessage(res, 'Login error');
                 }
-
                 // Redirect the user back to the main application page
                 res.json(user);
             });
@@ -143,6 +143,23 @@ exports.signup = function (req, res, next) {
     } else {
         return res.redirect('/');
     }
+};
+
+exports.signin = function (req, res, next) {
+    passport.authenticate('local', function (err, user) {
+        if (err) {
+            return next(err);
+        }
+        if (!user) {
+            return composeMessage(res, 'User does not exist');
+        }
+        req.logIn(user, function (err) {
+            if (err) {
+                return res.json(e);
+            }
+            return res.json(user);
+        });
+    })(req, res, next);
 };
 
 // Create a new controller method for signing out

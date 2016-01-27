@@ -1,98 +1,93 @@
-<div layout="column"
-     flex=""
-     layout-fill="">
+<md-toolbar>
+    <div class="md-toolbar-tools"
+         du-scroll-container="projects-container">
+        <h3>
+            Sections
+        </h3>
+        <span flex></span>
+        <md-button href="#ou" offset="60" du-smooth-scroll>
+            Oklahoma
+        </md-button>
+        <md-button href="#mi" offset="60" du-smooth-scroll>
+            Michigan
+        </md-button>
+        <md-button href="#2013" offset="30" du-smooth-scroll>
+            2013
+        </md-button>
+        <md-button href="#2014" du-smooth-scroll>
+            2014
+        </md-button>
+        <md-button href="#2015" du-smooth-scroll>
+            2015
+        </md-button>
+    </div>
+</md-toolbar>
 
-    <md-toolbar>
-        <div class="md-toolbar-tools"
-             du-scroll-container="scroll-container">
-            <h3>
-                Sections
-            </h3>
-            <span flex></span>
-            <md-button href="#ou" offset="60" du-smooth-scroll>
-                Oklahoma
-            </md-button>
-            <md-button href="#mi" offset="60" du-smooth-scroll>
-                Michigan
-            </md-button>
-            <md-button href="#2013" offset="30" du-smooth-scroll>
-                2013
-            </md-button>
-            <md-button href="#2014" du-smooth-scroll>
-                2014
-            </md-button>
-            <md-button href="#2015" du-smooth-scroll>
-                2015
-            </md-button>
-        </div>
-    </md-toolbar>
+<md-content style="height: 1000px;"
+            id="projects-container"
+            du-scroll-container
+            flex>
 
-    <md-content style="height: 1000px;"
-                id="scroll-container"
-                du-scroll-container
-                flex>
+    <section ng-repeat="section in app.sections">
 
-        <section ng-repeat="section in vm.sections">
+        <div id="{{section.id}}"></div>
 
-            <div id="{{section.id}}"></div>
+        <md-subheader class="md-primary">
+            {{section.id}}
+        </md-subheader>
 
-            <md-subheader class="md-primary">
-                {{section.id}}
-            </md-subheader>
+        <md-list class="layout-padding">
+            <md-list-item ng-repeat="project in section.projects"
+                          ng-switch="project.type">
 
-            <md-list class="layout-padding">
-                <md-list-item ng-repeat="project in section.projects"
-                              ng-switch="project.type">
+                <div ng-switch-when="title">
+                    <h1 class="header-text"
+                        id="{{project.id}}">
+                        Projects @ <img class="badge" ng-src="{{project.badge}}">
+                    </h1>
+                    <div>
+                        <img style="max-width: 100%"
+                             ng-if="project.image"
+                             ng-src="{{project.image}}">
 
-                    <div ng-switch-when="title">
-                        <h1 class="header-text"
-                            id="{{project.id}}">
-                            Projects @ <img class="badge" ng-src="{{project.badge}}">
-                        </h1>
-                        <div>
-                            <img style="max-width: 100%"
-                                 ng-if="project.image"
-                                 ng-src="{{project.image}}">
-
-                            <iframe style="width: 100%; height: 500px"
-                                    ng-if="!project.image"
-                                    width="100%"
-                                    src="http://app.myfab5.com/"
-                                    frameborder="0"
-                                    scrolling="no">
-                            </iframe>
-                        </div>
+                        <iframe style="width: 100%; height: 500px"
+                                ng-if="!project.image"
+                                width="100%"
+                                src="http://app.myfab5.com/"
+                                frameborder="0"
+                                scrolling="no">
+                        </iframe>
                     </div>
+                </div>
 
-                    <md-card ng-switch-when="project">
-                        <md-card-title>
-                            <md-card-title-text>
+                <md-card ng-switch-when="project">
+                    <md-card-title>
+                        <md-card-title-text>
                     <span class="md-headline"
                           ng-style="project.style">
                         {{project.title}}
                     </span>
-                            </md-card-title-text>
-                        </md-card-title>
+                        </md-card-title-text>
+                    </md-card-title>
 
-                        <md-card-content layout="row" layout-sm="column" layout-xs="column">
-                            <div flex-gt-sm="70"
-                                 flex-sm=""
-                                 flex-xs="">
-                                <img style="max-width: 100%" ng-src="{{project.images[0]}}">
-                            </div>
-                            <span flex></span>
-                            <div flex-gt-sm="25"
-                                 flex-sm=""
-                                 flex-xs=""
-                                 ng-style="project.style"
-                                 ng-bind-html="project.content">
-                            </div>
-                        </md-card-content>
-                    </md-card>
+                    <md-card-content layout="row" layout-sm="column" layout-xs="column">
+                        <div flex-gt-sm="70"
+                             flex-sm=""
+                             flex-xs="">
+                            <img style="max-width: 100%" ng-src="{{project.images[0]}}">
+                        </div>
+                        <span flex></span>
+                        <div flex-gt-sm="25"
+                             flex-sm=""
+                             flex-xs=""
+                             ng-style="project.style"
+                             ng-bind-html="project.content">
+                        </div>
+                    </md-card-content>
+                </md-card>
 
-                </md-list-item>
-            </md-list>
-        </section>
-    </md-content>
+            </md-list-item>
+        </md-list>
+    </section>
+</md-content>
 
-</div>
