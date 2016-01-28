@@ -1,23 +1,104 @@
-<md-content class="layout-padding">
-    <h1>Editor</h1>
-    <button ng-click="vm.disabled = !vm.disabled"
-            unselectable>Disable text-angular Toggle
-    </button>
-
-    <text-angular name="postBody"
-                  ng-model="vm.postBody"
-                  ta-disabled='vm.disabled'>
-        <p>Enter your content here.</p>
-    </text-angular>
-
-    <!--
-    <h1>Raw HTML in a text area</h1>
-    <textarea ng-model="vm.postBody" style="width: 100%"></textarea>
-
-    <h1>Bound with ta-bind, our internal html-binding directive</h1>
-    <div ta-bind="text"
-         ng-model="vm.postBody"
-         ta-readonly='vm.disabled'>
+<md-toolbar md-theme="search-bar">
+    <div class="md-toolbar-tools"
+         layout="row">
+        <h3>
+            Post Title:
+        </h3>
+        <span flex="5"></span>
+        <md-input-container flex="50">
+            <label>Title</label>
+            <input ng-model="vm.blogPost.title"
+                   placeholder="&nbsp;"
+                   type="text">
+        </md-input-container>
+        <span flex></span>
+        <md-button ng-click="vm.showResult = !vm.showResult"
+                   aria-label="Show Result">
+            <ng-md-icon icon="visibility"
+                        class="white-icon">
+            </ng-md-icon>
+        </md-button>
+        <md-button ng-click="vm.savePost()"
+                   aria-label="Save">
+            <ng-md-icon icon="save"
+                        class="white-icon">
+            </ng-md-icon>
+        </md-button>
+        <md-button ng-click="vm.deletePost()"
+                   aria-label="Delete">
+            <ng-md-icon icon="delete"
+                        class="white-icon">
+            </ng-md-icon>
+        </md-button>
     </div>
-    -->
+</md-toolbar>
+
+<md-content class="layout-padding">
+
+    <div layout="row">
+        <div flex="60">
+
+            <text-angular ng-if="!vm.showResult"
+                          name="postBody"
+                          ng-model="vm.postBody"
+                          ta-disabled='vm.disabled'
+                          taUnsafeSanitizer="true">
+                <script src="https://gist.github.com/tunjid/3ff00ca6bb0a8d27fa3c.js"></script>
+            </text-angular>
+
+            <div ng-if="vm.showResult"
+                 ta-bind="text"
+                 ng-model="vm.postBody"
+                 ta-readonly='vm.disabled'>
+            </div>
+
+            <!--
+            <h1>Raw HTML in a text area</h1>
+            <textarea ng-model="vm.postBody" style="width: 100%"></textarea>
+
+            <h1>Bound with ta-bind, our internal html-binding directive</h1>
+
+            -->
+        </div>
+        <span flex=""></span>
+        <div flex="15"
+             layout="column">
+
+            <h1 class="header-text">Tags </h1>
+
+            <md-chips ng-model="vm.blogPost.tags" md-autocomplete-snap
+                      md-require-match="false">
+                <md-autocomplete
+                        md-selected-item="vm.selectedTag"
+                        md-search-text="vm.tagSearch"
+                        md-items="item in vm.querySearch(vm.tagSearch, vm.allTags)"
+                        md-item-text="item"
+                        placeholder="All Tags">
+                    <span md-highlight-text="vm.searchText">{{item}}</span>
+                </md-autocomplete>
+                <md-chip-template>
+                    <span>{{$chip}}</span>
+                </md-chip-template>
+            </md-chips>
+
+            <h1 class="header-text">Categories </h1>
+
+            <md-chips ng-model="vm.blogPost.categories" md-autocomplete-snap
+                      md-require-match="false">
+                <md-autocomplete
+                        md-selected-item="vm.selectedCategory"
+                        md-search-text="vm.categorySearch"
+                        md-items="item in vm.querySearch(vm.categorySearch, vm.allCategories)"
+                        md-item-text="item.name"
+                        placeholder="All categories">
+                    <span md-highlight-text="vm.searchText">{{item}}</span>
+                </md-autocomplete>
+                <md-chip-template>
+                    <span>{{$chip}}</span>
+                </md-chip-template>
+            </md-chips>
+        </div>
+        <span flex="10"></span>
+
+    </div>
 </md-content>

@@ -63,69 +63,43 @@
         </div>
 
         <div layout="row" layout-align="center center">
-            <md-button class="md-raised md-accent">
+            <md-button class="md-raised md-accent"
+                       ng-click="app.go('AllPostsController')">
                 More Posts
             </md-button>
         </div>
 
     </div>
 
-    <div ng-if="vm.blogPosts.length > 0">
+    <div ng-if="vm.recentProjects.length > 0">
         <h1 class="header-text">
-            Recent Blog Posts
+            Recent Projects
         </h1>
         <div layout="row" layout-sm="column" layout-xs="column"
              layout-align="start stretch">
 
-            <md-card ng-repeat="post in vm.blogPosts"
+            <md-card ng-repeat="project in vm.recentProjects"
                      class="layout-padding flex"
-                     flex="">
+                     flex
+                     md-ink-ripple>
                 <md-card-title-text>
                     <h3 class="header-text"
                         ng-click="vm.goToBlogPost(post)">
-                        {{post.title}}
+                        {{project.title}}
                     </h3>
-                    <span class="md-subhead">{{vm.getDate(post)}}</span>
                 </md-card-title-text>
-                <blog-post blogpost="post"
-                           snippet="true">
-                </blog-post>
+                <div ng-bind-html="project.content"></div>
             </md-card>
         </div>
 
         <div layout="row" layout-align="center center">
-            <md-button class="md-raised md-accent">
-                More Posts
+            <md-button class="md-raised md-accent"
+                       ng-click="app.go('ProjectsController')">
+                More Projects
             </md-button>
         </div>
 
     </div>
 
-
-    <h1>TEST</h1>
-    <h1>TEST</h1>
-    <h1>TEST</h1>
-    <h1>TEST</h1>
-    <h1>TEST</h1>
-    <h1>TEST</h1>
-    <h1>TEST</h1>
-    <h1>TEST</h1>
-    <h1>TEST</h1>
-    <h1>TEST</h1>
-    <h1>TEST</h1>
-    <h1>TEST</h1>
-    <h1>TEST</h1>
-    <h1>TEST</h1>
-    <h1>TEST</h1>
-    <h1>TEST</h1>
-    <h1>TEST</h1>
-    <h1>TEST</h1>
-    <h1>TEST</h1>
-    <h1>TEST</h1>
-    <h1>TEST</h1>
-    <h1>TEST</h1>
-    <h1>TEST</h1>
-    <h1>TEST</h1>
-    <h1>TEST</h1>
-
+    <div style="height: 500px"></div>
 </md-content>

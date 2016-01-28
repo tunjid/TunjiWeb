@@ -1,5 +1,6 @@
 var User = require('mongoose').model('User');
 var passport = require('passport');
+var nodemailer = require("nodemailer");
 
 var composeMessage = function (res, message) {
     return res.json({message: message});
@@ -168,5 +169,13 @@ exports.signout = function (req, res) {
     req.logout();
 
     // Redirect the user back to the main application page
-    res.redirect('/');
+    return composeMessage(res, 'Signed out');
 };
+
+exports.session = function (req, res) {
+    if(req.user) {
+        res.json(req.user);
+    }
+    else return composeMessage(res, 'Not signed in');
+};
+

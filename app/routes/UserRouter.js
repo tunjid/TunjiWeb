@@ -10,6 +10,9 @@ module.exports = function (app) {
         .put(users.put)
         .delete(users.delete);
 
+    app.route('/session')
+        .get(users.session);
+
     app.route('/signup')
         .post(users.signup);
 

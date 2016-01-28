@@ -12,16 +12,21 @@
     <link rel="stylesheet"
           href="/public/stylesheets/style.css">
 
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet"
+          href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 
     <!-- Angular Material requires Angular.js Libraries -->
     <script src="/public/lib/angular/angular.min.js" type="text/javascript"></script>
     <script src="/public/lib/angular-aria/angular-aria.min.js" type="text/javascript"></script>
     <script src="/public/lib/angular-scroll/angular-scroll.min.js" type="text/javascript"></script>
-    <script src="/public/lib/angular-sanitize/angular-sanitize.min.js" type="text/javascript"></script>
-    <script src="/public/lib/angular-animate/angular-animate.min.js" type="text/javascript"></script>
-    <script src="/public/lib/angular-cookies/angular-cookies.min.js" type="text/javascript"></script>
-    <script src="/public/lib/angular-resource/angular-resource.min.js" type="text/javascript"></script>
+    <script src="/public/lib/angular-sanitize/angular-sanitize.min.js"
+            type="text/javascript"></script>
+    <script src="/public/lib/angular-animate/angular-animate.min.js"
+            type="text/javascript"></script>
+    <script src="/public/lib/angular-cookies/angular-cookies.min.js"
+            type="text/javascript"></script>
+    <script src="/public/lib/angular-resource/angular-resource.min.js"
+            type="text/javascript"></script>
     <script src="/public/lib/angular-ui-router/release/angular-ui-router.min.js"
             type="text/javascript"></script>
     <script src="/public/lib/angular-material-icons/angular-material-icons.min.js"
@@ -74,10 +79,9 @@
     <header class="nav-header material-wallpaper layout-padding">
         <img class="user-avatar" height="64" width="64" pointer-events="none"
              display="block"
-             src="../../public/images/sidenav/avatar.png"
-             ng-click="app.signUp()">
+             src="../../public/images/sidenav/avatar.png">
 
-        <h3 ng-click="app.signIn()" style="color: white">Adetunji Dahunsi</h3>
+        <h3 style="color: white">Adetunji Dahunsi</h3>
     </header>
     <md-list>
         <md-list-item ng-repeat="item in app.menu">
@@ -93,6 +97,7 @@
                     <div class="inset">
                         {{item.title}}
                     </div>
+                    <span style="color: white">________________________________________</span>
                 </md-item-content>
             </a>
         </md-list-item>
@@ -119,21 +124,47 @@
                 {{app.title}}
             </h3>
             <span flex></span>
-            <md-button aria-label="Twitter">
-                <ng-md-icon icon="twitter"
-                            class="white-icon">
-                </ng-md-icon>
-            </md-button>
-            <md-button aria-label="Github">
-                <ng-md-icon icon="github-circle"
-                            class="white-icon">
-                </ng-md-icon>
-            </md-button>
-            <md-button aria-label="LinkedIn">
-                <ng-md-icon icon="linkedin"
-                            class="white-icon">
-                </ng-md-icon>
-            </md-button>
+            <a href="https://twitter.com/Tunji_D">
+                <md-button aria-label="Twitter">
+                    <ng-md-icon icon="twitter"
+                                class="white-icon">
+                    </ng-md-icon>
+                </md-button>
+            </a>
+            <a href="https://github.com/tunjid">
+                <md-button aria-label="Github">
+                    <ng-md-icon icon="github-circle"
+                                class="white-icon">
+                    </ng-md-icon>
+                </md-button>
+            </a>
+            <a href="https://www.linkedin.com/in/adetunji-dahunsi-a7618580">
+                <md-button aria-label="LinkedIn">
+                    <ng-md-icon icon="linkedin"
+                                class="white-icon">
+                    </ng-md-icon>
+                </md-button>
+            </a>
+            <md-menu>
+                <md-button aria-label="Menu"
+                           ng-click="app.openMenu($mdOpenMenu, $event)">
+                    <ng-md-icon icon="more_vert"
+                                class="white-icon">
+                    </ng-md-icon>
+                </md-button>
+                <md-menu-content width="4">
+                    <md-menu-item>
+                        <md-button ng-click="app.signIn()">
+                            Sign In
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button ng-click="app.signUp()">
+                            Sign Up
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
         </div>
     </md-toolbar>
 

@@ -1,6 +1,23 @@
 <header style=" background-color: #273238">
-    <md-toolbar>
-        <div class="md-toolbar-tools">
+
+    <md-toolbar md-theme="search-bar">
+        <div class="md-toolbar-tools"
+             layout="row">
+            <md-input-container class="md-no-float md-block"
+                                flex="60">
+                <label>Search</label>
+                <input ng-model="vm.searchText"
+                       ng-keydown="vm.freeFormSearch($event)"
+                       placeholder="Search"
+                       type="text">
+            </md-input-container>
+            <span flex></span>
+            <md-button class="white-icon"
+                       ng-show="vm.authService.signedInUser"
+                       aria-label="New Article"
+                       ng-click="vm.createPost()">
+                <ng-md-icon icon="add"></ng-md-icon>
+            </md-button>
         </div>
     </md-toolbar>
 
@@ -23,9 +40,9 @@
              layout-align="start stretch">
 
             <div ng-repeat="post in vm.blogPosts"
-                     ng-click="vm.goToBlogPost(post)"
-                     class="layout-padding flex"
-                     flex="">
+                 ng-click="vm.goToBlogPost(post)"
+                 class="layout-padding flex"
+                 flex="">
                 <md-card-title-text>
                     <h2 class="header-text">
                         {{post.title}}

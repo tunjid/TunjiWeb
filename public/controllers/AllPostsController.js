@@ -6,20 +6,26 @@
         .config(config)
         .run(run);
 
-    AllPostsController.$inject = ['$rootScope', '$state', '$stateParams', 'BlogPostService'];
+    AllPostsController.$inject = ['$rootScope','$state', '$stateParams', 'BlogPostService', 'authService'];
     config.$inject = ['$stateProvider'];
     run.$inject = [];
 
-    function AllPostsController($rootScope, $state, $stateParams, BlogPostService) {
+    function AllPostsController($rootScope, $state, $stateParams, BlogPostService, authService) {
         "use strict";
 
         var vm = this;
 
+        vm.authService = authService;
+
         vm.getDate = $rootScope.TunjiWeb.getDate;
         vm.getMonth = $rootScope.TunjiWeb.getMonth;
+
+        vm.freeFormSearch = freeFormSearch;
         vm.goToBlogPost = goToBlogPost;
+        vm.createPost = createPost;
 
         vm.title = 'All Blog Posts';
+        vm.searchText = null;
 
         var queries = {limit: "30"};
 
@@ -44,12 +50,26 @@
             queries.year = $stateParams.monthYear.year;
         }
 
+        if ($stateParams.freeForm) {
+            vm.title += ' matching the query ' + $stateParams.freeForm;
+            queries.freeForm = $stateParams.freeForm;
+        }
+
         vm.blogPosts = BlogPostService.query(queries);
         vm.archiveStats = BlogPostService.getArchives();
         vm.categories = BlogPostService.getTagsOrCategories({type: 'categories'});
 
         function goToBlogPost(blogPost) {
             $state.go('ViewPostController', {blogPost: blogPost});
+        }
+
+        function freeFormSearch($event) {
+            if ($event.keyCode === 13)
+                $state.go('AllPostsController', {freeForm: vm.searchText});
+        }
+
+        function createPost() {
+            $state.go('EditPostController');
         }
     }
 
@@ -64,7 +84,8 @@
                 params: {
                     tag: null,
                     category: null,
-                    monthYear: null
+                    monthYear: null,
+                    freeForm: null
                 }
             });
     }

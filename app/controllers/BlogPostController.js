@@ -22,9 +22,9 @@ var composeMessage = function (res, message, statusCode) {
 
 exports.create = function (req, res) {
     var blogPost = new BlogPost(req.body);
-    blogPost.user = req.user;
+    blogPost.author = req.user;
 
-    if (!blogPost.user) {
+    if (!blogPost.author) {
         return composeMessage(res, "A blog post needs an author");
     }
 
@@ -35,7 +35,6 @@ exports.create = function (req, res) {
             });
         }
         else res.json(blogPost);
-
     });
 };
 
@@ -43,14 +42,24 @@ exports.find = function (req, res) {
     var limit = Number(req.query.limit) || 0;
     var offset = Number(req.query.offset) || 0;
 
-    var indices = {};
+    var query = {};
 
     if (req.query.tag) {
-        indices.tags = req.query.tag;
+        query.tags = req.query.tag;
     }
 
     if (req.query.category) {
-        indices.categories = req.query.category;
+        query.categories = req.query.category;
+    }
+
+    if(req.query.freeForm) {
+        var searchString = req.query.freeForm;
+
+        query.$or = [
+            {'title':{'$regex':searchString, '$options':'i'}},
+            {'tags':{'$regex':searchString, '$options':'i'}},
+            {'categories':{'$regex':searchString, '$options':'i'}}
+        ];
     }
 
     if(req.query.month && req.query.year) {
@@ -60,13 +69,13 @@ exports.find = function (req, res) {
         var startDate = new Date(year, month, 1);
         var endDate = new Date(year, month, 31);
 
-        indices.created  = {
+        query.created  = {
             $gte: startDate,
             $lt: endDate
         }
     }
 
-    BlogPost.find(indices)
+    BlogPost.find(query)
         .skip(offset)
         .limit(limit)
         .sort({'created': -1})

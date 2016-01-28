@@ -8,6 +8,10 @@
         </md-card-title-text>
         <blog-post blogpost="vm.blogPost"></blog-post>
         <br>
-        <a class="tag" ui-sref="EditPostController({blogPost: vm.blogPost})"> Edit Post</a>
+        <a class="tag"
+           ng-show="vm.authService.signedInUser"
+           ui-sref="EditPostController({blogPost: vm.blogPost})">
+            Edit Post
+        </a>
     </md-card>
 </md-content>

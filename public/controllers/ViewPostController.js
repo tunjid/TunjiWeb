@@ -6,15 +6,16 @@
         .controller('ViewPostController', ViewPostController)
         .run(run);
 
-    ViewPostController.$inject = ['$stateParams', 'BlogPostService'];
+    ViewPostController.$inject = ['$stateParams', 'BlogPostService', 'authService'];
     config.$inject = ['$stateProvider'];
     run.$inject = [];
 
-    function ViewPostController($stateParams, BlogPostService) {
+    function ViewPostController($stateParams, BlogPostService, authService) {
         "use strict";
 
         var vm = this;
         vm.blogPost = $stateParams.blogPost;
+        vm.authService = authService;
 
         if (!vm.blogPost) {
              BlogPostService.get({blogPostId: $stateParams.blogPostId}, function (blogPost) {

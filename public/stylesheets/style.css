@@ -14,6 +14,10 @@
     top: 0;
 }
 
+md-card[md-ink-ripple][layout-padding] {
+    position: relative;
+}
+
 .user-avatar {
     border-radius: 99%;
 }
@@ -61,17 +65,21 @@
 }
 
 .app-fab {
-    transform:scale(1,1);
+    transform: scale(1, 1);
     transition: transform .1s ease-out;
 }
 
 .app-fab.hide {
-    transform:scale(0,0);
+    transform: scale(0, 0);
     transition: transform .1s ease-out;
 }
 
 p {
     line-height: 140%;
+}
+
+a.side-nav {
+    text-decoration: none;
 }
 
 a.archive {

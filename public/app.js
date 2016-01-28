@@ -19,6 +19,8 @@
 
         var app = this;
 
+        authService.getSession();
+
         $rootScope.$on('$stateChangeSuccess',
             function (event, toState) {
                 app.title = getTitle();
@@ -38,9 +40,11 @@
         };
 
         app.isOpen = false;
+        app.originatorEv = null;
 
         app.go = go;
         app.toggleSidenav = toggleSideNav;
+        app.openMenu = openMenu;
         app.sendEmail = sendEmail;
         app.signUp = signUp;
         app.signIn = signIn;
@@ -80,13 +84,11 @@
 
         ];
 
-        app.currentMenu = app.menu[0];
 
         $state.go('HomeController');
 
-        function go(state, index) {
+        function go(state) {
             app.toggleSidenav();
-            app.currentMenu = app.menu[index];
             $state.go(state);
         }
 
@@ -123,6 +125,7 @@
         function signIn() {
 
             $mdDialog.show({
+                    targetEvent: app.originatorEv,
                     clickOutsideToClose: true,
                     controller: DialogController,
                     templateUrl: 'public/views/signInDialog.html'
@@ -145,12 +148,16 @@
                 $scope.cancel = function () {
                     $mdDialog.cancel();
                 };
+                $scope.keyDown = function ($event) {
+                    if ($event.keyDown === 13) signIn();
+                }
             }
         }
 
         function signUp() {
 
             $mdDialog.show({
+                    targetEvent: app.originatorEv,
                     clickOutsideToClose: true,
                     controller: DialogController,
                     templateUrl: 'public/views/signUpDialog.html'
@@ -180,6 +187,11 @@
                 };
             }
         }
+
+        function openMenu($mdOpenMenu, ev) {
+            app.originatorEv = ev;
+            $mdOpenMenu(ev);
+        };
 
         function fabClass() {
             return app.currentState == 'ResumeController'
@@ -252,7 +264,7 @@
                             content: '<p>I worked with a team of individuals to build a medical device that tracks critical ' +
                             'biometrics noninvasively using bluetooth low energy. The project has been completed and video overview ' +
                             'of it can be seen <a href="https://www.youtube.com/watch?v=qOqD4fKjAXw">here</a>.</p>' +
-                            '<p>Things Learned/Learning:</p>' +
+                            '<p>Things Learned:</p>' +
                             '<ul><li>BLE Communication</li><li>Android Application Writing</li><li>Real Time Data Acquistion and Display</li></ul>',
                             images: ['public/images/projects/ble-1.png', 'public/images/projects/ble-2.png'],
                             style: {
@@ -262,9 +274,9 @@
                         {
                             type: 'project',
                             title: 'MFG 503: Manufacturing Engineering Project',
-                            content: '<p>Currently researching additive manufacturing processes with a PhD candidate.' +
+                            content: '<p>Researched additive manufacturing processes with a PhD candidate.' +
                             ' Its amazing, plus I got to wire my first Arduino board.</p>' +
-                            '<p>Things Learned/Learning:</p> <ul><li>Arduino Basics</li></ul>',
+                            '<p>Things Learned:</p> <ul><li>Arduino Basics</li></ul>',
                             images: ['public/images/projects/mfe-1.png', 'public/images/projects/mfe-2.png', 'public/images/projects/mfe-3.png'],
                             style: {
                                 'color': '#41638D'
@@ -430,6 +442,10 @@
                 'default': '500',
                 'hue-1': '50'
             });
+
+        $mdThemingProvider.theme('search-bar', 'default')
+            .primaryPalette('TJprimary')
+            .dark();
     }
 
     function run() {

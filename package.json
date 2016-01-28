@@ -18,6 +18,7 @@
     "ejs": "*",
     "passport": "~0.2.1",
     "passport-local": "~1.0.0",
-    "connect-flash": "~0.1.1"
+    "connect-flash": "~0.1.1",
+    "nodemailer": "2.0.0"
   }
 }

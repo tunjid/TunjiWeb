@@ -2,15 +2,16 @@
     "use strict";
     angular.module('TunjiWeb').factory('authService', AuthService);
 
-    AuthService.$inject = ['$location', '$http', '$cookies', '$mdDialog'];
+    AuthService.$inject = ['$location', '$http', '$mdDialog'];
 
-    function AuthService($location, $http, $cookies, $mdDialog) {
+    function AuthService($location, $http, $mdDialog) {
 
         var authService = {
             signedInUser: null,
             signUp: signUp,
             signIn: signin,
-            logout: logout
+            logout: logout,
+            getSession: getSession
         };
 
         return authService;
@@ -20,7 +21,7 @@
 
             $http.post(url, newUser)
                 .success(function (createdUser) {
-                    console.log(createdUser)
+                    if(createdUser._id)
                     authService.signedInUser = createdUser;
                 })
                 .error(function (data) {
@@ -40,11 +41,9 @@
 
             $http.post(url, oldUser)
                 .success(function (oldUser) {
-                    console.log(oldUser)
                     authService.signedInUser = oldUser;
                 })
-                .error(function (data) {
-                    console.log(data);
+                .error(function () {
                     $mdDialog.show(
                         $mdDialog.alert()
                             .clickOutsideToClose(true)
@@ -57,6 +56,25 @@
 
         function logout() {
 
+        }
+
+        function getSession() {
+            var url = /*$location.host() + */'http://localhost:3000/session';
+
+            $http.get(url)
+                .success(function (data) {
+                    if(data._id)
+                        authService.signedInUser = data;
+                })
+                .error(function () {
+                    $mdDialog.show(
+                        $mdDialog.alert()
+                            .clickOutsideToClose(true)
+                            .title('Error')
+                            .textContent('There was an error signing up')
+                            .ok('Okay')
+                    );
+                });
         }
     }
 })();
