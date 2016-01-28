@@ -9,6 +9,6 @@ passport();
 app.set('port', process.env.PORT || 3000);
 
 
-console.log("Server listening on " + app.get('port'));
+console.log('Server listening on ' + app.get('port') + ' in ' + app.get('env') + ' mode.');
 
 module.exports = app;

@@ -34,6 +34,26 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="config.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/config.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="express.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/express.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="29" column="49" selection-start-line="29" selection-start-column="49" selection-end-line="29" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -501,7 +521,13 @@
       <option name="project" value="LOCAL" />
       <updated>1454014086546</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Changed default port">
+      <created>1454014919020</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1454014919020</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -545,7 +571,8 @@
     <MESSAGE value="Added most routes and views." />
     <MESSAGE value="Added editing a post." />
     <MESSAGE value="Added projects to home." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added projects to home." />
+    <MESSAGE value="Changed default port" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed default port" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
