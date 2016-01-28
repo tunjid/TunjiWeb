@@ -6,8 +6,9 @@ var passport = require('./config/passport');
 var app = express();
 passport();
 
-app.listen(3000);
+app.set('port', process.env.PORT || 3000);
 
-console.log("Server running.");
+
+console.log("Server listening on " + app.get('port'));
 
 module.exports = app;
