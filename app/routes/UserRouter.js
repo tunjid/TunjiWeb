@@ -2,7 +2,7 @@ var users = require('../../app/controllers/UserController');
 
 module.exports = function (app) {
     app.route('/api/users')
-        .post(users.create);
+     //   .post(users.create);
     //.get(users.find);
 
     app.route('/api/users/:userId')
