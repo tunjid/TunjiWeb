@@ -18,7 +18,7 @@
         return authService;
 
         function signUp(newUser) {
-            $http.post(authService.url, newUser)
+            $http.post(authService.url  + '/signup', newUser)
                 .success(function (createdUser) {
                     if (createdUser._id)
                         authService.signedInUser = createdUser;
@@ -36,7 +36,7 @@
         }
 
         function signin(oldUser) {
-            $http.post(authService.url, oldUser)
+            $http.post(authService.url + '/signin', oldUser)
                 .success(function (oldUser) {
                     authService.signedInUser = oldUser;
                 })
@@ -56,7 +56,7 @@
         }
 
         function getSession() {
-            $http.get(authService.url)
+            $http.get(authService.url + '/session')
                 .success(function (data) {
                     if (data._id)
                         authService.signedInUser = data;
