@@ -51,6 +51,7 @@
     <!-- Custom Directives -->
     <script src="/public/directives/blogPost.js"></script>
     <script src="/public/directives/headerTransform.js"></script>
+    <script src="/public/directives/fabTransform.js"></script>
 
     <!-- Custom Services -->
     <script src="/public/services/blogPostService.js"></script>
@@ -169,17 +170,17 @@
     </md-toolbar>
 
     <md-content id="scroll-container">
-        <ui-view>
+        <ui-view autoscroll="true">
             <!-- Controllers go here -->
         </ui-view>
     </md-content>
 </div>
 
-<md-button
-        class="md-fab md-fab-bottom-right app-fab"
-        ng-class="app.fabClass"
-        aria-label="Contact"
-        ng-click="app.sendEmail($event)">
+<md-button fab-transform
+           class="md-fab md-fab-bottom-right app-fab"
+           ng-class="app.fabClass"
+           aria-label="Contact"
+           ng-click="app.sendEmail($event)">
     <ng-md-icon icon="messenger"
                 class="white-icon">
     </ng-md-icon>

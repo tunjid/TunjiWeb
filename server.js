@@ -7,6 +7,7 @@ var app = express();
 passport();
 
 app.set('port', process.env.PORT || 3000);
+app.listen(app.get('port'));
 
 
 console.log('Server listening on ' + app.get('port') + ' in ' + app.get('env') + ' mode.');

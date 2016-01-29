@@ -18,12 +18,17 @@
         vm.getDate = $rootScope.TunjiWeb.getDate;
 
         vm.goToBlogPost = goToBlogPost;
+        vm.goToProject = goToProject;
         vm.recentProjects = getRecentProjects();
 
         vm.blogPosts = BlogPostService.query({limit: "3"});
 
         function goToBlogPost(blogPost) {
             $state.go('ViewPostController', {blogPost: blogPost});
+        }
+
+        function goToProject(project) {
+            $state.go('ProjectsController', {project: project});
         }
 
         function getRecentProjects() {

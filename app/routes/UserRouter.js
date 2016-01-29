@@ -2,13 +2,13 @@ var users = require('../../app/controllers/UserController');
 
 module.exports = function (app) {
     app.route('/api/users')
-        .post(users.create)
-        .get(users.find);
+        .post(users.create);
+    //.get(users.find);
 
     app.route('/api/users/:userId')
-        .get(users.get)
-        .put(users.put)
-        .delete(users.delete);
+        .get(users.requiresLogin, users.get)
+        .put(users.requiresLogin, users.put)
+        .delete(users.requiresLogin, users.delete);
 
     app.route('/session')
         .get(users.session);

@@ -8,7 +8,6 @@ var morgan = require('morgan');
 var passport = require('passport');
 var path = require('path');
 var session = require('express-session');
-var flash = require('connect-flash');
 
 
 module.exports = function () {
@@ -54,9 +53,6 @@ module.exports = function () {
 
     app.set('views', './app/views');
     app.set('view engine', 'ejs');
-
-    // Configure the flash messages middleware
-    app.use(flash());
 
     app.use(passport.initialize());
     app.use(passport.session());

@@ -65,7 +65,10 @@ md-card[md-ink-ripple][layout-padding] {
 }
 
 .app-fab {
-    transform: scale(1, 1);
+    position:absolute;
+    left: calc(100% - 90px);
+    z-index: 20;
+    transform:scale(1,1);
     transition: transform .1s ease-out;
 }
 

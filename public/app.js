@@ -149,7 +149,7 @@
                     $mdDialog.cancel();
                 };
                 $scope.keyDown = function ($event) {
-                    if ($event.keyDown === 13) signIn();
+                    if ($event.keyDown === 13) $scope.signIn();
                 }
             }
         }
@@ -191,7 +191,7 @@
         function openMenu($mdOpenMenu, ev) {
             app.originatorEv = ev;
             $mdOpenMenu(ev);
-        };
+        }
 
         function fabClass() {
             return app.currentState == 'ResumeController'
@@ -234,14 +234,19 @@
                     id: '2015',
                     projects: [
                         {
+                            id: 'mf5',
                             type: 'title',
                             badge: 'public/images/projects/mf5-badge.png',
-                            id: 'mf5'
                         },
                         {
+                            id: 'myfab5',
                             type: 'project',
                             title: 'MyFab5 Restaurant Reviews',
-                            content: '<p>I currently work as the lead Android Developer at MyFab5</p>',
+                            content: '<p>I currently work as a Software Developer at MyFab5</p>' +
+                            '<p>Things Learned:</p>' +
+                            '<ul><li>Asyncronous operations in Android with RxJava</li>' +
+                            '<li>Location aware Android services</li>' +
+                            '<li>AngularJS and the Ionic Framework</li></ul>',
                             images: ['public/images/projects/mf5-1.png', 'public/images/projects/mf5-2.png', 'public/images/projects/mf5-3.png'],
                             style: {
                                 'color': '#008080'
@@ -253,12 +258,13 @@
                     id: '2014',
                     projects: [
                         {
+                            id: 'mi',
                             type: 'title',
                             badge: 'public/images/projects/mi-badge.png',
-                            id: 'mi',
                             image: 'public/images/projects/mi-proj.png'
                         },
                         {
+                            id: 'drive',
                             type: 'project',
                             title: 'Dynamic Respiratory Impedance Volume Evaluation (DRIVE)',
                             content: '<p>I worked with a team of individuals to build a medical device that tracks critical ' +
@@ -272,6 +278,7 @@
                             }
                         },
                         {
+                            id: 'mfg503',
                             type: 'project',
                             title: 'MFG 503: Manufacturing Engineering Project',
                             content: '<p>Researched additive manufacturing processes with a PhD candidate.' +
@@ -283,6 +290,7 @@
                             }
                         },
                         {
+                            id: 'mfg502',
                             type: 'project',
                             title: 'MFG 502: Manufacturing System Design',
                             content: '<p>Worked in a team to design a hypothetical industrialized large scale manufacturing' +
@@ -299,6 +307,7 @@
                     id: '2013',
                     projects: [
                         {
+                            id: 'me587',
                             type: 'project',
                             title: 'ME 587: Sustainable Design',
                             content: '<p>Worked in a team to develop a connected system of ecoefficient lawn care devices.' +
@@ -310,6 +319,7 @@
                             }
                         },
                         {
+                            id: 'me586',
                             type: 'project',
                             title: 'ME 586: Global Manufacturing',
                             content: '<p>Worked in a team to create a hypothetical manufacturing layout for 3D printed customizable earbuds. ' +
@@ -320,12 +330,13 @@
                             }
                         },
                         {
+                            id: 'ou',
                             type: 'title',
                             badge: 'public/images/projects/ou-badge.png',
-                            id: 'ou',
                             image: 'public/images/projects/ou-proj.png'
                         },
                         {
+                            id: 'ame4983',
                             type: 'project',
                             title: 'AME 4983: Undergraduate Research',
                             content: '<p>Studied the effects of high intensity pressure waves on the human ear. Utilized SolidWorks' +
@@ -337,6 +348,7 @@
                             }
                         },
                         {
+                            id: 'ame4553',
                             type: 'project',
                             title: 'AME 4553: Capstone',
                             content: '<p>Iterated on prototype design for composite seats for multiple stage cementers. ' +
@@ -353,6 +365,7 @@
                     id: '2012',
                     projects: [
                         {
+                            id: 'ame3173',
                             type: 'project',
                             title: 'AME 3173: Heat Transfer',
                             content: '<p>Utilized numerical approximations to solve a transient heat transfer problem in a rectangular plate.' +
@@ -363,6 +376,7 @@
                             }
                         },
                         {
+                            id: 'ame4163',
                             type: 'project',
                             title: 'AME 4163: PreCapstone',
                             content: '<p>Worked in a team to create an autonomous track and field implement retrieving device. ' +

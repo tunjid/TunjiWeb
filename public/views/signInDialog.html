@@ -10,7 +10,8 @@
                 <md-input-container flex>
                     <label>Password</label>
                     <input ng-model="oldUser.password"
-                           ng-keydown="keyDown()">
+                           type="password"
+                           ng-keydown="keyDown($event)">
                 </md-input-container>
             </div>
         </form>
