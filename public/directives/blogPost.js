@@ -21,6 +21,11 @@
 
                 $elem.append('<div>' + content + '</div>');
 
+                var imageTags = $elem.find('img');
+                for(var i = 0; i < imageTags.length; i++) {
+                    addCss(imageTags[i]);
+                }
+
                 if (!$scope.snippet) {
                     var unCompiled = getTemplate();
                     var compiled = $compile(unCompiled)($scope);
@@ -44,6 +49,16 @@
                         : !blogPost.body
                         ? '.'
                         : blogPost.body;
+                }
+
+                function addCss(imgTag) {
+                    var width = imgTag.attributes.getNamedItem('width').nodeValue;
+                    var height = imgTag.attributes.getNamedItem('height').nodeValue;
+
+                    var wrapped = angular.element(imgTag);
+
+                    wrapped.css('width', width + 'px');
+                    wrapped.css('height', height + 'px');
                 }
 
                 function getTemplate() {
