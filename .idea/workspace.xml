@@ -392,7 +392,13 @@
       <option name="project" value="LOCAL" />
       <updated>1454094404502</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="changed port">
+      <created>1454096527674</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1454096527674</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -443,7 +449,8 @@
     <MESSAGE value="Added gitignore" />
     <MESSAGE value="rm -cached&#10;" />
     <MESSAGE value="Added private IP for prod" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added private IP for prod" />
+    <MESSAGE value="changed port" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed port" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

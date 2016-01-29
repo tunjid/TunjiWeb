@@ -6,7 +6,7 @@ var passport = require('./config/passport');
 var app = express();
 passport();
 
-app.set('port', process.env.PORT || 8080hanged);
+app.set('port', process.env.PORT || 8080);
 
 
 if (process.env.NODE_ENV === 'development') {
