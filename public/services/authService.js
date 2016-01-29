@@ -8,6 +8,7 @@
 
         var authService = {
             signedInUser: null,
+            url: getUrl($location),
             signUp: signUp,
             signIn: signin,
             logout: logout,
@@ -17,12 +18,10 @@
         return authService;
 
         function signUp(newUser) {
-            var url = /*$location.host() + */'http://localhost:3000/signup';
-
-            $http.post(url, newUser)
+            $http.post(authService.url, newUser)
                 .success(function (createdUser) {
-                    if(createdUser._id)
-                    authService.signedInUser = createdUser;
+                    if (createdUser._id)
+                        authService.signedInUser = createdUser;
                 })
                 .error(function (data) {
                     console.log(data);
@@ -37,9 +36,7 @@
         }
 
         function signin(oldUser) {
-            var url = /*$location.host() + */'http://localhost:3000/signin';
-
-            $http.post(url, oldUser)
+            $http.post(authService.url, oldUser)
                 .success(function (oldUser) {
                     authService.signedInUser = oldUser;
                 })
@@ -59,11 +56,9 @@
         }
 
         function getSession() {
-            var url = /*$location.host() + */'http://localhost:3000/session';
-
-            $http.get(url)
+            $http.get(authService.url)
                 .success(function (data) {
-                    if(data._id)
+                    if (data._id)
                         authService.signedInUser = data;
                 })
                 .error(function () {
@@ -75,6 +70,11 @@
                             .ok('Okay')
                     );
                 });
+        }
+
+        function getUrl(location) {
+            var parts = location.absUrl().split('/');
+            return parts[0] + '//' + parts[2];
         }
     }
 })();
