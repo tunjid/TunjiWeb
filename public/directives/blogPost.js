@@ -34,13 +34,22 @@
 
                 function getPostSnippet(blogpost) {
                     var blogPostBody = getBlogPostBody(blogpost);
-                    var index = blogPostBody.indexOf('!--more--');
+                    var index = blogPostBody.indexOf('u003C!--more--');
+
+                    if (index == -1) {
+                        index = blogPostBody.indexOf('\\n')
+                    }
 
                     if (index == -1) {
                         index = blogPostBody.indexOf('. ')
                     }
 
-                    return blogPostBody.substring(0, index) + '...';
+                    var substring = blogPostBody.substring(0, index);
+
+                    if(substring.charAt(substring.length - 1) == '<') {
+                        substring.substring(0, substring.length - 1);
+                    }
+                    return substring + '...';
                 }
 
                 function getBlogPostBody(blogPost) {

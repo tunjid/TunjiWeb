@@ -5,7 +5,7 @@
             'ngMaterial', 'ngMdIcons', 'ngCookies',
             'ngAnimate', 'ngResource', 'ngtweet',
             'ngSanitize', 'ngAria', 'ui.router',
-            'duScroll', 'textAngular'])
+            'duScroll', 'textAngular', 'gist-embed'])
         .controller('AppController', AppController)
         .config(config)
         .run(run);
@@ -45,7 +45,7 @@
         app.go = go;
         app.toggleSidenav = toggleSideNav;
         app.openMenu = openMenu;
-        app.sendEmail = sendEmail;
+        app.contact = contact;
         app.signUp = signUp;
         app.signIn = signIn;
         app.fabClass = fabClass;
@@ -96,7 +96,7 @@
             $mdSidenav(menuId).toggle();
         }
 
-        function sendEmail(ev) {
+        function contact(ev) {
             $mdDialog.show({
                     clickOutsideToClose: true,
                     controller: DialogController,
@@ -110,14 +110,20 @@
                 });
 
             function DialogController($scope, $mdDialog) {
-                $scope.hide = function () {
+
+                $scope.commentBody = {
+                    "firstName": '',
+                    "lastName": '',
+                    "email": '',
+                    "comment": ''
+                };
+
+                $scope.sendComment = function () {
+                    authService.sendComment($scope.commentBody);
                     $mdDialog.hide();
                 };
                 $scope.cancel = function () {
                     $mdDialog.cancel();
-                };
-                $scope.answer = function (answer) {
-                    $mdDialog.hide(answer);
                 };
             }
         }
@@ -236,7 +242,7 @@
                         {
                             id: 'mf5',
                             type: 'title',
-                            badge: 'public/images/projects/mf5-badge.png',
+                            badge: 'public/images/projects/mf5-badge.png'
                         },
                         {
                             id: 'myfab5',

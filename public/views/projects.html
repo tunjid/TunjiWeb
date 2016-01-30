@@ -23,7 +23,8 @@
     </div>
 </md-toolbar>
 
-<md-content style="height: 1000px;"
+<md-content fab-transform
+            style="height: 800px;"
             id="projects-container"
             du-scroll-container
             flex>
@@ -50,13 +51,15 @@
                              ng-if="project.image"
                              ng-src="{{project.image}}">
 
-                        <iframe style="width: 100%; height: 500px"
-                                ng-if="!project.image"
-                                width="100%"
-                                src="http://app.myfab5.com/"
-                                frameborder="0"
-                                scrolling="no">
-                        </iframe>
+                        <div ng-if="!project.image"
+                             style="overflow: hidden">
+                            <iframe width="100%"
+                                    height="500px"
+                                    src="http://app.myfab5.com/"
+                                    frameborder="0"
+                                    scrolling="no">
+                            </iframe>
+                        </div>
                     </div>
                 </div>
 

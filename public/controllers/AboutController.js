@@ -26,9 +26,8 @@
                 "exam as a Master's student at the University of Michigan to " +
                 "give myself a new challenge. It also serves as an online resume " +
                 "detailing my past and current projects. Since it's inception in " +
-                "May 2014, it's grown to house my wordpress blog where I share " +
-                "things I'm working on. Go on, click the link in the top far " +
-                "right.</p>"
+                "May 2014, it's grown to house my blog where I share " +
+                "things I'm working on.</p>"
             },
             {
                 type: 'title',

@@ -19,6 +19,9 @@
     <script src="/public/lib/angular/angular.min.js" type="text/javascript"></script>
     <script src="/public/lib/angular-aria/angular-aria.min.js" type="text/javascript"></script>
     <script src="/public/lib/angular-scroll/angular-scroll.min.js" type="text/javascript"></script>
+    <script src="/public/lib/angular-gist-embed/dist/angular-gist-embed.min.js"
+            type="text/javascript"></script>
+
     <script src="/public/lib/angular-sanitize/angular-sanitize.min.js"
             type="text/javascript"></script>
     <script src="/public/lib/angular-animate/angular-animate.min.js"
@@ -159,30 +162,28 @@
                             Sign In
                         </md-button>
                     </md-menu-item>
-                    <!--
                     <md-menu-item>
                         <md-button ng-click="app.signUp()">
                             Sign Up
                         </md-button>
                     </md-menu-item>
-                    -->
                 </md-menu-content>
             </md-menu>
         </div>
     </md-toolbar>
 
-    <md-content id="scroll-container">
+    <md-content fab-transform
+                id="scroll-container">
         <ui-view autoscroll="true">
             <!-- Controllers go here -->
         </ui-view>
     </md-content>
 </div>
 
-<md-button fab-transform
-           class="md-fab md-fab-bottom-right app-fab"
+<md-button class="md-fab md-fab-bottom-right app-fab"
            ng-class="app.fabClass"
            aria-label="Contact"
-           ng-click="app.sendEmail($event)">
+           ng-click="app.contact($event)">
     <ng-md-icon icon="messenger"
                 class="white-icon">
     </ng-md-icon>

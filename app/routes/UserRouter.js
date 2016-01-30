@@ -19,5 +19,8 @@ module.exports = function (app) {
     app.route('/signin')
         .post(users.signin);
 
+    app.route('/contact')
+        .post(users.contact);
+
     app.param('userId', users.userById);
 };

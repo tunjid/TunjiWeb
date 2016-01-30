@@ -25,6 +25,9 @@ var UserSchema = new Schema({
             'Password must be greater than 6 characters'
         ]
     },
+    twoFactPass: {
+        type: String
+    },
     salt: {
         type: String
     },

@@ -173,9 +173,57 @@ exports.signout = function (req, res) {
 };
 
 exports.session = function (req, res) {
-    if(req.user) {
+    if (req.user) {
         res.json(req.user);
     }
     else return composeMessage(res, 'Not signed in');
 };
+
+exports.contact = function (req, res) {
+
+    User.find({username: 'tunji'}, 'email twoFactPass', function (error, user) {
+        if (error) {
+            return composeMessage(res, 'Unable to get user');
+        }
+        else if (!user.email || !user.twoFactPass) {
+            return composeMessage(res, 'User is missing required details');
+        }
+        else {
+
+            var commentBody = req.body;
+
+            var smtpTransport = nodemailer.createTransport("SMTP", {
+                service: "Gmail",
+                auth: {
+                    user: user.email,
+                    pass: user.twoFactPass
+                }
+            });
+
+            // setup e-mail data with unicode symbols
+            var mailOptions = {
+                from: commentBody.name, // sender address
+                to: user.email,
+                subject: "Comment from tunjid.com", // Subject line
+                text: commentBody.comments, // plaintext body
+                html: "<b>From</b>" + " " +
+                commentBody.name +
+                " " +
+                commentBody.email +
+                "<p>" + commentBody.comments + "</p>" // html body
+            };
+
+            // send mail with defined transport object
+            smtpTransport.sendMail(mailOptions, function (error) {
+                if (error) {
+                    return composeMessage(res, 'User is missing required details');
+                }
+                else {
+                    return composeMessage(res, 'Email sent');
+                }
+            });
+        }
+    });
+};
+
 

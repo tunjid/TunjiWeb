@@ -1,32 +1,38 @@
 <md-dialog aria-label="Mango (Fruit)">
     <md-content class="md-padding">
-        <form name="userForm">
-            <div layout layout-sm="column">
+        <form name="contactForm">
+            <div layout="row">
                 <md-input-container flex>
                     <label>First Name</label>
-                    <input ng-model="user.firstName">
+                    <input ng-model="commentBody.firstName">
                 </md-input-container>
                 <md-input-container flex>
                     <label>Last Name</label>
-                    <input ng-model="theMax">
+                    <input ng-model="commentBody.lastName">
                 </md-input-container>
             </div>
-            <md-input-container flex>
-                <label>Email</label>
-                <input ng-model="user.address">
-            </md-input-container>
+            <div layout="column">
+                <md-input-container>
+                    <label>Email</label>
+                    <input ng-model="commentBody.email">
+                </md-input-container>
 
-            <md-input-container flex><label>Comments</label>
+                <md-input-container>
+                    <label>Comments</label>
                 <textarea
-                        ng-model="user.biography"
+                        ng-model="commentBody.comment"
                         columns="1"
-                        md-maxlength="150">
+                        md-maxlength="200">
                 </textarea>
-            </md-input-container>
+                </md-input-container>
+            </div>
         </form>
     </md-content>
     <div class="md-actions" layout="row"><span flex></span>
         <md-button ng-click="cancel()"> Cancel</md-button>
-        <md-button class="md-primary"> Send</md-button>
+        <md-button ng-click="sendComment()"
+                   class="md-primary">
+            Send
+        </md-button>
     </div>
 </md-dialog>

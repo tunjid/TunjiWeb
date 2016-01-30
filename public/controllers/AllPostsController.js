@@ -6,7 +6,7 @@
         .config(config)
         .run(run);
 
-    AllPostsController.$inject = ['$rootScope','$state', '$stateParams', 'BlogPostService', 'authService'];
+    AllPostsController.$inject = ['$rootScope', '$state', '$stateParams', 'BlogPostService', 'authService'];
     config.$inject = ['$stateProvider'];
     run.$inject = [];
 
@@ -56,7 +56,9 @@
         }
 
         vm.blogPosts = BlogPostService.query(queries);
-        vm.archiveStats = BlogPostService.getArchives();
+        vm.archiveStats = BlogPostService.getArchives(function () {
+            vm.archiveStats.sort(sortArchives);
+        });
         vm.categories = BlogPostService.getTagsOrCategories({type: 'categories'});
 
         function goToBlogPost(blogPost) {
@@ -70,6 +72,16 @@
 
         function createPost() {
             $state.go('EditPostController');
+        }
+
+        function sortArchives(a, b) {
+            var i = b._id.year - a._id.year;
+
+            if (i == 0) {
+                i = b._id.month - a._id.month;
+            }
+
+            return i;
         }
     }
 
