@@ -102,11 +102,6 @@
                     controller: DialogController,
                     templateUrl: 'public/views/contactDialog.html',
                     targetEvent: ev
-                })
-                .then(function (answer) {
-                    $scope.alert = 'You said the information was "' + answer + '".';
-                }, function () {
-                    $scope.alert = 'You cancelled the dialog.';
                 });
 
             function DialogController($scope, $mdDialog) {
@@ -135,9 +130,6 @@
                     clickOutsideToClose: true,
                     controller: DialogController,
                     templateUrl: 'public/views/signInDialog.html'
-                })
-                .then(function () {
-                }, function () {
                 });
 
             function DialogController($scope, $mdDialog) {
@@ -167,11 +159,6 @@
                     clickOutsideToClose: true,
                     controller: DialogController,
                     templateUrl: 'public/views/signUpDialog.html'
-                })
-                .then(function (answer) {
-                    $scope.alert = 'You said the information was "' + answer + '".';
-                }, function () {
-                    $scope.alert = 'You cancelled the dialog.';
                 });
 
             function DialogController($scope, $mdDialog) {

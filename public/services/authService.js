@@ -20,10 +20,14 @@
 
         function signUp(newUser) {
             $http.post(authService.url + '/signup', newUser)
-                .success(function (createdUser) {
-                    if (createdUser._id)
-                        authService.signedInUser = createdUser;
-                    showToast("Successfully signed up")
+                .success(function (data) {
+                    if (data._id) {
+                        authService.signedInUser = data;
+                        showToast("Successfully signed up")
+                    }
+                    else {
+                        showToast(data.message)
+                    }
                 })
                 .error(function (data) {
                     console.log(data);
@@ -39,9 +43,14 @@
 
         function signin(oldUser) {
             $http.post(authService.url + '/signin', oldUser)
-                .success(function (oldUser) {
-                    authService.signedInUser = oldUser;
-                    showToast("Successfully signed in")
+                .success(function (data) {
+                    if (data._id) {
+                        authService.signedInUser = data;
+                        showToast("Successfully signed in")
+                    }
+                    else {
+                        showToast(data.message)
+                    }
                 })
                 .error(function (data) {
                     var message = data.message || 'There was an error signing in';

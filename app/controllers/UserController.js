@@ -126,8 +126,6 @@ exports.signup = function (req, res) {
             if (err) {
                 // Use the error handling method to get the error message
                 var message = getErrorMessage(err);
-
-                // Redirect the user back to the signup page
                 return composeMessage(res, message);
             }
 
@@ -142,16 +140,19 @@ exports.signup = function (req, res) {
             });
         });
     } else {
-        return res.redirect('/');
+        return composeMessage(res, 'You are already signed in', 400);
     }
 };
 
 exports.signin = function (req, res, next) {
-    passport.authenticate('local', function (err, user) {
+    passport.authenticate('local', function (err, user, status) {
         if (err) {
             return next(err);
         }
         if (!user) {
+            if(status) {
+                return composeMessage(res, status.message);
+            }
             return composeMessage(res, 'User does not exist');
         }
         req.logIn(user, function (err) {
@@ -167,8 +168,6 @@ exports.signin = function (req, res, next) {
 exports.signout = function (req, res) {
     // Use the Passport 'logout' method to logout
     req.logout();
-
-    // Redirect the user back to the main application page
     return composeMessage(res, 'Signed out');
 };
 
@@ -181,7 +180,7 @@ exports.session = function (req, res) {
 
 exports.contact = function (req, res) {
 
-    User.find({username: 'tunji'}, 'email twoFactPass', function (error, user) {
+    User.findOne({username: 'tunji'}, 'email twoFactPass', function (error, user) {
         if (error) {
             return composeMessage(res, 'Unable to get user');
         }
@@ -216,7 +215,8 @@ exports.contact = function (req, res) {
             // send mail with defined transport object
             smtpTransport.sendMail(mailOptions, function (error) {
                 if (error) {
-                    return composeMessage(res, 'User is missing required details');
+                    var message = getErrorMessage(error);
+                    return composeMessage(res, message);
                 }
                 else {
                     return composeMessage(res, 'Email sent');

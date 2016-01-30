@@ -13,11 +13,14 @@ module.exports = function (app) {
     app.route('/session')
         .get(users.session);
 
-    app.route('/signup')
-        .post(users.signup);
+    /*app.route('/signup')
+        .post(users.signup);*/
 
     app.route('/signin')
         .post(users.signin);
+
+    app.route('/signout')
+        .post(users.signout);
 
     app.route('/contact')
         .post(users.contact);
