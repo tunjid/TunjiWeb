@@ -23,6 +23,7 @@
         vm.freeFormSearch = freeFormSearch;
         vm.goToBlogPost = goToBlogPost;
         vm.createPost = createPost;
+        vm.refresh = refresh;
 
         vm.title = 'All Blog Posts';
         vm.searchText = null;
@@ -60,6 +61,11 @@
             vm.archiveStats.sort(sortArchives);
         });
         vm.categories = BlogPostService.getTagsOrCategories({type: 'categories'});
+
+        function refresh() {
+            vm.title = 'All Blog Posts';
+            vm.blogPosts = BlogPostService.query();
+        }
 
         function goToBlogPost(blogPost) {
             $state.go('ViewPostController', {blogPost: blogPost});

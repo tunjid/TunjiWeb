@@ -1,23 +1,23 @@
-<md-toolbar>
+<md-toolbar style="pointer-events: none">
     <div class="md-toolbar-tools"
          du-scroll-container="projects-container">
         <h3>
             Sections
         </h3>
         <span flex></span>
-        <md-button href="#ou" offset="60" du-smooth-scroll>
+        <md-button style="pointer-events: auto" href="#ou" offset="60" du-smooth-scroll>
             Oklahoma
         </md-button>
-        <md-button href="#mi" offset="60" du-smooth-scroll>
+        <md-button style="pointer-events: auto" href="#mi" offset="60" du-smooth-scroll>
             Michigan
         </md-button>
-        <md-button href="#2013" offset="30" du-smooth-scroll>
+        <md-button style="pointer-events: auto" href="#2013" offset="30" du-smooth-scroll>
             2013
         </md-button>
-        <md-button href="#2014" du-smooth-scroll>
+        <md-button style="pointer-events: auto" href="#2014" du-smooth-scroll>
             2014
         </md-button>
-        <md-button href="#2015" du-smooth-scroll>
+        <md-button style="pointer-events: auto" href="#2015" du-smooth-scroll>
             2015
         </md-button>
     </div>
@@ -63,11 +63,11 @@
                     </div>
                 </div>
 
-                <md-card ng-switch-when="project">
+                <md-card ng-switch-when="project"
+                         id="{{project.id}}">
                     <md-card-title>
                         <md-card-title-text>
                     <span class="md-headline"
-                          id="{{project.id}}"
                           ng-style="project.style">
                         {{project.title}}
                     </span>

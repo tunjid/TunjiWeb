@@ -6,11 +6,11 @@
         .controller('EditPostController', EditPostController)
         .run(run);
 
-    EditPostController.$inject = ['$rootScope', '$state', '$stateParams', 'BlogPostService'];
+    EditPostController.$inject = ['$rootScope', '$state', '$stateParams', '$mdToast', 'BlogPostService'];
     config.$inject = ['$stateProvider'];
     run.$inject = [];
 
-    function EditPostController($rootScope, $state, $stateParams, BlogPost) {
+    function EditPostController($rootScope, $state, $stateParams, $mdToast, BlogPost) {
         "use strict";
 
         var vm = this;
@@ -59,15 +59,38 @@
             vm.blogPost.body = stringifiedBody.substring(1, subStringLength);
 
             if (vm.blogPost._id) {
-                vm.blogPost.$put();
+                vm.blogPost.$put(
+                    function () {
+                        showToast('Post saved');
+                    },
+                    function (error) {
+                        showToast('Failed to save post')
+                        var message = 'Failed to save post ';
+                        if (error.message) message += error.message
+                        showToast(message);
+                    }
+                );
             }
-            else vm.blogPost.$save();
+            else vm.blogPost.$save(
+                function () {
+                    showToast('Post saved');
+                },
+                function (error) {
+                    var message = 'Failed to save post ';
+                    if (error.message) message += error.message
+                    showToast(message);
+                });
         }
 
         function deletePost() {
-            vm.blogPost.$delete()
-                .then(function() {
+            vm.blogPost.$delete(
+                function () {
                     $state.go('AllPostsController');
+                },
+                function (error) {
+                    var message = 'Failed to delete post ';
+                    if (error.message) message += error.message
+                    showToast(message);
                 });
         }
 
@@ -86,6 +109,15 @@
             return function filterFn(category) {
                 return angular.lowercase(category).indexOf(lowercaseQuery) === 0;
             };
+        }
+
+        function showToast(message) {
+            $mdToast.show(
+                $mdToast.simple()
+                    .textContent(message)
+                    .position('bottom right')
+                    .hideDelay(3000)
+            );
         }
     }
 

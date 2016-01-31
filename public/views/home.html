@@ -2,42 +2,73 @@
     <div md-header-picture
          class="header-background">
     </div>
-    <md-toolbar header-transform class="header-transform">
+    <md-toolbar header-transform
+                layout="row">
         <div class="md-toolbar-tools">
-            <md-button
-                    ng-click="app.toggleSidenav('left')"
-                    hide-gt-md aria-label="Menu">
+            <md-button class="white-icon"
+                       aria-label="Menu"
+                       hide-gt-md
+                       ng-click="app.toggleSidenav('left')">
                 <ng-md-icon icon="menu"
                             class="white-icon">
                 </ng-md-icon>
             </md-button>
-            <h1 md-header-title
+            <h1 flex md-header-title
                 style="font-weight: 300; font-style: italic">
                 Hello :)
             </h1>
-            <span flex=""></span>
-            <md-button aria-label="Twitter">
-                <ng-md-icon icon="twitter"
-                            class="white-icon">
-                </ng-md-icon>
-            </md-button>
-            <md-button aria-label="Github">
-                <ng-md-icon icon="github-circle"
-                            class="white-icon">
-                </ng-md-icon>
-            </md-button>
-            <md-button aria-label="LinkedIn">
-                <ng-md-icon icon="linkedin"
-                            class="white-icon">
-                </ng-md-icon>
-            </md-button>
+            <a href="https://twitter.com/Tunji_D">
+                <md-button aria-label="Twitter">
+                    <ng-md-icon icon="twitter"
+                                class="white-icon">
+                    </ng-md-icon>
+                </md-button>
+            </a>
+            <a href="https://github.com/tunjid">
+                <md-button aria-label="Github">
+                    <ng-md-icon icon="github-circle"
+                                class="white-icon">
+                    </ng-md-icon>
+                </md-button>
+            </a>
+            <a href="https://www.linkedin.com/in/adetunji-dahunsi-a7618580">
+                <md-button aria-label="LinkedIn">
+                    <ng-md-icon icon="linkedin"
+                                class="white-icon">
+                    </ng-md-icon>
+                </md-button>
+            </a>
+            <md-menu>
+                <md-button aria-label="Menu"
+                           ng-click="app.openMenu($mdOpenMenu, $event)">
+                    <ng-md-icon icon="more_vert"
+                                class="white-icon">
+                    </ng-md-icon>
+                </md-button>
+                <md-menu-content width="4">
+                    <md-menu-item>
+                        <md-button ng-click="app.signIn()">
+                            Sign In
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+            <span hide show-gt-sm
+                 style="width: 304px">
+            </span>
         </div>
     </md-toolbar>
 </header>
 
 <md-content md-scroll-y
             flex
-            class="layout-padding flex">
+            class="layout-padding">
+
+    <h1 class="header-text">
+        Welcome
+    </h1>
+
+    <p>...to the website, thoughts and shenanigans of Adetunji Dahunsi.</p>
 
     <div ng-if="vm.blogPosts.length > 0">
         <h1 class="header-text">
@@ -47,11 +78,11 @@
              layout-align="start stretch">
 
             <md-card ng-repeat="post in vm.blogPosts"
+                     ng-click="vm.goToBlogPost(post)"
                      class="layout-padding flex"
                      flex="">
                 <md-card-title-text>
-                    <h3 class="header-text"
-                        ng-click="vm.goToBlogPost(post)">
+                    <h3 class="header-text">
                         {{post.title}}
                     </h3>
                     <span class="md-subhead">{{vm.getDate(post)}}</span>
@@ -79,12 +110,12 @@
              layout-align="start stretch">
 
             <md-card ng-repeat="project in vm.recentProjects"
+                     ng-click="vm.goToProject(project)"
                      class="layout-padding flex"
                      flex
                      md-ink-ripple>
                 <md-card-title-text>
-                    <h3 class="header-text"
-                        ng-click="vm.goToProject(project)">
+                    <h3 class="header-text">
                         {{project.title}}
                     </h3>
                 </md-card-title-text>

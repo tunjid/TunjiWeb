@@ -18,10 +18,16 @@
                        ng-click="vm.createPost()">
                 <ng-md-icon icon="add"></ng-md-icon>
             </md-button>
+            <md-button class="white-icon"
+                       aria-label="Refresh"
+                       ng-click="vm.refresh()">
+                <ng-md-icon icon="refresh"></ng-md-icon>
+            </md-button>
         </div>
     </md-toolbar>
 
-    <h1 class="header-text layout-padding" style="color: white;height: 150px; padding-left: 60px">
+    <h1 class="header-text"
+        style="color: white;height: 150px; padding-left: 18px">
         {{vm.title}}
     </h1>
 </header>

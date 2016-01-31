@@ -25,7 +25,7 @@ exports.create = function (req, res) {
     blogPost.author = req.user;
 
     if (!blogPost.author) {
-        return composeMessage(res, "A blog post needs an author");
+        return composeMessage(res, "A blog post needs an author", 400);
     }
 
     blogPost.save(function (error) {
@@ -126,7 +126,7 @@ exports.blogPostById = function (req, res, next, id) {
                 return next(error);
 
             if (!blogPost)
-                return composeMessage(res, "Failed to load blog post with id " + id);
+                return composeMessage(res, "Failed to load blog post with id " + id, 400);
 
             req.blogPost = blogPost;
             next();
@@ -149,7 +149,7 @@ exports.getTagsOrCategories = function (req, res) {
     if (type == 'tags' || type == 'categories') {
         BlogPost.distinct(type, function (error, result) {
             if (error) {
-                return composeMessage(res, "Error retrieving tags / categories");
+                return composeMessage(res, "Error retrieving tags / categories", 500);
             }
             else res.json(result);
         });
@@ -169,7 +169,7 @@ exports.getArchives = function (req, res) {
         }],
         function (error, result) {
             if (error) {
-                return composeMessage(res, "Error aggregating months");
+                return composeMessage(res, "Error aggregating months", 500);
             }
             else res.json(result);
         }
@@ -183,7 +183,7 @@ exports.importBlogs = function (req, res) {
 
         res.json({status: importStatus});
     }
-    else return composeMessage(res, 'Failed to import blogs, no signed in user');
+    else return composeMessage(res, 'Failed to import blogs, no signed in user', 401);
 };
 
 

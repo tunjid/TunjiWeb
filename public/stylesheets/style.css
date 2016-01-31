@@ -1,6 +1,7 @@
 [md-header-picture] {
     position: relative;
     overflow: hidden;
+    z-index: 0;
     width: 100%;
     height: 0; /* Simple trick to keep a 16:9 ratio on your background image (height=0;padding-bottom=56.25%) */
     padding-bottom: 45%;
@@ -65,7 +66,7 @@ md-card[md-ink-ripple][layout-padding] {
 }
 
 .app-fab {
-    transform:scale(1,1);
+    transform: scale(1, 1);
     transition: transform .1s ease-out;
 }
 
@@ -96,7 +97,8 @@ a.tag:hover {
 
 .white-icon {
     fill: white;
-    vertical-align: middle;
     display: inline-block;
+    vertical-align: middle;
+    pointer-events: auto;
     line-height: 1;
 }

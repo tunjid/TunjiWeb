@@ -6,24 +6,25 @@
         .controller('ProjectsController', ProjectsController)
         .run(run);
 
-    ProjectsController.$inject = ['$document', '$timeout', '$stateParams'];
+    ProjectsController.$inject = ['$timeout', '$stateParams'];
     config.$inject = ['$stateProvider'];
     run.$inject = [];
 
-    function ProjectsController($document, $timeout, $stateParams) {
+    function ProjectsController($timeout, $stateParams) {
         "use strict";
 
-        $timeout(scrollToProject, 1000);
+        $timeout(scrollToProject, 300);
 
         function scrollToProject() {
-            var offset = 30; //pixels; adjust for floating menu, context etc
-            var duration = 2000; //milliseconds
+            var offset = -50; //pixels; adjust for floating menu, context etc
+            var duration = 1000; //milliseconds
 
             if ($stateParams.project && $stateParams.project.id) {
                 //Scroll to #some-id with 30 px "padding"
                 //Note: Use this in a directive, not with document.getElementById
+                var scrollContainer = angular.element(document.getElementById('projects-container'));
                 var element = angular.element(document.getElementById($stateParams.project.id));
-                $document.scrollToElement(element, offset, duration);
+                scrollContainer.scrollToElement(element, offset, duration);
             }
         }
     }
