@@ -16,7 +16,7 @@
         $timeout(scrollToProject, 300);
 
         function scrollToProject() {
-            var offset = -50; //pixels; adjust for floating menu, context etc
+            var offset = 58; //pixels; adjust for floating menu, context etc
             var duration = 1000; //milliseconds
 
             if ($stateParams.project && $stateParams.project.id) {
