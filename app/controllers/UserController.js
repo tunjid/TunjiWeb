@@ -201,15 +201,17 @@ exports.contact = function (req, res) {
 
             // setup e-mail data with unicode symbols
             var mailOptions = {
-                from: commentBody.name, // sender address
+                from: commentBody.email, // sender address
                 to: user.email,
                 subject: "Comment from tunjid.com", // Subject line
-                text: commentBody.comments, // plaintext body
+                text: commentBody.comment, // plaintext body
                 html: "<b>From</b>" + " " +
-                commentBody.name +
+                commentBody.firstName +
+                " " +
+                commentBody.lastName +
                 " " +
                 commentBody.email +
-                "<p>" + commentBody.comments + "</p>" // html body
+                "<p>" + commentBody.comment + "</p>" // html body
             };
 
             // send mail with defined transport object

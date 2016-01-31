@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b0b5cb5-838b-4874-97b1-8c0c3bd44f7b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/documents/AdetunjiDahunsiResume.pdf" afterPath="$PROJECT_DIR$/public/documents/AdetunjiDahunsiResume.pdf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/express.js" afterPath="$PROJECT_DIR$/config/express.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/ProjectsController.js" afterPath="$PROJECT_DIR$/public/controllers/ProjectsController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/projects.html" afterPath="$PROJECT_DIR$/public/views/projects.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/UserController.js" afterPath="$PROJECT_DIR$/app/controllers/UserController.js" />
     </list>
     <ignored path="untitled.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,92 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="projects.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/views/projects.html">
+      <file leaf-file-name="UserController.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/UserController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.34042552">
-              <caret line="53" column="51" selection-start-line="53" selection-start-column="51" selection-end-line="53" selection-end-column="51" />
-              <folding>
-                <element signature="n#style#0;n#md-toolbar#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#md-button#0;n#div#0;n#md-toolbar#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#md-button#1;n#div#0;n#md-toolbar#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#md-button#2;n#div#0;n#md-toolbar#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#md-button#3;n#div#0;n#md-toolbar#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#md-button#4;n#div#0;n#md-toolbar#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#md-content#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#iframe#0;n#div#0;n#div#0;n#div#0;n#md-list-item#0;n#md-list#0;n#section#0;n#md-content#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="express.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/express.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="60" column="44" selection-start-line="60" selection-start-column="44" selection-end-line="60" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BlogPostController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/BlogPostController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="27" column="69" selection-start-line="27" selection-start-column="69" selection-end-line="27" selection-end-column="69" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="allPosts.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/allPosts.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-28.666666">
-              <caret line="44" column="28" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
-              <folding>
-                <element signature="n#style#0;n#h1#0;n#header#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.627451">
-              <caret line="2" column="8" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProjectsController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/controllers/ProjectsController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AllPostsController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/controllers/AllPostsController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HomeController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/controllers/HomeController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="29" column="28" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.69072163">
+              <caret line="211" column="17" selection-start-line="211" selection-start-column="17" selection-end-line="211" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -172,7 +88,6 @@
         <option value="$PROJECT_DIR$/public/app.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/app/views/index.ejs" />
-        <option value="$PROJECT_DIR$/app/controllers/UserController.js" />
         <option value="$PROJECT_DIR$/config/strategies/local.js" />
         <option value="$PROJECT_DIR$/app/routes/UserRouter.js" />
         <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
@@ -185,6 +100,7 @@
         <option value="$PROJECT_DIR$/config/express.js" />
         <option value="$PROJECT_DIR$/public/controllers/ProjectsController.js" />
         <option value="$PROJECT_DIR$/public/views/projects.html" />
+        <option value="$PROJECT_DIR$/app/controllers/UserController.js" />
       </list>
     </option>
   </component>
@@ -705,7 +621,13 @@
       <option name="project" value="LOCAL" />
       <updated>1454213440117</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Updates to release.">
+      <created>1454251229864</created>
+      <option name="number" value="00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1454251229864</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -766,7 +688,8 @@
     <MESSAGE value="Cleaned up auth service." />
     <MESSAGE value="Terminated unterminated statement in UserRouter." />
     <MESSAGE value="Release version." />
-    <option name="LAST_COMMIT_MESSAGE" value="Release version." />
+    <MESSAGE value="Updates to release." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updates to release." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1044,14 +967,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/UserController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.1615486">
-          <caret line="87" column="7" selection-start-line="87" selection-start-column="7" selection-end-line="87" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/lib/angular-material/angular-material.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.1903448">
@@ -1081,16 +996,16 @@
         <state vertical-scroll-proportion="10.666667">
           <caret line="79" column="53" selection-start-line="79" selection-start-column="53" selection-end-line="79" selection-end-column="53" />
           <folding>
-            <element signature="n#style#0;n#h1#0;n#div#0;n#md-toolbar#0;n#header#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#md-toolbar#0;n#header#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#md-content#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h1#0;n#div#0;n#md-toolbar#0;n#header#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#md-toolbar#0;n#header#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#2;n#md-content#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/controllers/HomeController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.39175257">
           <caret line="29" column="28" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="28" />
           <folding />
         </state>
@@ -1114,7 +1029,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/controllers/AllPostsController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.40206185">
           <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
           <folding />
         </state>
@@ -1122,7 +1037,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/views/allPosts.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-28.666666">
+        <state vertical-scroll-proportion="0.9148936">
           <caret line="44" column="28" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
           <folding>
             <element signature="n#style#0;n#h1#0;n#header#0;n#!!top" expanded="true" />
@@ -1132,7 +1047,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.627451">
+        <state vertical-scroll-proportion="0.044137932">
           <caret line="2" column="8" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="8" />
           <folding />
         </state>
@@ -1148,17 +1063,9 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/BlogPostController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="69" selection-start-line="27" selection-start-column="69" selection-end-line="27" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/controllers/ProjectsController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.371134">
           <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
           <folding />
         </state>
@@ -1174,18 +1081,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/views/projects.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34042552">
+        <state vertical-scroll-proportion="-10.666667">
           <caret line="53" column="51" selection-start-line="53" selection-start-column="51" selection-end-line="53" selection-end-column="51" />
           <folding>
-            <element signature="n#style#0;n#md-toolbar#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#md-button#0;n#div#0;n#md-toolbar#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#md-button#1;n#div#0;n#md-toolbar#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#md-button#2;n#div#0;n#md-toolbar#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#md-button#3;n#div#0;n#md-toolbar#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#md-button#4;n#div#0;n#md-toolbar#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#md-content#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#iframe#0;n#div#0;n#div#0;n#div#0;n#md-list-item#0;n#md-list#0;n#section#0;n#md-content#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#md-toolbar#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#md-button#1;n#div#0;n#md-toolbar#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#md-button#2;n#div#0;n#md-toolbar#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#md-button#3;n#div#0;n#md-toolbar#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#md-button#4;n#div#0;n#md-toolbar#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#md-content#0;n#!!top" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/BlogPostController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41237113">
+          <caret line="27" column="69" selection-start-line="27" selection-start-column="69" selection-end-line="27" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/UserController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.69072163">
+          <caret line="211" column="17" selection-start-line="211" selection-start-column="17" selection-end-line="211" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
