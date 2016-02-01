@@ -2,7 +2,7 @@
 /* GET Angular home page. */
 
 module.exports = function(app) {
-    app.route('/*').get(angularRouter);
+    app.route('/').get(angularRouter);
 
     function angularRouter (req, res) {
         console.log(req.params);
