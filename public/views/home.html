@@ -4,7 +4,8 @@
     </div>
     <md-toolbar header-transform
                 layout="row">
-        <div class="md-toolbar-tools">
+        <div class="md-toolbar-tools"
+             hide show-gt-sm>
             <md-button class="white-icon"
                        aria-label="Menu"
                        hide-gt-md
@@ -54,8 +55,54 @@
                 </md-menu-content>
             </md-menu>
             <span hide show-gt-sm
-                 style="width: 304px">
+                  style="width: 304px">
             </span>
+        </div>
+        <div class="md-toolbar-tools"
+             hide-gt-sm>
+            <md-button
+                    ng-click="app.toggleSidenav('left')"
+                    hide-gt-md aria-label="Menu">
+                <ng-md-icon icon="menu"
+                            class="white-icon">
+                </ng-md-icon>
+            </md-button>
+            <h1 flex md-header-title
+                style="font-weight: 300; font-style: italic">
+                Hello :)
+            </h1>
+            <span flex></span>
+            <md-menu>
+                <md-button aria-label="Menu"
+                           ng-click="app.openMenu($mdOpenMenu, $event)">
+                    <ng-md-icon icon="more_vert"
+                                class="white-icon">
+                    </ng-md-icon>
+                </md-button>
+                <md-menu-content width="4">
+                    <md-menu-item>
+                        <md-button href="https://twitter.com/Tunji_D">
+                            Twitter
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button href="https://github.com/tunjid">
+                            Github
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button href="https://www.linkedin.com/in/adetunji-dahunsi-a7618580">
+                            LinkedIn
+                        </md-button>
+                    </md-menu-item>
+
+                    <md-menu-item>
+                        <md-button ng-click="app.signIn()">
+                            Sign In
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
         </div>
     </md-toolbar>
 </header>

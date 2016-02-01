@@ -87,13 +87,13 @@
 
         $state.go('HomeController');
 
-        function go(state) {
-            app.toggleSidenav();
+        function go(state, shouldToggle) {
+           if(shouldToggle) app.toggleSidenav();
             $state.go(state);
         }
 
-        function toggleSideNav(menuId) {
-            $mdSidenav(menuId).toggle();
+        function toggleSideNav() {
+            $mdSidenav('left').toggle();
         }
 
         function contact(ev) {

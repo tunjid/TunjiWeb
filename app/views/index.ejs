@@ -91,7 +91,7 @@
     </header>
     <md-list>
         <md-list-item ng-repeat="item in app.menu">
-            <a ng-click="app.go(item.state, $index)">
+            <a ng-click="app.go(item.state, true)">
                 <md-item-content
                         md-ink-ripple layout="row"
                         layout-align="start center">
@@ -118,7 +118,8 @@
 
     <md-toolbar class="md-whiteframe-8dp site-content-toolbar"
                 ng-if="!(app.currentState == app.menu[0].state)">
-        <div class="md-toolbar-tools">
+        <div class="md-toolbar-tools"
+             hide show-gt-sm>
             <md-button
                     ng-click="app.toggleSidenav('left')"
                     hide-gt-md aria-label="Menu">
@@ -159,6 +160,51 @@
                     </ng-md-icon>
                 </md-button>
                 <md-menu-content width="4">
+                    <md-menu-item>
+                        <md-button ng-click="app.signIn()">
+                            Sign In
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+        </div>
+        <div class="md-toolbar-tools"
+             hide-gt-sm>
+            <md-button
+                    ng-click="app.toggleSidenav('left')"
+                    hide-gt-md aria-label="Menu">
+                <ng-md-icon icon="menu"
+                            class="white-icon">
+                </ng-md-icon>
+            </md-button>
+            <h3>
+                {{app.title}}
+            </h3>
+            <span flex></span>
+            <md-menu>
+                <md-button aria-label="Menu"
+                           ng-click="app.openMenu($mdOpenMenu, $event)">
+                    <ng-md-icon icon="more_vert"
+                                class="white-icon">
+                    </ng-md-icon>
+                </md-button>
+                <md-menu-content width="4">
+                    <md-menu-item>
+                        <md-button href="https://twitter.com/Tunji_D">
+                            Twitter
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button href="https://github.com/tunjid">
+                            Github
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button href="https://www.linkedin.com/in/adetunji-dahunsi-a7618580">
+                            LinkedIn
+                        </md-button>
+                    </md-menu-item>
+
                     <md-menu-item>
                         <md-button ng-click="app.signIn()">
                             Sign In
