@@ -217,6 +217,7 @@ exports.contact = function (req, res) {
             // send mail with defined transport object
             smtpTransport.sendMail(mailOptions, function (error) {
                 if (error) {
+                    console.log(error);
                     var message = getErrorMessage(error);
                     return composeMessage(res, message);
                 }
