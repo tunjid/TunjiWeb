@@ -87,7 +87,7 @@
             <state vertical-scroll-proportion="0.5979381">
               <caret line="29" column="62" selection-start-line="29" selection-start-column="62" selection-end-line="29" selection-end-column="62" />
               <folding>
-                <marker date="1454287240000" expanded="true" signature="7031:7238" placeholder="..." />
+                <marker date="1454287277000" expanded="true" signature="7031:7238" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -744,7 +744,13 @@
       <option name="project" value="LOCAL" />
       <updated>1454285981401</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Added public/lib">
+      <created>1454287257886</created>
+      <option name="number" value="00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1454287257886</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -808,7 +814,8 @@
     <MESSAGE value="Updates to release." />
     <MESSAGE value="Fix email" />
     <MESSAGE value="Prep for inclucding public/lib in gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="Prep for inclucding public/lib in gitignore" />
+    <MESSAGE value="Added public/lib" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added public/lib" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1243,7 +1250,7 @@
         <state vertical-scroll-proportion="0.5979381">
           <caret line="29" column="62" selection-start-line="29" selection-start-column="62" selection-end-line="29" selection-end-column="62" />
           <folding>
-            <marker date="1454287240000" expanded="true" signature="7031:7238" placeholder="..." />
+            <marker date="1454287277000" expanded="true" signature="7031:7238" placeholder="..." />
           </folding>
         </state>
       </provider>

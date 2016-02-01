@@ -27,7 +27,7 @@
                 app.currentState = toState.name;
 
                 function getTitle() {
-                    var lowerCase = toState.url.split('/')[1];Added public/lib
+                    var lowerCase = toState.url.split('/')[1];
                     return lowerCase.charAt(0).toUpperCase() + lowerCase.slice(1);
                 }
             });
