@@ -6,11 +6,12 @@
         .controller('EditPostController', EditPostController)
         .run(run);
 
-    EditPostController.$inject = ['$rootScope', '$state', '$stateParams', '$mdToast', 'BlogPostService'];
+    EditPostController.$inject = ['$rootScope', '$state', '$stateParams', '$mdToast',
+        'BlogPostService', 'authService'];
     config.$inject = ['$stateProvider'];
     run.$inject = [];
 
-    function EditPostController($rootScope, $state, $stateParams, $mdToast, BlogPost) {
+    function EditPostController($rootScope, $state, $stateParams, $mdToast, BlogPost, authService) {
         "use strict";
 
         var vm = this;
@@ -126,7 +127,7 @@
 
         $stateProvider
             .state('EditPostController', {
-                url: '/edit/{blogPostId}',
+                url: '/editor/{blogPostId}',
                 templateUrl: 'public/views/editPost.html',
                 controller: 'EditPostController as vm',
                 params: {

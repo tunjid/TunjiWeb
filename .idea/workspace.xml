@@ -3,7 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="9b0b5cb5-838b-4874-97b1-8c0c3bd44f7b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes/AngularRouter.js" afterPath="$PROJECT_DIR$/app/routes/AngularRouter.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/index.ejs" afterPath="$PROJECT_DIR$/app/views/index.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app.js" afterPath="$PROJECT_DIR$/public/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/EditPostController.js" afterPath="$PROJECT_DIR$/public/controllers/EditPostController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/editPost.html" afterPath="$PROJECT_DIR$/public/views/editPost.html" />
     </list>
     <ignored path="untitled.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,11 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="blogPost.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="blogPost.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/directives/blogPost.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.371134">
+              <caret line="18" column="51" selection-start-line="18" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding>
                 <marker date="1454268694000" expanded="true" signature="3110:4306" placeholder="..." />
                 <marker date="1454268694000" expanded="true" signature="3216:3672" placeholder="..." />
@@ -64,18 +68,18 @@
       <file leaf-file-name="editPost.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/views/editPost.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.0">
-              <caret line="49" column="39" selection-start-line="49" selection-start-column="39" selection-end-line="49" selection-end-column="39" />
+            <state vertical-scroll-proportion="11.333333">
+              <caret line="43" column="51" selection-start-line="43" selection-start-column="51" selection-end-line="43" selection-end-column="51" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.ejs" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/index.ejs">
+      <file leaf-file-name="AngularRouter.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/routes/AngularRouter.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.48551723">
-              <caret line="22" column="61" selection-start-line="22" selection-start-column="61" selection-end-line="22" selection-end-column="61" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -85,10 +89,20 @@
         <entry file="file://$PROJECT_DIR$/public/app.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
               <folding>
-                <marker date="1454287277000" expanded="true" signature="7031:7238" placeholder="..." />
+                <marker date="1454291791000" expanded="true" signature="7066:7273" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/index.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-12.666667">
+              <caret line="23" column="69" selection-start-line="23" selection-start-column="69" selection-end-line="23" selection-end-column="69" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -97,62 +111,18 @@
         <entry file="file://$PROJECT_DIR$/public/controllers/EditPostController.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="73" column="20" selection-start-line="73" selection-start-column="20" selection-end-line="73" selection-end-column="20" />
+              <caret line="56" column="29" selection-start-line="56" selection-start-column="29" selection-end-line="56" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="textAngular-sanitize.min.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/lib/textAngular/dist/textAngular-sanitize.min.js">
+      <file leaf-file-name="authService.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/services/authService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.9629629">
-              <caret line="5" column="3861" selection-start-line="5" selection-start-column="3861" selection-end-line="5" selection-end-column="3861" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="9" column="24" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="24" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="textAngular-sanitize.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/lib/textAngular/dist/textAngular-sanitize.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-66.37037">
-              <caret line="198" column="9" selection-start-line="198" selection-start-column="9" selection-end-line="198" selection-end-column="17" />
-              <folding>
-                <marker date="1454280165000" expanded="true" signature="1847:2360" placeholder="..." />
-                <marker date="1454280165000" expanded="true" signature="1952:2344" placeholder="[...]" />
-                <marker date="1454280165000" expanded="true" signature="1994:2343" placeholder="{...}" />
-                <marker date="1454280165000" expanded="true" signature="2257:2329" placeholder="{...}" />
-                <marker date="1454280165000" expanded="true" signature="2405:3571" placeholder="..." />
-                <marker date="1454280165000" expanded="true" signature="2497:3557" placeholder="..." />
-                <marker date="1454280165000" expanded="true" signature="2511:2636" placeholder="..." />
-                <marker date="1454280165000" expanded="true" signature="2679:2914" placeholder="..." />
-                <marker date="1454280165000" expanded="true" signature="2954:3296" placeholder="..." />
-                <marker date="1454280165000" expanded="true" signature="3083:3198" placeholder="..." />
-                <marker date="1454280165000" expanded="true" signature="3100:3181" placeholder="..." />
-                <marker date="1454280165000" expanded="true" signature="3328:3541" placeholder="..." />
-                <marker date="1454280165000" expanded="true" signature="3699:3849" placeholder="{...}" />
-                <marker date="1454280165000" expanded="true" signature="3929:4177" placeholder="{...}" />
-                <marker date="1454280165000" expanded="true" signature="4244:4508" placeholder="{...}" />
-                <marker date="1454280165000" expanded="true" signature="4548:5062" placeholder="{...}" />
-                <marker date="1454280165000" expanded="true" signature="23082:23570" placeholder="..." />
-                <marker date="1454280165000" expanded="true" signature="23184:23552" placeholder="[...]" />
-                <marker date="1454280165000" expanded="true" signature="23212:23551" placeholder="{...}" />
-                <marker date="1454280165000" expanded="true" signature="23617:24642" placeholder="..." />
-                <marker date="1454280165000" expanded="true" signature="23708:24641" placeholder="..." />
-                <marker date="1454280165000" expanded="true" signature="23722:23820" placeholder="..." />
-                <marker date="1454280165000" expanded="true" signature="23852:24105" placeholder="..." />
-                <marker date="1454280165000" expanded="true" signature="23901:24001" placeholder="..." />
-                <marker date="1454280165000" expanded="true" signature="24017:24090" placeholder="..." />
-                <marker date="1454280165000" expanded="true" signature="24137:24421" placeholder="..." />
-                <marker date="1454280165000" expanded="true" signature="24184:24301" placeholder="..." />
-                <marker date="1454280165000" expanded="true" signature="24316:24406" placeholder="..." />
-                <marker date="1454280165000" expanded="true" signature="24453:24625" placeholder="..." />
-                <marker date="1454280165000" expanded="true" signature="24768:25122" placeholder="{...}" />
-                <marker date="1454280165000" expanded="true" signature="25202:25555" placeholder="{...}" />
-                <marker date="1454280165000" expanded="true" signature="25597:26064" placeholder="{...}" />
-                <marker date="1454280165000" expanded="true" signature="26129:26404" placeholder="{...}" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -173,7 +143,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/images/sidenav/material-bg_files/app.js" />
         <option value="$PROJECT_DIR$/public/authentication/authService.js" />
         <option value="$PROJECT_DIR$/config/env/development.js" />
         <option value="$PROJECT_DIR$/public/blogPosts/directives/tunjiBlog.js" />
@@ -213,15 +182,16 @@
         <option value="$PROJECT_DIR$/public/views/projects.html" />
         <option value="$PROJECT_DIR$/bower.json" />
         <option value="$PROJECT_DIR$/config/express.js" />
-        <option value="$PROJECT_DIR$/public/controllers/EditPostController.js" />
         <option value="$PROJECT_DIR$/public/directives/blogPost.js" />
         <option value="$PROJECT_DIR$/app/controllers/UserController.js" />
-        <option value="$PROJECT_DIR$/public/views/editPost.html" />
         <option value="$PROJECT_DIR$/public/views/home.html" />
         <option value="$PROJECT_DIR$/public/lib/textAngular/dist/textAngular-sanitize.js" />
         <option value="$PROJECT_DIR$/public/lib/angular-gist/angular-gist.js" />
         <option value="$PROJECT_DIR$/public/lib/textAngular/dist/textAngular-sanitize.min.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/app/routes/AngularRouter.js" />
+        <option value="$PROJECT_DIR$/public/controllers/EditPostController.js" />
+        <option value="$PROJECT_DIR$/public/views/editPost.html" />
         <option value="$PROJECT_DIR$/public/app.js" />
         <option value="$PROJECT_DIR$/app/views/index.ejs" />
       </list>
@@ -756,7 +726,13 @@
       <option name="project" value="LOCAL" />
       <updated>1454287289804</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Change angular gist to minified version.">
+      <created>1454287996513</created>
+      <option name="number" value="00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1454287996513</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -797,7 +773,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Added AuthService, cnfigured passport" />
     <MESSAGE value="Added most routes and views." />
     <MESSAGE value="Added editing a post." />
     <MESSAGE value="Added projects to home." />
@@ -822,7 +797,8 @@
     <MESSAGE value="Prep for inclucding public/lib in gitignore" />
     <MESSAGE value="Added public/lib" />
     <MESSAGE value="Fix typo from commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix typo from commit" />
+    <MESSAGE value="Change angular gist to minified version." />
+    <option name="LAST_COMMIT_MESSAGE" value="Change angular gist to minified version." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1023,14 +999,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/services/authService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3814433">
-          <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="96" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/controllers/AllPostsController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.40206185">
@@ -1044,7 +1012,7 @@
         <state vertical-scroll-proportion="0.9148936">
           <caret line="44" column="28" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
           <folding>
-            <element signature="n#style#0;n#h1#0;n#header#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h1#0;n#header#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1115,14 +1083,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/editPost.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.0">
-          <caret line="49" column="39" selection-start-line="49" selection-start-column="39" selection-end-line="49" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/views/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-19.958334">
@@ -1152,37 +1112,6 @@
             <marker date="1454280708000" expanded="true" signature="1070:1219" placeholder="{...}" />
             <marker date="1454280708000" expanded="true" signature="1158:1218" placeholder="{...}" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/controllers/EditPostController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="73" column="20" selection-start-line="73" selection-start-column="20" selection-end-line="73" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/directives/blogPost.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
-          <folding>
-            <marker date="1454268694000" expanded="true" signature="3110:4306" placeholder="..." />
-            <marker date="1454268694000" expanded="true" signature="3216:3672" placeholder="..." />
-            <marker date="1454268694000" expanded="true" signature="3216:4306" placeholder="..." />
-            <marker date="1454268694000" expanded="true" signature="3245:3672" placeholder="..." />
-            <marker date="1454268694000" expanded="true" signature="3332:3637" placeholder="..." />
-            <marker date="1454268694000" expanded="true" signature="3473:3542" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/UserController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1228,14 +1157,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/lib/textAngular/dist/textAngular-sanitize.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.9629629">
-          <caret line="5" column="3861" selection-start-line="5" selection-start-column="3861" selection-end-line="5" selection-end-column="3861" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1244,21 +1165,84 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes/AngularRouter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/lib/textAngular/dist/textAngular-sanitize.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.10680908">
+          <caret line="5" column="3861" selection-start-line="5" selection-start-column="3861" selection-end-line="5" selection-end-column="3861" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/UserController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/services/authService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
           <folding>
-            <marker date="1454287277000" expanded="true" signature="7031:7238" placeholder="..." />
+            <marker date="1454291791000" expanded="true" signature="7066:7273" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48551723">
-          <caret line="22" column="61" selection-start-line="22" selection-start-column="61" selection-end-line="22" selection-end-column="61" />
+        <state vertical-scroll-proportion="-12.666667">
+          <caret line="23" column="69" selection-start-line="23" selection-start-column="69" selection-end-line="23" selection-end-column="69" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/controllers/EditPostController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="56" column="29" selection-start-line="56" selection-start-column="29" selection-end-line="56" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/editPost.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="11.333333">
+          <caret line="43" column="51" selection-start-line="43" selection-start-column="51" selection-end-line="43" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/directives/blogPost.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.371134">
+          <caret line="18" column="51" selection-start-line="18" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding>
+            <marker date="1454268694000" expanded="true" signature="3110:4306" placeholder="..." />
+            <marker date="1454268694000" expanded="true" signature="3216:3672" placeholder="..." />
+            <marker date="1454268694000" expanded="true" signature="3216:4306" placeholder="..." />
+            <marker date="1454268694000" expanded="true" signature="3245:3672" placeholder="..." />
+            <marker date="1454268694000" expanded="true" signature="3332:3637" placeholder="..." />
+            <marker date="1454268694000" expanded="true" signature="3473:3542" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

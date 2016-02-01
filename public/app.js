@@ -4,14 +4,14 @@
     angular.module('TunjiWeb', [
             'ngMaterial', 'ngMdIcons', 'ngCookies',
             'ngAnimate', 'ngResource', 'ngtweet',
-            'ngAria', 'ui.router', 'duScroll',
+            'ngAria', 'ui.router', 'duScroll', 'ngSanitize',
             'textAngular', 'gist'])
         .controller('AppController', AppController)
         .config(config)
         .run(run);
 
     AppController.$inject = ['$rootScope', '$state', '$mdSidenav', '$mdDialog', 'authService'];
-    config.$inject = ['$mdThemingProvider'];
+    config.$inject = ['$locationProvider', '$mdThemingProvider'];
     run.$inject = [];
 
     function AppController($rootScope, $state, $mdSidenav, $mdDialog, authService) {
@@ -384,7 +384,7 @@
             ];
     }
 
-    function config($mdThemingProvider) {
+    function config($locationProvider, $mdThemingProvider) {
         "use strict";
 
         var customTeal = $mdThemingProvider.extendPalette('teal', {
@@ -453,6 +453,9 @@
         $mdThemingProvider.theme('search-bar', 'default')
             .primaryPalette('TJprimary')
             .dark();
+
+        // use the HTML5 History API
+        $locationProvider.html5Mode(true);
     }
 
     function run() {
