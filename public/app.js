@@ -11,7 +11,7 @@
         .run(run);
 
     AppController.$inject = ['$rootScope', '$state', '$mdSidenav', '$mdDialog', 'authService'];
-    config.$inject = ['$mdThemingProvider'];
+    config.$inject = ['$locationProvider', '$mdThemingProvider'];
     run.$inject = [];
 
     function AppController($rootScope, $state, $mdSidenav, $mdDialog, authService) {
@@ -384,7 +384,7 @@
             ];
     }
 
-    function config($mdThemingProvider) {
+    function config($locationProvider, $mdThemingProvider) {
         "use strict";
 
         var customTeal = $mdThemingProvider.extendPalette('teal', {
@@ -455,7 +455,7 @@
             .dark();
 
         // use the HTML5 History API
-        //$locationProvider.html5Mode(true);
+        $locationProvider.html5Mode(true);
     }
 
     function run() {

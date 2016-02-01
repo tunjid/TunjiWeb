@@ -70,6 +70,10 @@ module.exports = function () {
     blogPostRouter(app);
     userRouter(app);
 
+    app.all('/*', function(req, res) {
+        res.render('index', {title: 'Adetunji Dahunsi'});
+    });
+
 // catch 404 and forward to error handler
     app.use(function (req, res, next) {
         var err = new Error('Not Found');
