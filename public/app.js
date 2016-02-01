@@ -4,8 +4,8 @@
     angular.module('TunjiWeb', [
             'ngMaterial', 'ngMdIcons', 'ngCookies',
             'ngAnimate', 'ngResource', 'ngtweet',
-             'ngAria', 'ui.router',
-            'duScroll', 'textAngular', 'gist'])
+            'ngAria', 'ui.router', 'duScroll',
+            'textAngular', 'gist'])
         .controller('AppController', AppController)
         .config(config)
         .run(run);
@@ -27,7 +27,7 @@
                 app.currentState = toState.name;
 
                 function getTitle() {
-                    var lowerCase = toState.url.split('/')[1];
+                    var lowerCase = toState.url.split('/')[1];Added public/lib
                     return lowerCase.charAt(0).toUpperCase() + lowerCase.slice(1);
                 }
             });
@@ -98,11 +98,11 @@
 
         function contact(ev) {
             $mdDialog.show({
-                    clickOutsideToClose: true,
-                    controller: DialogController,
-                    templateUrl: 'public/views/contactDialog.html',
-                    targetEvent: ev
-                });
+                clickOutsideToClose: true,
+                controller: DialogController,
+                templateUrl: 'public/views/contactDialog.html',
+                targetEvent: ev
+            });
 
             function DialogController($scope, $mdDialog) {
 
@@ -126,11 +126,11 @@
         function signIn() {
 
             $mdDialog.show({
-                    targetEvent: app.originatorEv,
-                    clickOutsideToClose: true,
-                    controller: DialogController,
-                    templateUrl: 'public/views/signInDialog.html'
-                });
+                targetEvent: app.originatorEv,
+                clickOutsideToClose: true,
+                controller: DialogController,
+                templateUrl: 'public/views/signInDialog.html'
+            });
 
             function DialogController($scope, $mdDialog) {
 
@@ -155,11 +155,11 @@
         function signUp() {
 
             $mdDialog.show({
-                    targetEvent: app.originatorEv,
-                    clickOutsideToClose: true,
-                    controller: DialogController,
-                    templateUrl: 'public/views/signUpDialog.html'
-                });
+                targetEvent: app.originatorEv,
+                clickOutsideToClose: true,
+                controller: DialogController,
+                templateUrl: 'public/views/signUpDialog.html'
+            });
 
             function DialogController($scope, $mdDialog) {
 
