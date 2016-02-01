@@ -79,8 +79,8 @@
       <file leaf-file-name="UserController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/UserController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+            <state vertical-scroll-proportion="4.515464">
+              <caret line="219" column="0" selection-start-line="219" selection-start-column="0" selection-end-line="219" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -759,7 +759,13 @@
       <option name="project" value="LOCAL" />
       <updated>1454306220315</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Console log for failed emails.">
+      <created>1454368710439</created>
+      <option name="number" value="00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1454368710439</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -800,7 +806,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Blog directive changes." />
     <MESSAGE value="Added gitignore" />
     <MESSAGE value="rm -cached&#10;" />
     <MESSAGE value="Added private IP for prod" />
@@ -825,7 +830,8 @@
     <MESSAGE value="Properly configured Angular HTML5 modeon Express server." />
     <MESSAGE value="Added meta tags for responsive design." />
     <MESSAGE value="Responsive improvements." />
-    <option name="LAST_COMMIT_MESSAGE" value="Responsive improvements." />
+    <MESSAGE value="Console log for failed emails." />
+    <option name="LAST_COMMIT_MESSAGE" value="Console log for failed emails." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1266,8 +1272,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/UserController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+        <state vertical-scroll-proportion="4.515464">
+          <caret line="219" column="0" selection-start-line="219" selection-start-column="0" selection-end-line="219" selection-end-column="0" />
           <folding />
         </state>
       </provider>
