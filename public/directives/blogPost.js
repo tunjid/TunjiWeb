@@ -19,11 +19,21 @@
                 content = JSON.parse('"' + content + '"');
                 content = $rootScope.TunjiWeb.insertLineBreaks(content);
 
+                // Must append content to DOM first, before trying to compile Gist directive.
+                // This is because to manipulate an iframe's contentdocument, the element the iframe is
+                // being appended to must be part of the DOM, else the contentDocument will be null.
                 $elem.append('<div>' + content + '</div>');
 
+                // Find all gist tags
+                var gistTags = $elem.find('gist');
+
+                for(var i = 0; i < gistTags.length; i++) {
+                    $compile(gistTags[i])($scope);
+                }
+
                 var imageTags = $elem.find('img');
-                for(var i = 0; i < imageTags.length; i++) {
-                    addCss(imageTags[i]);
+                for(var j = 0; j < imageTags.length; j++) {
+                    addCss(imageTags[j]);
                 }
 
                 if (!$scope.snippet) {

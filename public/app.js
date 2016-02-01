@@ -4,8 +4,8 @@
     angular.module('TunjiWeb', [
             'ngMaterial', 'ngMdIcons', 'ngCookies',
             'ngAnimate', 'ngResource', 'ngtweet',
-            'ngSanitize', 'ngAria', 'ui.router',
-            'duScroll', 'textAngular', 'gist-embed'])
+             'ngAria', 'ui.router',
+            'duScroll', 'textAngular', 'gist'])
         .controller('AppController', AppController)
         .config(config)
         .run(run);

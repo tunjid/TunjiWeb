@@ -9,7 +9,7 @@ var composeMessage = function (res, message) {
 // Create a new error handling controller method
 var getErrorMessage = function (err) {
     // Define the error message variable
-    var message = '';
+    var message = 'Error';
 
     // If an internal MongoDB error occurs get the error message
     if (err.code) {

@@ -57,8 +57,8 @@ module.exports = function () {
     app.use(passport.initialize());
     app.use(passport.session());
 
-// uncomment after placing your favicon in /public
-    app.use(favicon('./public/images/pic.jpg'));
+    // uncomment after placing your favicon in /public
+    // app.use(favicon('./public/images/pic.jpg'));
 
     app.use(cookieParser());
 

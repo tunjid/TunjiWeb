@@ -64,9 +64,9 @@
                         showToast('Post saved');
                     },
                     function (error) {
-                        showToast('Failed to save post')
+                        showToast('Failed to save post');
                         var message = 'Failed to save post ';
-                        if (error.message) message += error.message
+                        if (error.message) message += error.message;
                         showToast(message);
                     }
                 );
@@ -77,7 +77,7 @@
                 },
                 function (error) {
                     var message = 'Failed to save post ';
-                    if (error.message) message += error.message
+                    if (error.message) message += error.message;
                     showToast(message);
                 });
         }
@@ -89,7 +89,7 @@
                 },
                 function (error) {
                     var message = 'Failed to delete post ';
-                    if (error.message) message += error.message
+                    if (error.message) message += error.message;
                     showToast(message);
                 });
         }

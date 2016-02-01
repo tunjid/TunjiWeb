@@ -43,13 +43,11 @@
                           ng-model="vm.postBody"
                           ta-disabled='vm.disabled'
                           taUnsafeSanitizer="true">
-                <script src="https://gist.github.com/tunjid/3ff00ca6bb0a8d27fa3c.js"></script>
             </text-angular>
 
             <div ng-if="vm.showResult"
                  ta-bind="text"
-                 ng-model="vm.postBody"
-                 ta-readonly='vm.disabled'>
+                 ng-model="vm.postBody">
             </div>
 
             <!--
