@@ -126,12 +126,12 @@
 
             <md-card ng-repeat="post in vm.blogPosts"
                      ng-click="vm.goToBlogPost(post)"
-                     class="layout-padding flex"
+                     class="layout-padding"
                      flex="">
                 <md-card-title-text>
-                    <h3 class="header-text">
+                    <h3 class="header-text hvr-underline-reveal">
                         {{post.title}}
-                    </h3>
+                    </h3><br>
                     <span class="md-subhead">{{vm.getDate(post)}}</span>
                 </md-card-title-text>
                 <blog-post blogpost="post"
@@ -158,13 +158,13 @@
 
             <md-card ng-repeat="project in vm.recentProjects"
                      ng-click="vm.goToProject(project)"
-                     class="layout-padding flex"
+                     class="layout-padding"
                      flex
                      md-ink-ripple>
                 <md-card-title-text>
-                    <h3 class="header-text">
+                    <h3 class="header-text hvr-underline-reveal">
                         {{project.title}}
-                    </h3>
+                    </h3><br>
                 </md-card-title-text>
                 <div ng-bind-html="project.content"></div>
             </md-card>
