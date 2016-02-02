@@ -52,24 +52,24 @@ exports.find = function (req, res) {
         query.categories = req.query.category;
     }
 
-    if(req.query.freeForm) {
+    if (req.query.freeForm) {
         var searchString = req.query.freeForm;
 
         query.$or = [
-            {'title':{'$regex':searchString, '$options':'i'}},
-            {'tags':{'$regex':searchString, '$options':'i'}},
-            {'categories':{'$regex':searchString, '$options':'i'}}
+            {'title': {'$regex': searchString, '$options': 'i'}},
+            {'tags': {'$regex': searchString, '$options': 'i'}},
+            {'categories': {'$regex': searchString, '$options': 'i'}}
         ];
     }
 
-    if(req.query.month && req.query.year) {
+    if (req.query.month && req.query.year) {
         var month = Number(req.query.month) || 0;
         var year = Number(req.query.year) || 0;
 
         var startDate = new Date(year, month, 1);
         var endDate = new Date(year, month, 31);
 
-        query.created  = {
+        query.created = {
             $gte: startDate,
             $lt: endDate
         }
@@ -147,7 +147,9 @@ exports.getTagsOrCategories = function (req, res) {
     var type = req.query.type;
 
     if (type == 'tags' || type == 'categories') {
-        BlogPost.distinct(type, function (error, result) {
+        var excludedFields = {};
+        excludedFields[type] = {$ne: null};
+        BlogPost.distinct(type, excludedFields, function (error, result) {
             if (error) {
                 return composeMessage(res, "Error retrieving tags / categories", 500);
             }
@@ -164,7 +166,7 @@ exports.getArchives = function (req, res) {
             $group: {
                 _id: {month: {$month: "$created"}, year: {$year: "$created"}},
                 count: {$sum: 1},
-                titles: { $push: "$title" }
+                titles: {$push: "$title"}
             }
         }],
         function (error, result) {
