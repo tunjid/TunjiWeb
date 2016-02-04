@@ -229,7 +229,9 @@
                         {
                             id: 'mf5',
                             type: 'title',
-                            badge: 'public/images/projects/mf5-badge.png'
+                            badge: 'public/images/projects/mf5-badge.png',
+                            image: 'public/images/projects/mf5-proj.png',
+                            header:'<img style="max-width: 100%;" src="public/images/projects/mf5-proj.png">'
                         },
                         {
                             id: 'myfab5',
@@ -254,7 +256,8 @@
                             id: 'mi',
                             type: 'title',
                             badge: 'public/images/projects/mi-badge.png',
-                            image: 'public/images/projects/mi-proj.png'
+                            image: 'public/images/projects/mi-proj.png',
+                            header:'<img style="max-width: 100%" src="public/images/projects/mi-proj.png">'
                         },
                         {
                             id: 'drive',
@@ -326,7 +329,8 @@
                             id: 'ou',
                             type: 'title',
                             badge: 'public/images/projects/ou-badge.png',
-                            image: 'public/images/projects/ou-proj.png'
+                            image: 'public/images/projects/ou-proj.png',
+                            header:'<img style="max-width: 100%" src="public/images/projects/ou-proj.png">'
                         },
                         {
                             id: 'ame4983',

@@ -63,6 +63,10 @@
         vm.categories = BlogPostService.getTagsOrCategories({type: 'categories'});
 
         function refresh() {
+            $stateParams.tag = null;
+            $stateParams.category = null;
+            $stateParams.monthYear = null;
+            $stateParams.freeForm = null;
             vm.title = 'All Blog Posts';
             vm.blogPosts = BlogPostService.query();
         }

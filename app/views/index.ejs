@@ -216,7 +216,8 @@
     </md-toolbar>
 
     <md-content fab-transform
-                id="scroll-container">
+                id="scroll-container"
+                ng-class="{'no-scroll': app.currentState == 'ProjectsController'}">
         <ui-view autoscroll="true">
             <!-- Controllers go here -->
         </ui-view>

@@ -104,6 +104,10 @@ a.tag:hover {
     line-height: 1;
 }
 
+.no-scroll {
+    overflow: hidden;
+}
+
 /* Underline Reveal */
 .hvr-underline-reveal {
     display: inline-block;
