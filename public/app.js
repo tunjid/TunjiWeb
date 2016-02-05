@@ -3,9 +3,10 @@
 
     angular.module('TunjiWeb', [
             'ngMaterial', 'ngMdIcons', 'ngCookies',
-            'ngAnimate', 'ngResource', 'ngtweet',
-            'ngAria', 'ui.router', 'duScroll', 'ngSanitize',
-            'textAngular', 'gist'])
+            'ngAnimate', 'ngResource', 'ngSanitize',
+            'ngtweet', 'ngAria', 'ui.router',
+            'textAngular', 'duScroll', 'gist',
+            'anim-in-out'])
         .controller('AppController', AppController)
         .config(config)
         .run(run);
@@ -242,7 +243,8 @@
                             title: 'MyFab5 Restaurant Reviews',
                             content: '<p>I currently work as a Software Developer at MyFab5</p>' +
                             '<p>Things Learned:</p>' +
-                            '<ul><li>Asyncronous operations in Android with RxJava</li>' +
+                            '<ul><li>Completely rewrote app to use Material design</li>' +
+                            '<li>Asyncronous operations in Android with RxJava</li>' +
                             '<li>Location aware Android services</li>' +
                             '<li>AngularJS and the Ionic Framework</li></ul>',
                             images: ['public/images/projects/mf5-1.png', 'public/images/projects/mf5-2.png', 'public/images/projects/mf5-3.png'],

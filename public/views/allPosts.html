@@ -1,98 +1,97 @@
-<header style=" background-color: #273238">
-
-    <md-toolbar md-theme="search-bar">
-        <div class="md-toolbar-tools"
-             layout="row">
-            <md-input-container class="md-no-float md-block"
-                                flex="60">
-                <label>Search</label>
-                <input ng-model="vm.searchText"
-                       ng-keydown="vm.freeFormSearch($event)"
-                       placeholder="Search"
-                       type="text">
-            </md-input-container>
-            <span flex></span>
-            <md-button class="white-icon"
-                       ng-show="vm.authService.signedInUser"
-                       aria-label="New Article"
-                       ng-click="vm.createPost()">
-                <ng-md-icon icon="add"></ng-md-icon>
-            </md-button>
-            <md-button class="white-icon"
-                       aria-label="Refresh"
-                       ng-click="vm.refresh()">
-                <ng-md-icon icon="refresh"></ng-md-icon>
-            </md-button>
-        </div>
-    </md-toolbar>
-
-    <h1 class="header-text"
-        style="color: white;height: 150px; padding-left: 18px">
-        {{vm.title}}
-    </h1>
-</header>
-
-<md-content class="layout-padding"
-            md-scroll-y
-            layout-align="start start"
-            layout-sm="column"
-            layout-xs="column"
-            layout="row"
-            flex>
-
-    <span flex="5"></span>
-
-    <md-list ng-if="vm.blogPosts.length > 0"
-             flex-sm=""
-             flex-xs=""
-             flex="60">
-
-        <md-list-item ng-repeat="post in vm.blogPosts"
-                      ng-click="vm.goToBlogPost(post)">
-            <div class="layout-padding">
-                <h2 class="header-text"
-                    style="padding: 0px;">
-                    {{post.title}}
-                </h2>
-                <p style="padding: 0px; margin: 0px;">
-                    {{vm.getDate(post)}}
-                </p><br>
-                <blog-post blogpost="post"
-                           snippet="true"
-                           style="padding: 0px; margin: 0px;">
-                </blog-post>
+<div class="anim-slide-below-fade">
+    <header style=" background-color: #273238">
+        <md-toolbar md-theme="search-bar">
+            <div class="md-toolbar-tools"
+                 layout="row">
+                <md-input-container class="md-no-float md-block"
+                                    flex="60">
+                    <label>Search</label>
+                    <input ng-model="vm.searchText"
+                           ng-keydown="vm.freeFormSearch($event)"
+                           placeholder="Search"
+                           type="text">
+                </md-input-container>
+                <span flex></span>
+                <md-button class="white-icon"
+                           ng-show="vm.authService.signedInUser"
+                           aria-label="New Article"
+                           ng-click="vm.createPost()">
+                    <ng-md-icon icon="add"></ng-md-icon>
+                </md-button>
+                <md-button class="white-icon"
+                           aria-label="Refresh"
+                           ng-click="vm.refresh()">
+                    <ng-md-icon icon="refresh"></ng-md-icon>
+                </md-button>
             </div>
-            <md-divider></md-divider>
-        </md-list-item>
-    </md-list>
+        </md-toolbar>
 
-    <span flex=""></span>
+        <h1 class="header-text"
+            style="color: white;height: 150px; padding-left: 18px">
+            {{vm.title}}
+        </h1>
+    </header>
 
-    <div flex="25"
-         layout="column">
-        <div>
-            <h2 class="header-text">Categories</h2>
-            <a ng-repeat="category in vm.categories"
-               class="archive"
-               ui-sref="AllPostsController({category: category})">
-                {{category}}
-                <br>
-            </a>
-            <md-divider></md-divider>
+    <md-content class="layout-padding"
+                md-scroll-y
+                layout-align="start start"
+                layout-sm="column"
+                layout-xs="column"
+                layout="row"
+                flex>
+
+        <span flex="5"></span>
+
+        <md-list ng-if="vm.blogPosts.length > 0"
+                 flex-sm=""
+                 flex-xs=""
+                 flex="60">
+
+            <md-list-item ng-repeat="post in vm.blogPosts"
+                          ng-click="vm.goToBlogPost(post)">
+                <div class="layout-padding">
+                    <h2 class="header-text"
+                        style="padding: 0px;">
+                        {{post.title}}
+                    </h2>
+                    <p style="padding: 0px; margin: 0px;">
+                        {{vm.getDate(post)}}
+                    </p><br>
+                    <blog-post blogpost="post"
+                               snippet="true"
+                               style="padding: 0px; margin: 0px;">
+                    </blog-post>
+                </div>
+                <md-divider></md-divider>
+            </md-list-item>
+        </md-list>
+
+        <span flex=""></span>
+
+        <div flex="25"
+             layout="column">
+            <div>
+                <h2 class="header-text">Categories</h2>
+                <a ng-repeat="category in vm.categories"
+                   class="archive"
+                   ui-sref="AllPostsController({category: category})">
+                    {{category}}
+                    <br>
+                </a>
+                <md-divider></md-divider>
+            </div>
+
+            <div>
+                <h2 class="header-text">Archives</h2>
+                <a ng-repeat="stat in vm.archiveStats"
+                   class="archive"
+                   ui-sref="AllPostsController({monthYear: {month: stat._id.month, year:stat._id.year}})">
+                    {{vm.getMonth(stat._id.month - 1)}} {{stat._id.year}} ({{stat.count}})
+                    <br>
+                </a>
+                <md-divider></md-divider>
+            </div>
         </div>
-
-        <div>
-            <h2 class="header-text">Archives</h2>
-            <a ng-repeat="stat in vm.archiveStats"
-               class="archive"
-               ui-sref="AllPostsController({monthYear: {month: stat._id.month, year:stat._id.year}})">
-                {{vm.getMonth(stat._id.month - 1)}} {{stat._id.year}} ({{stat.count}})
-                <br>
-            </a>
-            <md-divider></md-divider>
-        </div>
-    </div>
-
-    <span flex="5"></span>
-
-</md-content>
+        <span flex="5"></span>
+    </md-content>
+</div>

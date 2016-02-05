@@ -2,6 +2,7 @@
   "name": "shemanigans",
   "version": "0.0",
   "dependencies": {
+    "angular-ui-router-anim-in-out": "1.0.2",
     "angular-material-icons": "0.6.0",
     "angular-ui-router": "0.2.15",
     "angular-resource": "1.4.8",
