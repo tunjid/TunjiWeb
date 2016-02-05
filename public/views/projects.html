@@ -26,7 +26,8 @@
 </md-toolbar>
 
 <md-content fab-transform
-            style="height: 800px;"
+            md-scroll-y
+            style="height:{{vm.height}}"
             id="projects-container"
             du-scroll-container>
 
@@ -42,14 +43,16 @@
             <md-list-item ng-repeat="project in section.projects"
                           ng-switch="project.type">
 
-                <div ng-switch-when="title"> 
+                <div ng-switch-when="title">
                     <h1 class="header-text"
                         id="{{project.id}}">
                         Projects @ <img class="badge" ng-src="{{project.badge}}">
                     </h1>
-                    <div>
+                    <div ng-bind-html="project.header">
+                        <!--
                         <img style="max-width: 100%"
                              ng-src="{{project.image}}">
+                        -->
                     </div>
                 </div>
 
@@ -81,6 +84,7 @@
                 </md-card>
 
             </md-list-item>
+            <span style="height: 300px;"></span>
         </md-list>
     </section>
 </md-content>

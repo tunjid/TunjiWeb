@@ -6,12 +6,16 @@
         .controller('ProjectsController', ProjectsController)
         .run(run);
 
-    ProjectsController.$inject = ['$timeout', '$stateParams'];
+    ProjectsController.$inject = ['$stateParams', '$timeout'];
     config.$inject = ['$stateProvider'];
     run.$inject = [];
 
-    function ProjectsController($timeout, $stateParams) {
+    function ProjectsController($stateParams, $timeout) {
         "use strict";
+
+        var vm = this;
+
+        vm.height = (screen.availHeight - 200) + 'px';
 
         $timeout(scrollToProject, 300);
 

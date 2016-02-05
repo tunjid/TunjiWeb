@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="9b0b5cb5-838b-4874-97b1-8c0c3bd44f7b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app.js" afterPath="$PROJECT_DIR$/public/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/ProjectsController.js" afterPath="$PROJECT_DIR$/public/controllers/ProjectsController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/projects.html" afterPath="$PROJECT_DIR$/public/views/projects.html" />
     </list>
     <ignored path="untitled.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,12 +50,12 @@
         <entry file="file://$PROJECT_DIR$/public/app.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="233" column="64" selection-start-line="233" selection-start-column="64" selection-end-line="233" selection-end-column="64" />
+              <caret line="265" column="40" selection-start-line="265" selection-start-column="40" selection-end-line="265" selection-end-column="40" />
               <folding>
-                <marker date="1454603360000" expanded="true" signature="6823:6839" placeholder="..." />
-                <marker date="1454603360000" expanded="true" signature="7275:7482" placeholder="..." />
-                <marker date="1454603360000" expanded="true" signature="8201:8216" placeholder="..." />
-                <marker date="1454603360000" expanded="true" signature="12836:12851" placeholder="..." />
+                <marker date="1454613219000" expanded="true" signature="6867:6883" placeholder="..." />
+                <marker date="1454613219000" expanded="true" signature="7320:7527" placeholder="..." />
+                <marker date="1454613219000" expanded="true" signature="8264:8279" placeholder="..." />
+                <marker date="1454613219000" expanded="true" signature="12918:12933" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -61,14 +64,34 @@
       <file leaf-file-name="projects.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/views/projects.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.29787233">
-              <caret line="44" column="45" selection-start-line="44" selection-start-column="45" selection-end-line="44" selection-end-column="45" />
+            <state vertical-scroll-proportion="0.9361702">
+              <caret line="86" column="36" selection-start-line="86" selection-start-column="36" selection-end-line="86" selection-end-column="36" />
               <folding>
                 <element signature="n#style#0;n#md-toolbar#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#md-button#1;n#div#0;n#md-toolbar#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#md-button#2;n#div#0;n#md-toolbar#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#md-list-item#0;n#md-list#0;n#section#0;n#md-content#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#md-content#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProjectsController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/controllers/ProjectsController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="17" column="45" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="headerTransform.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/directives/headerTransform.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -76,8 +99,8 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.0">
-              <caret line="108" column="1" selection-start-line="108" selection-start-column="1" selection-end-line="108" selection-end-column="1" />
+            <state vertical-scroll-proportion="-14.666667">
+              <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -127,7 +150,6 @@
         <option value="$PROJECT_DIR$/config/strategies/local.js" />
         <option value="$PROJECT_DIR$/app/routes/UserRouter.js" />
         <option value="$PROJECT_DIR$/public/controllers/AboutController.js" />
-        <option value="$PROJECT_DIR$/public/controllers/ProjectsController.js" />
         <option value="$PROJECT_DIR$/bower.json" />
         <option value="$PROJECT_DIR$/public/directives/blogPost.js" />
         <option value="$PROJECT_DIR$/public/lib/textAngular/dist/textAngular-sanitize.js" />
@@ -147,9 +169,10 @@
         <option value="$PROJECT_DIR$/public/views/allPosts.html" />
         <option value="$PROJECT_DIR$/public/controllers/AllPostsController.js" />
         <option value="$PROJECT_DIR$/app/views/index.ejs" />
-        <option value="$PROJECT_DIR$/public/app.js" />
         <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
+        <option value="$PROJECT_DIR$/public/app.js" />
         <option value="$PROJECT_DIR$/public/views/projects.html" />
+        <option value="$PROJECT_DIR$/public/controllers/ProjectsController.js" />
       </list>
     </option>
   </component>
@@ -295,28 +318,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TunjiWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TunjiWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="projects" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -800,7 +801,13 @@
       <option name="project" value="LOCAL" />
       <updated>1454611729480</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Fixed awkward scrolling on projects added MF5 header.">
+      <created>1454611736289</created>
+      <option name="number" value="00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1454611736289</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1038,14 +1045,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/controllers/ProjectsController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.371134">
-          <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.bowerrc">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1131,14 +1130,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3617021">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/directives/headerTransform.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.814433">
-          <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1245,33 +1236,49 @@
     <entry file="file://$PROJECT_DIR$/public/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="233" column="64" selection-start-line="233" selection-start-column="64" selection-end-line="233" selection-end-column="64" />
+          <caret line="265" column="40" selection-start-line="265" selection-start-column="40" selection-end-line="265" selection-end-column="40" />
           <folding>
-            <marker date="1454603360000" expanded="true" signature="6823:6839" placeholder="..." />
-            <marker date="1454603360000" expanded="true" signature="7275:7482" placeholder="..." />
-            <marker date="1454603360000" expanded="true" signature="8201:8216" placeholder="..." />
-            <marker date="1454603360000" expanded="true" signature="12836:12851" placeholder="..." />
+            <marker date="1454613219000" expanded="true" signature="6867:6883" placeholder="..." />
+            <marker date="1454613219000" expanded="true" signature="7320:7527" placeholder="..." />
+            <marker date="1454613219000" expanded="true" signature="8264:8279" placeholder="..." />
+            <marker date="1454613219000" expanded="true" signature="12918:12933" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.0">
-          <caret line="108" column="1" selection-start-line="108" selection-start-column="1" selection-end-line="108" selection-end-column="1" />
+        <state vertical-scroll-proportion="-14.666667">
+          <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/directives/headerTransform.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/controllers/ProjectsController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="45" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/views/projects.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29787233">
-          <caret line="44" column="45" selection-start-line="44" selection-start-column="45" selection-end-line="44" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.9361702">
+          <caret line="86" column="36" selection-start-line="86" selection-start-column="36" selection-end-line="86" selection-end-column="36" />
           <folding>
             <element signature="n#style#0;n#md-toolbar#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#md-button#1;n#div#0;n#md-toolbar#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#md-button#2;n#div#0;n#md-toolbar#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#md-list-item#0;n#md-list#0;n#section#0;n#md-content#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#md-content#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

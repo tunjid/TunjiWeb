@@ -10,11 +10,14 @@
         .config(config)
         .run(run);
 
-    AppController.$inject = ['$rootScope', '$state', '$mdSidenav', '$mdDialog', 'authService'];
+    AppController.$inject = ['$rootScope', '$state', '$sce', '$mdSidenav', '$mdDialog',
+        'authService'];
+
     config.$inject = ['$locationProvider', '$mdThemingProvider'];
+
     run.$inject = [];
 
-    function AppController($rootScope, $state, $mdSidenav, $mdDialog, authService) {
+    function AppController($rootScope, $state, $sce, $mdSidenav, $mdDialog, authService) {
         "use strict";
 
         var app = this;
@@ -88,7 +91,7 @@
         $state.go('HomeController');
 
         function go(state, shouldToggle) {
-           if(shouldToggle) app.toggleSidenav();
+            if (shouldToggle) app.toggleSidenav();
             $state.go(state);
         }
 
@@ -231,7 +234,7 @@
                             type: 'title',
                             badge: 'public/images/projects/mf5-badge.png',
                             image: 'public/images/projects/mf5-proj.png',
-                            header:'<img style="max-width: 100%;" src="public/images/projects/mf5-proj.png">'
+                            header: $sce.trustAsHtml('<img style="max-width: 100%;" src="public/images/projects/mf5-proj.png">')
                         },
                         {
                             id: 'myfab5',
@@ -257,7 +260,7 @@
                             type: 'title',
                             badge: 'public/images/projects/mi-badge.png',
                             image: 'public/images/projects/mi-proj.png',
-                            header:'<img style="max-width: 100%" src="public/images/projects/mi-proj.png">'
+                            header: $sce.trustAsHtml('<img style="max-width: 100%" src="public/images/projects/mi-proj.png">')
                         },
                         {
                             id: 'drive',
@@ -330,7 +333,7 @@
                             type: 'title',
                             badge: 'public/images/projects/ou-badge.png',
                             image: 'public/images/projects/ou-proj.png',
-                            header:'<img style="max-width: 100%" src="public/images/projects/ou-proj.png">'
+                            header: $sce.trustAsHtml('<img style="max-width: 100%" src="public/images/projects/ou-proj.png">')
                         },
                         {
                             id: 'ame4983',
