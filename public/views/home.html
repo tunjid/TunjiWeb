@@ -1,183 +1,185 @@
-<header md-page-header>
-    <div md-header-picture
-         class="header-background">
-    </div>
-    <md-toolbar header-transform
-                layout="row">
-        <div class="md-toolbar-tools"
-             hide show-gt-sm>
-            <md-button class="white-icon"
-                       aria-label="Menu"
-                       hide-gt-md
-                       ng-click="app.toggleSidenav('left')">
-                <ng-md-icon icon="menu"
-                            class="white-icon">
-                </ng-md-icon>
-            </md-button>
-            <h1 flex md-header-title
-                style="font-weight: 300; font-style: italic">
-                Hello :)
-            </h1>
-            <a href="https://twitter.com/Tunji_D">
-                <md-button aria-label="Twitter">
-                    <ng-md-icon icon="twitter"
+<div class="anim-slide-below-fadee">
+    <header md-page-header>
+        <div md-header-picture
+             class="header-background">
+        </div>
+        <md-toolbar header-transform
+                    layout="row">
+            <div class="md-toolbar-tools"
+                 hide show-gt-sm>
+                <md-button class="white-icon"
+                           aria-label="Menu"
+                           hide-gt-md
+                           ng-click="app.toggleSidenav('left')">
+                    <ng-md-icon icon="menu"
                                 class="white-icon">
                     </ng-md-icon>
                 </md-button>
-            </a>
-            <a href="https://github.com/tunjid">
-                <md-button aria-label="Github">
-                    <ng-md-icon icon="github-circle"
-                                class="white-icon">
-                    </ng-md-icon>
-                </md-button>
-            </a>
-            <a href="https://www.linkedin.com/in/adetunji-dahunsi-a7618580">
-                <md-button aria-label="LinkedIn">
-                    <ng-md-icon icon="linkedin"
-                                class="white-icon">
-                    </ng-md-icon>
-                </md-button>
-            </a>
-            <md-menu>
-                <md-button aria-label="Menu"
-                           ng-click="app.openMenu($mdOpenMenu, $event)">
-                    <ng-md-icon icon="more_vert"
-                                class="white-icon">
-                    </ng-md-icon>
-                </md-button>
-                <md-menu-content width="4">
-                    <md-menu-item>
-                        <md-button ng-click="app.signIn()">
-                            Sign In
-                        </md-button>
-                    </md-menu-item>
-                </md-menu-content>
-            </md-menu>
+                <h1 flex md-header-title
+                    style="font-weight: 300; font-style: italic">
+                    Hello :)
+                </h1>
+                <a href="https://twitter.com/Tunji_D">
+                    <md-button aria-label="Twitter">
+                        <ng-md-icon icon="twitter"
+                                    class="white-icon">
+                        </ng-md-icon>
+                    </md-button>
+                </a>
+                <a href="https://github.com/tunjid">
+                    <md-button aria-label="Github">
+                        <ng-md-icon icon="github-circle"
+                                    class="white-icon">
+                        </ng-md-icon>
+                    </md-button>
+                </a>
+                <a href="https://www.linkedin.com/in/adetunji-dahunsi-a7618580">
+                    <md-button aria-label="LinkedIn">
+                        <ng-md-icon icon="linkedin"
+                                    class="white-icon">
+                        </ng-md-icon>
+                    </md-button>
+                </a>
+                <md-menu>
+                    <md-button aria-label="Menu"
+                               ng-click="app.openMenu($mdOpenMenu, $event)">
+                        <ng-md-icon icon="more_vert"
+                                    class="white-icon">
+                        </ng-md-icon>
+                    </md-button>
+                    <md-menu-content width="4">
+                        <md-menu-item>
+                            <md-button ng-click="app.signIn()">
+                                Sign In
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
             <span hide show-gt-sm
                   style="width: 304px">
             </span>
-        </div>
-        <div class="md-toolbar-tools"
-             hide-gt-sm>
-            <md-button
-                    ng-click="app.toggleSidenav('left')"
-                    hide-gt-md aria-label="Menu">
-                <ng-md-icon icon="menu"
-                            class="white-icon">
-                </ng-md-icon>
-            </md-button>
-            <h1 flex md-header-title
-                style="font-weight: 300; font-style: italic">
-                Hello :)
-            </h1>
-            <span flex></span>
-            <md-menu>
-                <md-button aria-label="Menu"
-                           ng-click="app.openMenu($mdOpenMenu, $event)">
-                    <ng-md-icon icon="more_vert"
+            </div>
+            <div class="md-toolbar-tools"
+                 hide-gt-sm>
+                <md-button
+                        ng-click="app.toggleSidenav('left')"
+                        hide-gt-md aria-label="Menu">
+                    <ng-md-icon icon="menu"
                                 class="white-icon">
                     </ng-md-icon>
                 </md-button>
-                <md-menu-content width="4">
-                    <md-menu-item>
-                        <md-button href="https://twitter.com/Tunji_D">
-                            Twitter
-                        </md-button>
-                    </md-menu-item>
-                    <md-menu-item>
-                        <md-button href="https://github.com/tunjid">
-                            Github
-                        </md-button>
-                    </md-menu-item>
-                    <md-menu-item>
-                        <md-button href="https://www.linkedin.com/in/adetunji-dahunsi-a7618580">
-                            LinkedIn
-                        </md-button>
-                    </md-menu-item>
+                <h1 flex md-header-title
+                    style="font-weight: 300; font-style: italic">
+                    Hello :)
+                </h1>
+                <span flex></span>
+                <md-menu>
+                    <md-button aria-label="Menu"
+                               ng-click="app.openMenu($mdOpenMenu, $event)">
+                        <ng-md-icon icon="more_vert"
+                                    class="white-icon">
+                        </ng-md-icon>
+                    </md-button>
+                    <md-menu-content width="4">
+                        <md-menu-item>
+                            <md-button href="https://twitter.com/Tunji_D">
+                                Twitter
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button href="https://github.com/tunjid">
+                                Github
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button href="https://www.linkedin.com/in/adetunji-dahunsi-a7618580">
+                                LinkedIn
+                            </md-button>
+                        </md-menu-item>
 
-                    <md-menu-item>
-                        <md-button ng-click="app.signIn()">
-                            Sign In
-                        </md-button>
-                    </md-menu-item>
-                </md-menu-content>
-            </md-menu>
-        </div>
-    </md-toolbar>
-</header>
+                        <md-menu-item>
+                            <md-button ng-click="app.signIn()">
+                                Sign In
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+            </div>
+        </md-toolbar>
+    </header>
 
-<md-content md-scroll-y
-            flex
-            class="layout-padding">
+    <md-content md-scroll-y
+                flex
+                class="layout-padding">
 
-    <h1 class="header-text">
-        Welcome
-    </h1>
-
-    <p>...to the website, thoughts and shenanigans of Adetunji Dahunsi.</p>
-
-    <div ng-if="vm.blogPosts.length > 0">
         <h1 class="header-text">
-            Recent Blog Posts
+            Welcome
         </h1>
-        <div layout="row" layout-sm="column" layout-xs="column"
-             layout-align="start stretch">
 
-            <md-card ng-repeat="post in vm.blogPosts"
-                     ng-click="vm.goToBlogPost(post)"
-                     class="layout-padding"
-                     flex="">
-                <md-card-title-text>
-                    <h3 class="header-text hvr-underline-reveal">
-                        {{post.title}}
-                    </h3><br>
-                    <span class="md-subhead">{{vm.getDate(post)}}</span>
-                </md-card-title-text>
-                <blog-post blogpost="post"
-                           snippet="true">
-                </blog-post>
-            </md-card>
+        <p>...to the website, thoughts and shenanigans of Adetunji Dahunsi.</p>
+
+        <div ng-if="vm.blogPosts.length > 0">
+            <h1 class="header-text">
+                Recent Blog Posts
+            </h1>
+            <div layout="row" layout-sm="column" layout-xs="column"
+                 layout-align="start stretch">
+
+                <md-card ng-repeat="post in vm.blogPosts"
+                         ng-click="vm.goToBlogPost(post)"
+                         class="layout-padding"
+                         flex="">
+                    <md-card-title-text>
+                        <h3 class="header-text hvr-underline-reveal">
+                            {{post.title}}
+                        </h3><br>
+                        <span class="md-subhead">{{vm.getDate(post)}}</span>
+                    </md-card-title-text>
+                    <blog-post blogpost="post"
+                               snippet="true">
+                    </blog-post>
+                </md-card>
+            </div>
+
+            <div layout="row" layout-align="center center">
+                <md-button class="md-raised md-accent"
+                           ng-click="app.go('AllPostsController')">
+                    More Posts
+                </md-button>
+            </div>
+
         </div>
 
-        <div layout="row" layout-align="center center">
-            <md-button class="md-raised md-accent"
-                       ng-click="app.go('AllPostsController')">
-                More Posts
-            </md-button>
+        <div ng-if="vm.recentProjects.length > 0">
+            <h1 class="header-text">
+                Recent Projects
+            </h1>
+            <div layout="row" layout-sm="column" layout-xs="column"
+                 layout-align="start stretch">
+
+                <md-card ng-repeat="project in vm.recentProjects"
+                         ng-click="vm.goToProject(project)"
+                         class="layout-padding"
+                         flex
+                         md-ink-ripple>
+                    <md-card-title-text>
+                        <h3 class="header-text hvr-underline-reveal">
+                            {{project.title}}
+                        </h3><br>
+                    </md-card-title-text>
+                    <div ng-bind-html="project.content"></div>
+                </md-card>
+            </div>
+
+            <div layout="row" layout-align="center center">
+                <md-button class="md-raised md-accent"
+                           ng-click="app.go('ProjectsController')">
+                    More Projects
+                </md-button>
+            </div>
+
         </div>
 
-    </div>
-
-    <div ng-if="vm.recentProjects.length > 0">
-        <h1 class="header-text">
-            Recent Projects
-        </h1>
-        <div layout="row" layout-sm="column" layout-xs="column"
-             layout-align="start stretch">
-
-            <md-card ng-repeat="project in vm.recentProjects"
-                     ng-click="vm.goToProject(project)"
-                     class="layout-padding"
-                     flex
-                     md-ink-ripple>
-                <md-card-title-text>
-                    <h3 class="header-text hvr-underline-reveal">
-                        {{project.title}}
-                    </h3><br>
-                </md-card-title-text>
-                <div ng-bind-html="project.content"></div>
-            </md-card>
-        </div>
-
-        <div layout="row" layout-align="center center">
-            <md-button class="md-raised md-accent"
-                       ng-click="app.go('ProjectsController')">
-                More Projects
-            </md-button>
-        </div>
-
-    </div>
-
-    <div style="height: 500px"></div>
-</md-content>
+        <div style="height: 500px"></div>
+    </md-content>
+</div>

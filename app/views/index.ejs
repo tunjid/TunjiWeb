@@ -10,6 +10,8 @@
     <link rel="stylesheet"
           href='/public/lib/textAngular/dist/textAngular.css'>
     <link rel="stylesheet"
+          href='/public/lib/angular-ui-router-anim-in-out/css/anim-in-out.css'>
+    <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
     <link rel="stylesheet"
           href="/public/stylesheets/style.css">
@@ -17,11 +19,12 @@
     <link rel="stylesheet"
           href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 
-    <!-- Angular Material requires Angular.js Libraries -->
     <script src="/public/lib/angular/angular.min.js" type="text/javascript"></script>
     <script src="/public/lib/angular-aria/angular-aria.min.js" type="text/javascript"></script>
     <script src="/public/lib/angular-scroll/angular-scroll.min.js" type="text/javascript"></script>
 
+    <script src="/public/lib/angular-ui-router-anim-in-out/anim-in-out.js"
+            type="text/javascript"></script>
     <script src="/public/lib/angular-sanitize/angular-sanitize.min.js"
             type="text/javascript"></script>
     <script src="/public/lib/angular-gist/angular-gist.min.js"
@@ -120,9 +123,10 @@
                 ng-if="!(app.currentState == app.menu[0].state)">
         <div class="md-toolbar-tools"
              hide show-gt-sm>
-            <md-button
-                    ng-click="app.toggleSidenav('left')"
-                    hide-gt-md aria-label="Menu">
+            <md-button ng-click="app.toggleSidenav('left')"
+                       hide-gt-sm
+                       hide-gt-md
+                       aria-label="Menu">
                 <ng-md-icon icon="menu"
                             class="white-icon">
                 </ng-md-icon>
@@ -170,9 +174,10 @@
         </div>
         <div class="md-toolbar-tools"
              hide-gt-sm>
-            <md-button
-                    ng-click="app.toggleSidenav('left')"
-                    hide-gt-md aria-label="Menu">
+            <md-button ng-click="app.toggleSidenav('left')"
+                       hide-gt-sm
+                       hide-gt-md
+                       aria-label="Menu">
                 <ng-md-icon icon="menu"
                             class="white-icon">
                 </ng-md-icon>
@@ -218,7 +223,9 @@
     <md-content fab-transform
                 id="scroll-container"
                 ng-class="{'no-scroll': app.currentState == 'ProjectsController'}">
-        <ui-view autoscroll="true">
+        <ui-view autoscroll="true"
+                 class="anim-in-out anim-slide-below-fade"
+                 data-anim-speed="600">
             <!-- Controllers go here -->
         </ui-view>
     </md-content>

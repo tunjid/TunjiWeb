@@ -1,91 +1,92 @@
-<md-toolbar style="pointer-events: none; overflow: hidden; ">
-    <div class="md-toolbar-tools"
-         du-scroll-container="projects-container">
-        <h3>
-            Sections
-        </h3>
-        <span flex></span>
-        <!--
-        <md-button style="pointer-events: auto" href="#ou" offset="60" du-smooth-scroll>
-            Oklahoma
-        </md-button>
-        <md-button style="pointer-events: auto" href="#mi" offset="60" du-smooth-scroll>
-            Michigan
-        </md-button>
-        -->
-        <md-button style="pointer-events: auto" href="#2015" du-smooth-scroll>
-            2015
-        </md-button>
-        <md-button style="pointer-events: auto" href="#2014" du-smooth-scroll>
-            2014
-        </md-button>
-        <md-button style="pointer-events: auto" href="#2013" du-smooth-scroll>
-            2013
-        </md-button>
-    </div>
-</md-toolbar>
+<div class="anim-slide-below-fade">
+    <md-toolbar style="pointer-events: none; overflow: hidden; ">
+        <div class="md-toolbar-tools"
+             du-scroll-container="projects-container">
+            <h3>
+                Sections
+            </h3>
+            <span flex></span>
+            <!--
+            <md-button style="pointer-events: auto" href="#ou" offset="60" du-smooth-scroll>
+                Oklahoma
+            </md-button>
+            <md-button style="pointer-events: auto" href="#mi" offset="60" du-smooth-scroll>
+                Michigan
+            </md-button>
+            -->
+            <md-button style="pointer-events: auto" href="#2015" du-smooth-scroll>
+                2015
+            </md-button>
+            <md-button style="pointer-events: auto" href="#2014" du-smooth-scroll>
+                2014
+            </md-button>
+            <md-button style="pointer-events: auto" href="#2013" du-smooth-scroll>
+                2013
+            </md-button>
+        </div>
+    </md-toolbar>
 
-<md-content fab-transform
-            md-scroll-y
-            style="height:{{vm.height}}"
-            id="projects-container"
-            du-scroll-container>
+    <md-content fab-transform
+                md-scroll-y
+                style="height:{{vm.height}}"
+                id="projects-container"
+                du-scroll-container>
 
-    <section ng-repeat="section in app.sections">
+        <section ng-repeat="section in app.sections">
 
-        <div id="{{section.id}}"></div>
+            <div id="{{section.id}}"></div>
 
-        <md-subheader class="md-primary">
-            {{section.id}}
-        </md-subheader>
+            <md-subheader class="md-primary">
+                {{section.id}}
+            </md-subheader>
 
-        <md-list class="layout-padding">
-            <md-list-item ng-repeat="project in section.projects"
-                          ng-switch="project.type">
+            <md-list class="layout-padding">
+                <md-list-item ng-repeat="project in section.projects"
+                              ng-switch="project.type">
 
-                <div ng-switch-when="title">
-                    <h1 class="header-text"
-                        id="{{project.id}}">
-                        Projects @ <img class="badge" ng-src="{{project.badge}}">
-                    </h1>
-                    <div ng-bind-html="project.header">
-                        <!--
-                        <img style="max-width: 100%"
-                             ng-src="{{project.image}}">
-                        -->
+                    <div ng-switch-when="title">
+                        <h1 class="header-text"
+                            id="{{project.id}}">
+                            Projects @ <img class="badge" ng-src="{{project.badge}}">
+                        </h1>
+                        <div ng-bind-html="project.header">
+                            <!--
+                            <img style="max-width: 100%"
+                                 ng-src="{{project.image}}">
+                            -->
+                        </div>
                     </div>
-                </div>
 
-                <md-card ng-switch-when="project"
-                         id="{{project.id}}">
-                    <md-card-title>
-                        <md-card-title-text>
+                    <md-card ng-switch-when="project"
+                             id="{{project.id}}">
+                        <md-card-title>
+                            <md-card-title-text>
                     <span class="md-headline"
                           ng-style="project.style">
                         {{project.title}}
                     </span>
-                        </md-card-title-text>
-                    </md-card-title>
+                            </md-card-title-text>
+                        </md-card-title>
 
-                    <md-card-content layout="row" layout-sm="column" layout-xs="column">
-                        <div flex-gt-sm="70"
-                             flex-sm=""
-                             flex-xs="">
-                            <img style="max-width: 100%" ng-src="{{project.images[0]}}">
-                        </div>
-                        <span flex></span>
-                        <div flex-gt-sm="25"
-                             flex-sm=""
-                             flex-xs=""
-                             ng-style="project.style"
-                             ng-bind-html="project.content">
-                        </div>
-                    </md-card-content>
-                </md-card>
+                        <md-card-content layout="row" layout-sm="column" layout-xs="column">
+                            <div flex-gt-sm="70"
+                                 flex-sm=""
+                                 flex-xs="">
+                                <img style="max-width: 100%" ng-src="{{project.images[0]}}">
+                            </div>
+                            <span flex></span>
+                            <div flex-gt-sm="25"
+                                 flex-sm=""
+                                 flex-xs=""
+                                 ng-style="project.style"
+                                 ng-bind-html="project.content">
+                            </div>
+                        </md-card-content>
+                    </md-card>
 
-            </md-list-item>
-            <span style="height: 300px;"></span>
-        </md-list>
-    </section>
-</md-content>
-
+                </md-list-item>
+                <span style="height: 300px;"></span>
+            </md-list>
+        </section>
+    </md-content>
+</div>
