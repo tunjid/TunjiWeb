@@ -4,14 +4,6 @@
     <list default="true" id="9b0b5cb5-838b-4874-97b1-8c0c3bd44f7b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/index.ejs" afterPath="$PROJECT_DIR$/app/views/index.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app.js" afterPath="$PROJECT_DIR$/public/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/about.html" afterPath="$PROJECT_DIR$/public/views/about.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/allPosts.html" afterPath="$PROJECT_DIR$/public/views/allPosts.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/home.html" afterPath="$PROJECT_DIR$/public/views/home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/projects.html" afterPath="$PROJECT_DIR$/public/views/projects.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/resume.html" afterPath="$PROJECT_DIR$/public/views/resume.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/viewPost.html" afterPath="$PROJECT_DIR$/public/views/viewPost.html" />
     </list>
     <ignored path="untitled.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,10 +34,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.28865978">
+            <state vertical-scroll-proportion="0.0">
               <caret line="245" column="82" selection-start-line="245" selection-start-column="82" selection-end-line="245" selection-end-column="82" />
               <folding>
                 <marker date="1454696766000" expanded="true" signature="6894:6910" placeholder="..." />
@@ -57,11 +49,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.ejs" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.ejs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/index.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.0">
-              <caret line="225" column="35" selection-start-line="225" selection-start-column="35" selection-end-line="225" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.5744681">
+              <caret line="176" column="23" selection-start-line="0" selection-start-column="0" selection-end-line="243" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -198,8 +190,8 @@
         <option value="$PROJECT_DIR$/public/views/about.html" />
         <option value="$PROJECT_DIR$/public/views/projects.html" />
         <option value="$PROJECT_DIR$/public/views/home.html" />
-        <option value="$PROJECT_DIR$/app/views/index.ejs" />
         <option value="$PROJECT_DIR$/public/app.js" />
+        <option value="$PROJECT_DIR$/app/views/index.ejs" />
       </list>
     </option>
   </component>
@@ -840,7 +832,13 @@
       <option name="project" value="LOCAL" />
       <updated>1454630773671</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Added animations to ui.router">
+      <created>1454696794624</created>
+      <option name="number" value="00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1454696794624</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -881,7 +879,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="fixed more URLs in auth service." />
     <MESSAGE value="Remove sign up links." />
     <MESSAGE value="Made session secret env variable" />
     <MESSAGE value="Added FAB animation directive and email" />
@@ -906,7 +903,8 @@
     <MESSAGE value="Changes on hover above elements." />
     <MESSAGE value="Fixed awkward scrolling on projects added MF5 header." />
     <MESSAGE value="Height fix in project controller for large screens." />
-    <option name="LAST_COMMIT_MESSAGE" value="Height fix in project controller for large screens." />
+    <MESSAGE value="Added animations to ui.router" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added animations to ui.router" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1288,14 +1286,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/index.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.0">
-          <caret line="225" column="35" selection-start-line="225" selection-start-column="35" selection-end-line="225" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/views/projects.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
@@ -1312,7 +1302,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28865978">
+        <state vertical-scroll-proportion="0.0">
           <caret line="245" column="82" selection-start-line="245" selection-start-column="82" selection-end-line="245" selection-end-column="82" />
           <folding>
             <marker date="1454696766000" expanded="true" signature="6894:6910" placeholder="..." />
@@ -1320,6 +1310,14 @@
             <marker date="1454696766000" expanded="true" signature="8378:8393" placeholder="..." />
             <marker date="1454696766000" expanded="true" signature="13032:13047" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/index.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5744681">
+          <caret line="176" column="23" selection-start-line="0" selection-start-column="0" selection-end-line="243" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>

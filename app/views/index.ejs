@@ -123,9 +123,10 @@
                 ng-if="!(app.currentState == app.menu[0].state)">
         <div class="md-toolbar-tools"
              hide show-gt-sm>
-            <md-button
-                    ng-click="app.toggleSidenav('left')"
-                    hide-gt-md aria-label="Menu">
+            <md-button ng-click="app.toggleSidenav('left')"
+                       hide-gt-sm
+                       hide-gt-md
+                       aria-label="Menu">
                 <ng-md-icon icon="menu"
                             class="white-icon">
                 </ng-md-icon>
@@ -173,9 +174,10 @@
         </div>
         <div class="md-toolbar-tools"
              hide-gt-sm>
-            <md-button
-                    ng-click="app.toggleSidenav('left')"
-                    hide-gt-md aria-label="Menu">
+            <md-button ng-click="app.toggleSidenav('left')"
+                       hide-gt-sm
+                       hide-gt-md
+                       aria-label="Menu">
                 <ng-md-icon icon="menu"
                             class="white-icon">
                 </ng-md-icon>
