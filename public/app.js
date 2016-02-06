@@ -201,7 +201,7 @@
         }
 
         function getDate(blogPost) {
-            var date = new Date(Date.parse(blogPost.stringDate));
+            var date = new Date(blogPost.stringDate.replace(/-/g, '/'));
 
             return getMonth(date.getMonth()) +
                 ' ' +
