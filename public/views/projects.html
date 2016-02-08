@@ -28,7 +28,7 @@
 
     <md-content fab-transform
                 md-scroll-y
-                style="height:{{vm.height}}"
+                style="height:{{vm.height}}; "
                 id="projects-container"
                 du-scroll-container>
 
@@ -41,48 +41,55 @@
             </md-subheader>
 
             <md-list class="layout-padding">
+
                 <md-list-item ng-repeat="project in section.projects"
                               ng-switch="project.type">
 
-                    <div ng-switch-when="title">
+                    <div ng-switch-when="title"
+                         style="width: 100%;">
                         <h1 class="header-text"
                             id="{{project.id}}">
                             Projects @ <img class="badge" ng-src="{{project.badge}}">
                         </h1>
-                        <div ng-bind-html="project.header">
-                            <!--
+                        <div style="max-width: 1200px; margin: auto">
                             <img style="max-width: 100%"
                                  ng-src="{{project.image}}">
-                            -->
                         </div>
+                        <div style="height: 40px;"></div>
                     </div>
 
-                    <md-card ng-switch-when="project"
-                             id="{{project.id}}">
-                        <md-card-title>
-                            <md-card-title-text>
-                    <span class="md-headline"
-                          ng-style="project.style">
-                        {{project.title}}
-                    </span>
-                            </md-card-title-text>
-                        </md-card-title>
+                    <div ng-switch-when="project"
+                         style="width: 100%;">
+                        <md-card style="max-width: 1200px; margin: auto"
+                                 id="{{project.id}}">
+                            <md-card-title>
+                                <md-card-title-text>
+                                <span class="md-headline"
+                                      ng-style="project.style">
+                                        {{project.title}}
+                                </span>
+                                </md-card-title-text>
+                            </md-card-title>
 
-                        <md-card-content layout="row" layout-sm="column" layout-xs="column">
-                            <div flex-gt-sm="70"
-                                 flex-sm=""
-                                 flex-xs="">
-                                <img style="max-width: 100%" ng-src="{{project.images[0]}}">
-                            </div>
-                            <span flex></span>
-                            <div flex-gt-sm="25"
-                                 flex-sm=""
-                                 flex-xs=""
-                                 ng-style="project.style"
-                                 ng-bind-html="project.content">
-                            </div>
-                        </md-card-content>
-                    </md-card>
+                            <md-card-content layout="row"
+                                             layout-sm="column"
+                                             layout-xs="column">
+                                <div flex-gt-sm="70"
+                                     flex-sm=""
+                                     flex-xs="">
+                                    <img style="max-width: 100%" ng-src="{{project.images[0]}}">
+                                </div>
+                                <span flex></span>
+                                <div flex-gt-sm="25"
+                                     flex-sm=""
+                                     flex-xs=""
+                                     ng-style="project.style"
+                                     ng-bind-html="project.content">
+                                </div>
+                            </md-card-content>
+                        </md-card>
+                        <div style="height: 40px;"></div>
+                    </div>
 
                 </md-list-item>
                 <span style="height: 300px;"></span>
