@@ -1,5 +1,9 @@
-<md-content class="layout-padding anim-slide-below-fade">
-    <md-card ng-if="vm.blogPost" class="layout-padding flex">
+<md-content class="layout-padding anim-slide-below-fade"
+            layout="row">
+    <span flex></span>
+    <md-card ng-if="vm.blogPost"
+             flex="80"
+             class="layout-padding">
         <md-card-title-text>
             <h1 class="header-text">
                 {{vm.blogPost.title}}
@@ -14,4 +18,5 @@
             Edit Post
         </a>
     </md-card>
+    <span flex></span>
 </md-content>
