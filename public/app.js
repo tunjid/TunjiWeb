@@ -228,6 +228,34 @@
         app.sections =
             [
                 {
+                    id: '2016',
+                    projects: [
+                        {
+                            id: 'helloworld',
+                            type: 'title',
+                            badge: 'public/images/projects/mf5-badge.png',
+                            image: 'public/images/projects/mf5-proj.png',
+                            header: $sce.trustAsHtml('<img style="max-width: 100%;" src="public/images/projects/mf5-proj.png">')
+                        },
+                        {
+                            id: 'asu',
+                            type: 'project',
+                            title: 'Sun Devil Rewards',
+                            content: '<p>I was one of the primary developers for the Sun Devil Rewards Spp</p>' +
+                            '<p>Things Learned:</p>' +
+                            '<ul><li>Creating external Android aar libraries and deploying them to an artifactory repository</li>' +
+                            '<li>Creating custom views that animate with user interaction</li>' +
+                            '<li>Unit and integration tests with JUnit and Mockito</li>' +
+                            '<li>Android UI tests with Espresso</li>' +
+                            '<li>Continuous integration with Jenkins</li></ul>',
+                            images: ['public/images/projects/mf5-1.png', 'public/images/projects/mf5-2.png', 'public/images/projects/mf5-3.png'],
+                            style: {
+                                'color': '#008080'
+                            }
+                        }
+                    ]
+                },
+                {
                     id: '2015',
                     projects: [
                         {
@@ -241,7 +269,7 @@
                             id: 'myfab5',
                             type: 'project',
                             title: 'MyFab5 Restaurant Reviews',
-                            content: '<p>I currently work as a Software Developer at MyFab5</p>' +
+                            content: '<p>I worked as a Software Developer at MyFab5</p>' +
                             '<p>Things Learned:</p>' +
                             '<ul><li>Completely rewrote app to use Material design</li>' +
                             '<li>Asyncronous operations in Android with RxJava</li>' +
