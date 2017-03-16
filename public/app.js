@@ -233,24 +233,26 @@
                         {
                             id: 'helloworld',
                             type: 'title',
-                            badge: 'public/images/projects/mf5-badge.png',
-                            image: 'public/images/projects/mf5-proj.png',
-                            header: $sce.trustAsHtml('<img style="max-width: 100%;" src="public/images/projects/mf5-proj.png">')
+                            badge: 'public/images/projects/hw-badge.png',
+                            image: 'public/images/projects/hw-proj.jpg',
+                            header: $sce.trustAsHtml('<img style="max-width: 100%;" src="public/images/projects/hw-proj.jpg">')
                         },
                         {
                             id: 'asu',
                             type: 'project',
                             title: 'Sun Devil Rewards',
-                            content: '<p>I was one of the primary developers for the Sun Devil Rewards Spp</p>' +
+                            content: '<p>I helped build the Sun Devil Rewards Android ' +
+                            '<a href="https://play.google.com/store/apps/details?id=com.asu.sundevilrewards&hl=en">App</a></p>' +
                             '<p>Things Learned:</p>' +
                             '<ul><li>Creating external Android aar libraries and deploying them to an artifactory repository</li>' +
                             '<li>Creating custom views that animate with user interaction</li>' +
+                            '<li>git flow</li>' +
                             '<li>Unit and integration tests with JUnit and Mockito</li>' +
                             '<li>Android UI tests with Espresso</li>' +
                             '<li>Continuous integration with Jenkins</li></ul>',
-                            images: ['public/images/projects/mf5-1.png', 'public/images/projects/mf5-2.png', 'public/images/projects/mf5-3.png'],
+                            images: ['public/images/projects/sd-rewards.jpg', 'public/images/projects/mf5-2.png', 'public/images/projects/mf5-3.png'],
                             style: {
-                                'color': '#008080'
+                                'color': '#990033',
                             }
                         }
                     ]
