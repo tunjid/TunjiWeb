@@ -228,6 +228,47 @@
         app.sections =
             [
                 {
+                    id: '2017',
+                    projects: [
+                        {
+                            id: 'digilux',
+                            type: 'project',
+                            title: 'DigiLux',
+                            content: '<p>Control your phone\'s brightness with your ' +
+                            '<a href="https://play.google.com/store/apps/details?id=com.tunjid.fingergestures">finger print sensor</a>!</p>' +
+                            '<p>Things Learned:</p>' +
+                            '<ul><li>Accessibility Services</li>' +
+                            '</ul>',
+                            images: ['public/images/projects/digilux-1.png'],
+                            style: {
+                                'color': '#990033',
+                            }
+                        },
+                        {
+                            id: 'gm',
+                            type: 'title',
+                            badge: 'public/images/projects/gm-badge.jpg',
+                            image: 'public/images/projects/gm-proj.jpg',
+                            header: $sce.trustAsHtml('<img style="max-width: 100%;" src="public/images/projects/gm-proj.jpg">')
+                        },
+                        {
+                            id: 'generalmotors',
+                            type: 'project',
+                            title: 'GM My Brand Apps',
+                            content: '<p>I contribute to the General Motors ' +
+                            '<a href="https://play.google.com/store/apps/details?id=com.gm.chevrolet.nomad.ownership">My Brand</a> suite of apps</p>' +
+                            '<p>Things Learned:</p>' +
+                            '<ul><li>Exhaustive Android Unit Testing</li>' +
+                            '<li>Dependency Injection with Dagger</li>' +
+                            '<li>Continuous integration with Jenkins</li></ul>',
+                            images: ['public/images/projects/gm-1.png'],
+                            style: {
+                                'color': '#990033',
+                            }
+                        }
+                    ]
+                },
+                {
                     id: '2016',
                     projects: [
                         {
@@ -250,7 +291,7 @@
                             '<li>Unit and integration tests with JUnit and Mockito</li>' +
                             '<li>Android UI tests with Espresso</li>' +
                             '<li>Continuous integration with Jenkins</li></ul>',
-                            images: ['public/images/projects/sd-rewards.jpg', 'public/images/projects/mf5-2.png', 'public/images/projects/mf5-3.png'],
+                            images: ['public/images/projects/sd-rewards.jpg'],
                             style: {
                                 'color': '#990033',
                             }
