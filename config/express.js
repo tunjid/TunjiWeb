@@ -9,6 +9,11 @@ var passport = require('passport');
 var path = require('path');
 var session = require('express-session');
 
+function ensureSecure(req, res, next) {
+    var schema = (req.headers['x-forwarded-proto'] || '').toLowerCase();
+    if (schema === 'https') next();
+    else res.redirect('https://' + req.headers.host + req.url);
+}
 
 module.exports = function () {
 
@@ -26,27 +31,13 @@ module.exports = function () {
 
     var app = express();
 
-    if (process.env.NODE_ENV === 'development') {
-        app.use(morgan('dev'));
-    }
-    else if (process.env.NODE_ENV === 'production') {
-        app.use(compress());
-    }
+    if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
+    else if (process.env.NODE_ENV === 'production') app.use(compress());
 
     app.use(bodyParser.json());
-    app.use(bodyParser.urlencoded(
-        {
-            extended: true
-        }
-    ));
-
-    app.use(session(
-        {
-            saveUninitialized: true,
-            resave: true,
-            secret: config.sessionSecret
-        }
-    ));
+    app.use(bodyParser.urlencoded({extended: true}));
+    app.use(session({saveUninitialized: true, resave: true, secret: config.sessionSecret}));
+    app.use(ensureSecure);
 
 // view engine setup
     //app.set('views', path.join(__dirname, 'views'));
@@ -70,7 +61,7 @@ module.exports = function () {
     blogPostRouter(app);
     userRouter(app);
 
-    app.all('/*', function(req, res) {
+    app.all('/*', function (req, res) {
         res.render('index', {title: 'Adetunji Dahunsi'});
     });
 
