@@ -6,12 +6,11 @@ var cookieParser = require('cookie-parser');
 var favicon = require('serve-favicon');
 var morgan = require('morgan');
 var passport = require('passport');
-var path = require('path');
 var session = require('express-session');
 
 function ensureSecure(req, res, next) {
     var schema = (req.headers['x-forwarded-proto'] || '').toLowerCase();
-    if (schema === 'https') next();
+    if (req.secure || schema === 'https') next();
     else res.redirect('https://' + req.headers.host + req.url);
 }
 
