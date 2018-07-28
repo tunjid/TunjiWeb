@@ -7,6 +7,7 @@ var favicon = require('serve-favicon');
 var morgan = require('morgan');
 var passport = require('passport');
 var session = require('express-session');
+var path = require('path');
 
 function ensureSecure(req, res, next) {
     var schema = (req.headers['x-forwarded-proto'] || '').toLowerCase();
@@ -37,6 +38,10 @@ module.exports = function () {
     app.use(bodyParser.urlencoded({extended: true}));
     app.use(session({saveUninitialized: true, resave: true, secret: config.sessionSecret}));
     app.use(ensureSecure);
+
+    app.all('/.well-known/acme-challenge/jHTByRi03P8lmzpHst99bQ7cXTmTyA6Jt4IFayowKUY', function (req, res) {
+        res.sendfile(path.join(__dirname, '..', 'cert-renewal'));
+    });
 
 // view engine setup
     //app.set('views', path.join(__dirname, 'views'));
