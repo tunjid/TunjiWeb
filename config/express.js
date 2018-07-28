@@ -11,7 +11,7 @@ var path = require('path');
 
 function ensureSecure(req, res, next) {
     var schema = (req.headers['x-forwarded-proto'] || '').toLowerCase();
-    if (req.secure || schema === 'https') next();
+    if (req.secure || schema === 'https' || req.path.indexOf('.well-known') !== -1) next();
     else res.redirect('https://' + req.headers.host + req.url);
 }
 
