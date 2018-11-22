@@ -61,9 +61,7 @@
                 "the University of Michigan. Sean's mastery of photoshop and design" +
                 "skills motivated me to learn how to use Photoshop and build this" +
                 'website and the same goes for Leonard.</p>' +
-                "<p>To Barry Belmont for being an amazing mentor, dang. He's awesome.</p>" +
-                '<p>To Lukonde Mulenga, for being an amazing and inspiring ' +
-                'friend.</p>'
+                "<p>To Barry Belmont for being an amazing mentor, dang. He's awesome.</p>"
             }
         ];
     }
