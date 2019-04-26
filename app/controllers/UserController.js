@@ -1,15 +1,15 @@
-var User = require('mongoose').model('User');
-var passport = require('passport');
-var nodemailer = require("nodemailer");
+const User = require('mongoose').model('User');
+const passport = require('passport');
+const nodemailer = require("nodemailer");
 
-var composeMessage = function (res, message) {
+const composeMessage = function (res, message) {
     return res.json({message: message});
 };
 
 // Create a new error handling controller method
-var getErrorMessage = function (err) {
+const getErrorMessage = function (err) {
     // Define the error message variable
-    var message = 'Error';
+    let message = 'Error';
 
     // If an internal MongoDB error occurs get the error message
     if (err.code) {
@@ -25,8 +25,8 @@ var getErrorMessage = function (err) {
         }
     } else {
         // Grab the first error message from a list of possible errors
-        for (var errName in err.errors) {
-            if (err.errors[errName].message) {
+        for (let errName in err.errors) {
+            if (err.errors[errName] && err.errors[errName].message) {
                 message = err.errors[errName].message;
             }
         }
@@ -37,28 +37,20 @@ var getErrorMessage = function (err) {
 };
 
 exports.create = function (req, res, next) {
-    var user = new User(req.body);
+    const user = new User(req.body);
 
     console.log(req.body);
 
     user.save(function (error) {
-        if (error) {
-            return next(error);
-        }
-        else {
-            res.json(user);
-        }
+        if (error) return next(error);
+        else res.json(user);
     });
 };
 
 exports.find = function (req, res, next) {
     User.find({}, function (error, users) {
-        if (error) {
-            return next(error);
-        }
-        else {
-            res.json(users);
-        }
+        if (error) return next(error);
+        else res.json(users);
     });
 };
 
@@ -68,31 +60,21 @@ exports.get = function (req, res) {
 
 exports.put = function (req, res, next) {
     User.findByIdAndUpdate(req.user.id, req.body, function (error, user) {
-        if (error) {
-            return next(error);
-        }
-        else {
-            res.json(user);
-        }
+        if (error) return next(error);
+        else res.json(user);
     });
 };
 
 exports.delete = function (req, res, next) {
     req.user.remove(function (error) {
-        if (error) {
-            return next(error);
-        }
-        else {
-            res.json(req.user);
-        }
+        if (error) return next(error);
+        else res.json(req.user);
     });
 };
 
 exports.userById = function (req, res, next, id) {
     User.findOne({_id: id}, function (error, user) {
-        if (error) {
-            return next(error);
-        }
+        if (error) return next(error);
         else {
             req.user = user;
             next();
@@ -115,7 +97,7 @@ exports.signup = function (req, res) {
     // If user is not connected, create and login a new user, otherwise redirect the user back to the main application page
     if (!req.user) {
         // Create a new 'User' model instance
-        var user = new User(req.body);
+        const user = new User(req.body);
 
         // Set the user provider property
         user.provider = 'local';
@@ -125,7 +107,7 @@ exports.signup = function (req, res) {
             // If an error occurs, use flash messages to report the error
             if (err) {
                 // Use the error handling method to get the error message
-                var message = getErrorMessage(err);
+                const message = getErrorMessage(err);
                 return composeMessage(res, message);
             }
 
@@ -189,9 +171,9 @@ exports.contact = function (req, res) {
         }
         else {
 
-            var commentBody = req.body;
+            const commentBody = req.body;
 
-            var smtpTransport = nodemailer.createTransport("SMTP", {
+            const smtpTransport = nodemailer.createTransport("SMTP", {
                 service: "Gmail",
                 auth: {
                     user: user.email,
@@ -200,24 +182,24 @@ exports.contact = function (req, res) {
             });
 
             // setup e-mail data with unicode symbols
-            var mailOptions = {
+            const mailOptions = {
                 from: commentBody.email, // sender address
                 to: user.email,
                 subject: "Comment from tunjid.com", // Subject line
                 text: commentBody.comment, // plaintext body
                 html: "<b>From</b>" + " " +
-                commentBody.firstName +
-                " " +
-                commentBody.lastName +
-                " " +
-                commentBody.email +
-                "<p>" + commentBody.comment + "</p>" // html body
+                    commentBody.firstName +
+                    " " +
+                    commentBody.lastName +
+                    " " +
+                    commentBody.email +
+                    "<p>" + commentBody.comment + "</p>" // html body
             };
 
             // send mail with defined transport object
             smtpTransport.sendMail(mailOptions, function (error) {
                 if (error) {
-                    var message = getErrorMessage(error);
+                    const message = getErrorMessage(error);
                     return composeMessage(res, message);
                 }
                 else {

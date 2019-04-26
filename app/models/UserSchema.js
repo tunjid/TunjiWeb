@@ -1,8 +1,8 @@
-var mongoose = require('mongoose');
-var crypto = require('crypto');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const crypto = require('crypto');
+const Schema = mongoose.Schema;
 
-var UserSchema = new Schema({
+const UserSchema = new Schema({
     accessLevel: String,
     firstName: String,
     lastName: String,
@@ -47,7 +47,7 @@ var UserSchema = new Schema({
 UserSchema.virtual('fullName').get(function () {
     return this.firstName + ' ' + this.lastName;
 }).set(function (fullName) {
-    var splitName = fullName.split(' ');
+    const splitName = fullName.split(' ');
     this.firstName = splitName[0] || '';
     this.lastName = splitName[1] || '';
 });
@@ -70,8 +70,8 @@ UserSchema.methods.authenticate = function (password) {
 };
 
 UserSchema.statics.findUniqueUsername = function (username, suffix, callback) {
-    var _this = this;
-    var possibleUsername = username + (suffix || '');
+    const _this = this;
+    const possibleUsername = username + (suffix || '');
 
     _this.findOne({username: possibleUsername}, function (error, user) {
             if (!error) {
