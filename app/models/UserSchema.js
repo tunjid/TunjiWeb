@@ -62,7 +62,7 @@ UserSchema.pre('save', function (next) {
 });
 
 UserSchema.methods.hashPassword = function (password) {
-    return crypto.pbkdf2Sync(password, this.salt, 10000, 64).toString('base64');
+    return crypto.pbkdf2Sync(password, this.salt, 10000, 64, 'sha1').toString('base64');
 };
 
 UserSchema.methods.authenticate = function (password) {
@@ -73,21 +73,12 @@ UserSchema.statics.findUniqueUsername = function (username, suffix, callback) {
     var _this = this;
     var possibleUsername = username + (suffix || '');
 
-    _this.findOne({
-            username: possibleUsername
-        },
-        function (error, user) {
+    _this.findOne({username: possibleUsername}, function (error, user) {
             if (!error) {
-                if (!user) {
-                    callback(possibleUsername);
-                }
-                else {
-                    return _this.findUniqueUsername(username, (suffix || 0) + 1, callback);
-                }
+                if (!user) callback(possibleUsername);
+                else return _this.findUniqueUsername(username, (suffix || 0) + 1, callback);
             }
-            else {
-                callback(null);
-            }
+            else callback(null);
         });
 };
 
